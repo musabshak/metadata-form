@@ -1,0 +1,34 @@
+<form_in_progress>
+  <dset_author1_country>United States of America</dset_author1_country>
+  <dset_author1_email />
+  <dset_author1_institution />
+  <dset_author1_name />
+  <dset_author2_country>United States of America</dset_author2_country>
+  <dset_author2_email />
+  <dset_author2_institution />
+  <dset_author2_name />
+  <dset_collection_methodology />
+  <dset_description_long />
+  <dset_description_short />
+  <dset_end_date />
+  <dset_external_url />
+  <dset_incorrectly_meas_data />
+  <dset_institution_name />
+  <dset_methodology_limitations />
+  <dset_missing_data />
+  <dset_name />
+  <dset_network_configuration />
+  <dset_nontech_description />
+  <dset_num_tracesets>1</dset_num_tracesets>
+  <dset_sanitization />
+  <dset_start_date />
+  <dset_suggestions />
+  <tset1_collection_method></tset1_collection_method>
+  <tset1_data_sanitization_method></tset1_data_sanitization_method>
+  <tset1_description_short></tset1_description_short>
+  <tset1_end_date />
+  <tset1_name></tset1_name>
+  <tset1_start_date />
+  <tset1_tech_description></tset1_tech_description>
+  <tset1_trace_note></tset1_trace_note>
+</form_in_progress>

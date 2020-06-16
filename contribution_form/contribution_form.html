@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Contribution Form </title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" type='text/css' />
+</head>
+
+<body>
+  <div id="main">
+
+    <h1> CRAWDAD Dataset Contribution Form </h1>
+    <p> Thank you for offering to contribute your data to
+      CRAWDAD! If we will be only mirroring data that is already hosted elsewhere, only
+      your permission is needed. However, if your data will be only hosted at
+      CRAWDAD, you will need to sign <a href="other/CRAWDAD-Contribution-Agreement.pdf">
+        this agreement form.</a> Please ensure that you are able to sign the agreement before proceeding
+      with submission of the description of your data. Please mail your signed agreement to
+      <a href="mailto:crawdad-team@cs.dartmouth.edu">crawdad-team@cs.dartmouth.edu.</a>
+    </p>
+
+
+    <form target="_self" id="whole_form">
+      <button id="prev_button_top" type="button" onclick="nextPrev(-1)">Previous</button>
+      <button id="next_button_top" type="button" onclick="nextPrev(1)">Next</button>
+
+      <div class="page0 page">
+
+        <h2>Dataset Information</h2>
+
+        <div class="dataset-name">
+          <label>
+            <span>Dataset Name</span>
+            <p class="description"> One-word name for the dataset. Should only contain alphanumeric
+              characters.
+              For example, "mobilitywireless5G". More examples can be found <a href="#">here.</a></p>
+            <input type="text" id="dset_name" name="dset_name" required >
+          </label>
+        </div>
+
+        <div class="institution-name">
+          <label>
+            <span>Institution Name</span>
+            <p class="description"> One-word institution name. Should only contain alphanumeric characters.
+              For example, "dartmouth". Examples of existing institution names can be found <a href="#">here.</a></p>
+            <input type="text" id="dset_institution_name" name="dset_institution_name" required>
+          </label>
+        </div>
+
+        <div class="description-short">
+          <label>
+            <span>Dataset Description (short)</span>
+            <p class="description"> Short, one-line description of the dataset.</p>
+            <textarea id="dset_description_short" name="dset_description_short" 
+            rows="2" cols="70" required> 
+          </textarea>
+          </label>
+        </div>
+
+        <div class="description-long">
+          <label>
+            <span>Dataset Description (long)</span>
+            <p class="description">
+              This longer description will provide a quick summary of the details of your dataset and
+              collection
+              methods to CRAWDAD users. Some highlights of your methodology and results (for example, from
+              the
+              abstract of your paper) may be appropriate.
+            </p>
+            <textarea id="dset_description_long" name="dset_description_long" rows="10" cols="70"></textarea>
+          </label>
+        </div>
+
+        <div class="num-tracesets container">
+          <div class="num-tracesets">
+            <label>
+              <span>Number of tracesets</span>
+              <p class="description"> Should be a positive integer.</p>
+              <input type="number" id="dset_num_tracesets" name="dset_num_tracesets" min="1" required value=1
+              >
+            </label>
+          </div>
+          <div id="data-loss-warning"> 
+            Note: Reducing number of tracesets will result in a loss of data.
+          </div>
+          <button type="button" id="confirm-num-tsets">Confirm</button>
+         
+        </div>
+
+        <div class="measurement-dates">
+
+          <div id="start-date">
+            <label>
+              <span>Measurement Start Date</span>
+              <p class="description">MM/DD/YY</p>
+              <input type="date" id="dset_start_date" name="dset_start_date" required>
+            </label>
+          </div>
+
+          <div id="end-date">
+            <label>
+              <span>Measurement End Date</span>
+              <p class="description">MM/DD/YY</p>
+              <input type="date" id="dset_end_date" name="dset_end_date">
+            </label>
+          </div>
+        </div>
+
+        <div class="author-details">
+          <label>
+            <span>Author 1</span>
+            <input type="text" id="dset_author1_name" name="dset_author1_name" placeholder="Name" required>
+            <input type="email" id="dset_author1_email" name="dset_author1_email" placeholder="Email" required>
+            <input type="text" id="dset_author1_institution" name="dset_author1_institution" placeholder="Institution"
+              required>
+            <p class="description">Country</p>
+            <select id="dset_author1_country" name="dset_author1_country" required>
+              <option value="Afganistan">Afghanistan</option>
+              <option value="Albania">Albania</option>
+              <option value="Algeria">Algeria</option>
+              <option value="American Samoa">American Samoa</option>
+              <option value="Andorra">Andorra</option>
+              <option value="Angola">Angola</option>
+              <option value="Anguilla">Anguilla</option>
+              <option value="Antigua & Barbuda">Antigua & Barbuda</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Armenia">Armenia</option>
+              <option value="Aruba">Aruba</option>
+              <option value="Australia">Australia</option>
+              <option value="Austria">Austria</option>
+              <option value="Azerbaijan">Azerbaijan</option>
+              <option value="Bahamas">Bahamas</option>
+              <option value="Bahrain">Bahrain</option>
+              <option value="Bangladesh">Bangladesh</option>
+              <option value="Barbados">Barbados</option>
+              <option value="Belarus">Belarus</option>
+              <option value="Belgium">Belgium</option>
+              <option value="Belize">Belize</option>
+              <option value="Benin">Benin</option>
+              <option value="Bermuda">Bermuda</option>
+              <option value="Bhutan">Bhutan</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Bonaire">Bonaire</option>
+              <option value="Bosnia & Herzegovina">Bosnia & Herzegovina</option>
+              <option value="Botswana">Botswana</option>
+              <option value="Brazil">Brazil</option>
+              <option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
+              <option value="Brunei">Brunei</option>
+              <option value="Bulgaria">Bulgaria</option>
+              <option value="Burkina Faso">Burkina Faso</option>
+              <option value="Burundi">Burundi</option>
+              <option value="Cambodia">Cambodia</option>
+              <option value="Cameroon">Cameroon</option>
+              <option value="Canada">Canada</option>
+              <option value="Canary Islands">Canary Islands</option>
+              <option value="Cape Verde">Cape Verde</option>
+              <option value="Cayman Islands">Cayman Islands</option>
+              <option value="Central African Republic">Central African Republic</option>
+              <option value="Chad">Chad</option>
+              <option value="Channel Islands">Channel Islands</option>
+              <option value="Chile">Chile</option>
+              <option value="China">China</option>
+              <option value="Christmas Island">Christmas Island</option>
+              <option value="Cocos Island">Cocos Island</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Comoros">Comoros</option>
+              <option value="Congo">Congo</option>
+              <option value="Cook Islands">Cook Islands</option>
+              <option value="Costa Rica">Costa Rica</option>
+              <option value="Cote DIvoire">Cote DIvoire</option>
+              <option value="Croatia">Croatia</option>
+              <option value="Cuba">Cuba</option>
+              <option value="Curaco">Curacao</option>
+              <option value="Cyprus">Cyprus</option>
+              <option value="Czech Republic">Czech Republic</option>
+              <option value="Denmark">Denmark</option>
+              <option value="Djibouti">Djibouti</option>
+              <option value="Dominica">Dominica</option>
+              <option value="Dominican Republic">Dominican Republic</option>
+              <option value="East Timor">East Timor</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="Egypt">Egypt</option>
+              <option value="El Salvador">El Salvador</option>
+              <option value="Equatorial Guinea">Equatorial Guinea</option>
+              <option value="Eritrea">Eritrea</option>
+              <option value="Estonia">Estonia</option>
+              <option value="Ethiopia">Ethiopia</option>
+              <option value="Falkland Islands">Falkland Islands</option>
+              <option value="Faroe Islands">Faroe Islands</option>
+              <option value="Fiji">Fiji</option>
+              <option value="Finland">Finland</option>
+              <option value="France">France</option>
+              <option value="French Guiana">French Guiana</option>
+              <option value="French Polynesia">French Polynesia</option>
+              <option value="French Southern Ter">French Southern Ter</option>
+              <option value="Gabon">Gabon</option>
+              <option value="Gambia">Gambia</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Germany">Germany</option>
+              <option value="Ghana">Ghana</option>
+              <option value="Gibraltar">Gibraltar</option>
+              <option value="Great Britain">Great Britain</option>
+              <option value="Greece">Greece</option>
+              <option value="Greenland">Greenland</option>
+              <option value="Grenada">Grenada</option>
+              <option value="Guadeloupe">Guadeloupe</option>
+              <option value="Guam">Guam</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="Guinea">Guinea</option>
+              <option value="Guyana">Guyana</option>
+              <option value="Haiti">Haiti</option>
+              <option value="Hawaii">Hawaii</option>
+              <option value="Honduras">Honduras</option>
+              <option value="Hong Kong">Hong Kong</option>
+              <option value="Hungary">Hungary</option>
+              <option value="Iceland">Iceland</option>
+              <option value="Indonesia">Indonesia</option>
+              <option value="India">India</option>
+              <option value="Iran">Iran</option>
+              <option value="Iraq">Iraq</option>
+              <option value="Ireland">Ireland</option>
+              <option value="Isle of Man">Isle of Man</option>
+              <option value="Israel">Israel</option>
+              <option value="Italy">Italy</option>
+              <option value="Jamaica">Jamaica</option>
+              <option value="Japan">Japan</option>
+              <option value="Jordan">Jordan</option>
+              <option value="Kazakhstan">Kazakhstan</option>
+              <option value="Kenya">Kenya</option>
+              <option value="Kiribati">Kiribati</option>
+              <option value="Korea North">Korea North</option>
+              <option value="Korea Sout">Korea South</option>
+              <option value="Kuwait">Kuwait</option>
+              <option value="Kyrgyzstan">Kyrgyzstan</option>
+              <option value="Laos">Laos</option>
+              <option value="Latvia">Latvia</option>
+              <option value="Lebanon">Lebanon</option>
+              <option value="Lesotho">Lesotho</option>
+              <option value="Liberia">Liberia</option>
+              <option value="Libya">Libya</option>
+              <option value="Liechtenstein">Liechtenstein</option>
+              <option value="Lithuania">Lithuania</option>
+              <option value="Luxembourg">Luxembourg</option>
+              <option value="Macau">Macau</option>
+              <option value="Macedonia">Macedonia</option>
+              <option value="Madagascar">Madagascar</option>
+              <option value="Malaysia">Malaysia</option>
+              <option value="Malawi">Malawi</option>
+              <option value="Maldives">Maldives</option>
+              <option value="Mali">Mali</option>
+              <option value="Malta">Malta</option>
+              <option value="Marshall Islands">Marshall Islands</option>
+              <option value="Martinique">Martinique</option>
+              <option value="Mauritania">Mauritania</option>
+              <option value="Mauritius">Mauritius</option>
+              <option value="Mayotte">Mayotte</option>
+              <option value="Mexico">Mexico</option>
+              <option value="Midway Islands">Midway Islands</option>
+              <option value="Moldova">Moldova</option>
+              <option value="Monaco">Monaco</option>
+              <option value="Mongolia">Mongolia</option>
+              <option value="Montserrat">Montserrat</option>
+              <option value="Morocco">Morocco</option>
+              <option value="Mozambique">Mozambique</option>
+              <option value="Myanmar">Myanmar</option>
+              <option value="Nambia">Nambia</option>
+              <option value="Nauru">Nauru</option>
+              <option value="Nepal">Nepal</option>
+              <option value="Netherland Antilles">Netherland Antilles</option>
+              <option value="Netherlands">Netherlands (Holland, Europe)</option>
+              <option value="Nevis">Nevis</option>
+              <option value="New Caledonia">New Caledonia</option>
+              <option value="New Zealand">New Zealand</option>
+              <option value="Nicaragua">Nicaragua</option>
+              <option value="Niger">Niger</option>
+              <option value="Nigeria">Nigeria</option>
+              <option value="Niue">Niue</option>
+              <option value="Norfolk Island">Norfolk Island</option>
+              <option value="Norway">Norway</option>
+              <option value="Oman">Oman</option>
+              <option value="Pakistan">Pakistan</option>
+              <option value="Palau Island">Palau Island</option>
+              <option value="Palestine">Palestine</option>
+              <option value="Panama">Panama</option>
+              <option value="Papua New Guinea">Papua New Guinea</option>
+              <option value="Paraguay">Paraguay</option>
+              <option value="Peru">Peru</option>
+              <option value="Phillipines">Philippines</option>
+              <option value="Pitcairn Island">Pitcairn Island</option>
+              <option value="Poland">Poland</option>
+              <option value="Portugal">Portugal</option>
+              <option value="Puerto Rico">Puerto Rico</option>
+              <option value="Qatar">Qatar</option>
+              <option value="Republic of Montenegro">Republic of Montenegro</option>
+              <option value="Republic of Serbia">Republic of Serbia</option>
+              <option value="Reunion">Reunion</option>
+              <option value="Romania">Romania</option>
+              <option value="Russia">Russia</option>
+              <option value="Rwanda">Rwanda</option>
+              <option value="St Barthelemy">St Barthelemy</option>
+              <option value="St Eustatius">St Eustatius</option>
+              <option value="St Helena">St Helena</option>
+              <option value="St Kitts-Nevis">St Kitts-Nevis</option>
+              <option value="St Lucia">St Lucia</option>
+              <option value="St Maarten">St Maarten</option>
+              <option value="St Pierre & Miquelon">St Pierre & Miquelon</option>
+              <option value="St Vincent & Grenadines">St Vincent & Grenadines</option>
+              <option value="Saipan">Saipan</option>
+              <option value="Samoa">Samoa</option>
+              <option value="Samoa American">Samoa American</option>
+              <option value="San Marino">San Marino</option>
+              <option value="Sao Tome & Principe">Sao Tome & Principe</option>
+              <option value="Saudi Arabia">Saudi Arabia</option>
+              <option value="Senegal">Senegal</option>
+              <option value="Seychelles">Seychelles</option>
+              <option value="Sierra Leone">Sierra Leone</option>
+              <option value="Singapore">Singapore</option>
+              <option value="Slovakia">Slovakia</option>
+              <option value="Slovenia">Slovenia</option>
+              <option value="Solomon Islands">Solomon Islands</option>
+              <option value="Somalia">Somalia</option>
+              <option value="South Africa">South Africa</option>
+              <option value="Spain">Spain</option>
+              <option value="Sri Lanka">Sri Lanka</option>
+              <option value="Sudan">Sudan</option>
+              <option value="Suriname">Suriname</option>
+              <option value="Swaziland">Swaziland</option>
+              <option value="Sweden">Sweden</option>
+              <option value="Switzerland">Switzerland</option>
+              <option value="Syria">Syria</option>
+              <option value="Tahiti">Tahiti</option>
+              <option value="Taiwan">Taiwan</option>
+              <option value="Tajikistan">Tajikistan</option>
+              <option value="Tanzania">Tanzania</option>
+              <option value="Thailand">Thailand</option>
+              <option value="Togo">Togo</option>
+              <option value="Tokelau">Tokelau</option>
+              <option value="Tonga">Tonga</option>
+              <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+              <option value="Tunisia">Tunisia</option>
+              <option value="Turkey">Turkey</option>
+              <option value="Turkmenistan">Turkmenistan</option>
+              <option value="Turks & Caicos Is">Turks & Caicos Is</option>
+              <option value="Tuvalu">Tuvalu</option>
+              <option value="Uganda">Uganda</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="Ukraine">Ukraine</option>
+              <option value="United Arab Erimates">United Arab Emirates</option>
+              <option value="United States of America" selected>United States of America</option>
+              <option value="Uraguay">Uruguay</option>
+              <option value="Uzbekistan">Uzbekistan</option>
+              <option value="Vanuatu">Vanuatu</option>
+              <option value="Vatican City State">Vatican City State</option>
+              <option value="Venezuela">Venezuela</option>
+              <option value="Vietnam">Vietnam</option>
+              <option value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
+              <option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
+              <option value="Wake Island">Wake Island</option>
+              <option value="Wallis & Futana Is">Wallis & Futana Is</option>
+              <option value="Yemen">Yemen</option>
+              <option value="Zaire">Zaire</option>
+              <option value="Zambia">Zambia</option>
+              <option value="Zimbabwe">Zimbabwe</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Author 2</span>
+            <input type="text" id="dset_author2_name" name="dset_author2_name" placeholder="Name">
+            <input type="email" id="dset_author2_email" name="dset_author2_email" placeholder="Email">
+            <input type="text" id="dset_author2_institution" name="dset_author2_institution" placeholder="Institution">
+            <p class="description">Country</p>
+            <select id="dset_author2_country" name="dset_author2_country">
+              <option value="Afganistan">Afghanistan</option>
+              <option value="Albania">Albania</option>
+              <option value="Algeria">Algeria</option>
+              <option value="American Samoa">American Samoa</option>
+              <option value="Andorra">Andorra</option>
+              <option value="Angola">Angola</option>
+              <option value="Anguilla">Anguilla</option>
+              <option value="Antigua & Barbuda">Antigua & Barbuda</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Armenia">Armenia</option>
+              <option value="Aruba">Aruba</option>
+              <option value="Australia">Australia</option>
+              <option value="Austria">Austria</option>
+              <option value="Azerbaijan">Azerbaijan</option>
+              <option value="Bahamas">Bahamas</option>
+              <option value="Bahrain">Bahrain</option>
+              <option value="Bangladesh">Bangladesh</option>
+              <option value="Barbados">Barbados</option>
+              <option value="Belarus">Belarus</option>
+              <option value="Belgium">Belgium</option>
+              <option value="Belize">Belize</option>
+              <option value="Benin">Benin</option>
+              <option value="Bermuda">Bermuda</option>
+              <option value="Bhutan">Bhutan</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Bonaire">Bonaire</option>
+              <option value="Bosnia & Herzegovina">Bosnia & Herzegovina</option>
+              <option value="Botswana">Botswana</option>
+              <option value="Brazil">Brazil</option>
+              <option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
+              <option value="Brunei">Brunei</option>
+              <option value="Bulgaria">Bulgaria</option>
+              <option value="Burkina Faso">Burkina Faso</option>
+              <option value="Burundi">Burundi</option>
+              <option value="Cambodia">Cambodia</option>
+              <option value="Cameroon">Cameroon</option>
+              <option value="Canada">Canada</option>
+              <option value="Canary Islands">Canary Islands</option>
+              <option value="Cape Verde">Cape Verde</option>
+              <option value="Cayman Islands">Cayman Islands</option>
+              <option value="Central African Republic">Central African Republic</option>
+              <option value="Chad">Chad</option>
+              <option value="Channel Islands">Channel Islands</option>
+              <option value="Chile">Chile</option>
+              <option value="China">China</option>
+              <option value="Christmas Island">Christmas Island</option>
+              <option value="Cocos Island">Cocos Island</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Comoros">Comoros</option>
+              <option value="Congo">Congo</option>
+              <option value="Cook Islands">Cook Islands</option>
+              <option value="Costa Rica">Costa Rica</option>
+              <option value="Cote DIvoire">Cote DIvoire</option>
+              <option value="Croatia">Croatia</option>
+              <option value="Cuba">Cuba</option>
+              <option value="Curaco">Curacao</option>
+              <option value="Cyprus">Cyprus</option>
+              <option value="Czech Republic">Czech Republic</option>
+              <option value="Denmark">Denmark</option>
+              <option value="Djibouti">Djibouti</option>
+              <option value="Dominica">Dominica</option>
+              <option value="Dominican Republic">Dominican Republic</option>
+              <option value="East Timor">East Timor</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="Egypt">Egypt</option>
+              <option value="El Salvador">El Salvador</option>
+              <option value="Equatorial Guinea">Equatorial Guinea</option>
+              <option value="Eritrea">Eritrea</option>
+              <option value="Estonia">Estonia</option>
+              <option value="Ethiopia">Ethiopia</option>
+              <option value="Falkland Islands">Falkland Islands</option>
+              <option value="Faroe Islands">Faroe Islands</option>
+              <option value="Fiji">Fiji</option>
+              <option value="Finland">Finland</option>
+              <option value="France">France</option>
+              <option value="French Guiana">French Guiana</option>
+              <option value="French Polynesia">French Polynesia</option>
+              <option value="French Southern Ter">French Southern Ter</option>
+              <option value="Gabon">Gabon</option>
+              <option value="Gambia">Gambia</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Germany">Germany</option>
+              <option value="Ghana">Ghana</option>
+              <option value="Gibraltar">Gibraltar</option>
+              <option value="Great Britain">Great Britain</option>
+              <option value="Greece">Greece</option>
+              <option value="Greenland">Greenland</option>
+              <option value="Grenada">Grenada</option>
+              <option value="Guadeloupe">Guadeloupe</option>
+              <option value="Guam">Guam</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="Guinea">Guinea</option>
+              <option value="Guyana">Guyana</option>
+              <option value="Haiti">Haiti</option>
+              <option value="Hawaii">Hawaii</option>
+              <option value="Honduras">Honduras</option>
+              <option value="Hong Kong">Hong Kong</option>
+              <option value="Hungary">Hungary</option>
+              <option value="Iceland">Iceland</option>
+              <option value="Indonesia">Indonesia</option>
+              <option value="India">India</option>
+              <option value="Iran">Iran</option>
+              <option value="Iraq">Iraq</option>
+              <option value="Ireland">Ireland</option>
+              <option value="Isle of Man">Isle of Man</option>
+              <option value="Israel">Israel</option>
+              <option value="Italy">Italy</option>
+              <option value="Jamaica">Jamaica</option>
+              <option value="Japan">Japan</option>
+              <option value="Jordan">Jordan</option>
+              <option value="Kazakhstan">Kazakhstan</option>
+              <option value="Kenya">Kenya</option>
+              <option value="Kiribati">Kiribati</option>
+              <option value="Korea North">Korea North</option>
+              <option value="Korea Sout">Korea South</option>
+              <option value="Kuwait">Kuwait</option>
+              <option value="Kyrgyzstan">Kyrgyzstan</option>
+              <option value="Laos">Laos</option>
+              <option value="Latvia">Latvia</option>
+              <option value="Lebanon">Lebanon</option>
+              <option value="Lesotho">Lesotho</option>
+              <option value="Liberia">Liberia</option>
+              <option value="Libya">Libya</option>
+              <option value="Liechtenstein">Liechtenstein</option>
+              <option value="Lithuania">Lithuania</option>
+              <option value="Luxembourg">Luxembourg</option>
+              <option value="Macau">Macau</option>
+              <option value="Macedonia">Macedonia</option>
+              <option value="Madagascar">Madagascar</option>
+              <option value="Malaysia">Malaysia</option>
+              <option value="Malawi">Malawi</option>
+              <option value="Maldives">Maldives</option>
+              <option value="Mali">Mali</option>
+              <option value="Malta">Malta</option>
+              <option value="Marshall Islands">Marshall Islands</option>
+              <option value="Martinique">Martinique</option>
+              <option value="Mauritania">Mauritania</option>
+              <option value="Mauritius">Mauritius</option>
+              <option value="Mayotte">Mayotte</option>
+              <option value="Mexico">Mexico</option>
+              <option value="Midway Islands">Midway Islands</option>
+              <option value="Moldova">Moldova</option>
+              <option value="Monaco">Monaco</option>
+              <option value="Mongolia">Mongolia</option>
+              <option value="Montserrat">Montserrat</option>
+              <option value="Morocco">Morocco</option>
+              <option value="Mozambique">Mozambique</option>
+              <option value="Myanmar">Myanmar</option>
+              <option value="Nambia">Nambia</option>
+              <option value="Nauru">Nauru</option>
+              <option value="Nepal">Nepal</option>
+              <option value="Netherland Antilles">Netherland Antilles</option>
+              <option value="Netherlands">Netherlands (Holland, Europe)</option>
+              <option value="Nevis">Nevis</option>
+              <option value="New Caledonia">New Caledonia</option>
+              <option value="New Zealand">New Zealand</option>
+              <option value="Nicaragua">Nicaragua</option>
+              <option value="Niger">Niger</option>
+              <option value="Nigeria">Nigeria</option>
+              <option value="Niue">Niue</option>
+              <option value="Norfolk Island">Norfolk Island</option>
+              <option value="Norway">Norway</option>
+              <option value="Oman">Oman</option>
+              <option value="Pakistan">Pakistan</option>
+              <option value="Palau Island">Palau Island</option>
+              <option value="Palestine">Palestine</option>
+              <option value="Panama">Panama</option>
+              <option value="Papua New Guinea">Papua New Guinea</option>
+              <option value="Paraguay">Paraguay</option>
+              <option value="Peru">Peru</option>
+              <option value="Phillipines">Philippines</option>
+              <option value="Pitcairn Island">Pitcairn Island</option>
+              <option value="Poland">Poland</option>
+              <option value="Portugal">Portugal</option>
+              <option value="Puerto Rico">Puerto Rico</option>
+              <option value="Qatar">Qatar</option>
+              <option value="Republic of Montenegro">Republic of Montenegro</option>
+              <option value="Republic of Serbia">Republic of Serbia</option>
+              <option value="Reunion">Reunion</option>
+              <option value="Romania">Romania</option>
+              <option value="Russia">Russia</option>
+              <option value="Rwanda">Rwanda</option>
+              <option value="St Barthelemy">St Barthelemy</option>
+              <option value="St Eustatius">St Eustatius</option>
+              <option value="St Helena">St Helena</option>
+              <option value="St Kitts-Nevis">St Kitts-Nevis</option>
+              <option value="St Lucia">St Lucia</option>
+              <option value="St Maarten">St Maarten</option>
+              <option value="St Pierre & Miquelon">St Pierre & Miquelon</option>
+              <option value="St Vincent & Grenadines">St Vincent & Grenadines</option>
+              <option value="Saipan">Saipan</option>
+              <option value="Samoa">Samoa</option>
+              <option value="Samoa American">Samoa American</option>
+              <option value="San Marino">San Marino</option>
+              <option value="Sao Tome & Principe">Sao Tome & Principe</option>
+              <option value="Saudi Arabia">Saudi Arabia</option>
+              <option value="Senegal">Senegal</option>
+              <option value="Seychelles">Seychelles</option>
+              <option value="Sierra Leone">Sierra Leone</option>
+              <option value="Singapore">Singapore</option>
+              <option value="Slovakia">Slovakia</option>
+              <option value="Slovenia">Slovenia</option>
+              <option value="Solomon Islands">Solomon Islands</option>
+              <option value="Somalia">Somalia</option>
+              <option value="South Africa">South Africa</option>
+              <option value="Spain">Spain</option>
+              <option value="Sri Lanka">Sri Lanka</option>
+              <option value="Sudan">Sudan</option>
+              <option value="Suriname">Suriname</option>
+              <option value="Swaziland">Swaziland</option>
+              <option value="Sweden">Sweden</option>
+              <option value="Switzerland">Switzerland</option>
+              <option value="Syria">Syria</option>
+              <option value="Tahiti">Tahiti</option>
+              <option value="Taiwan">Taiwan</option>
+              <option value="Tajikistan">Tajikistan</option>
+              <option value="Tanzania">Tanzania</option>
+              <option value="Thailand">Thailand</option>
+              <option value="Togo">Togo</option>
+              <option value="Tokelau">Tokelau</option>
+              <option value="Tonga">Tonga</option>
+              <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+              <option value="Tunisia">Tunisia</option>
+              <option value="Turkey">Turkey</option>
+              <option value="Turkmenistan">Turkmenistan</option>
+              <option value="Turks & Caicos Is">Turks & Caicos Is</option>
+              <option value="Tuvalu">Tuvalu</option>
+              <option value="Uganda">Uganda</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="Ukraine">Ukraine</option>
+              <option value="United Arab Erimates">United Arab Emirates</option>
+              <option value="United States of America" selected>United States of America</option>
+              <option value="Uraguay">Uruguay</option>
+              <option value="Uzbekistan">Uzbekistan</option>
+              <option value="Vanuatu">Vanuatu</option>
+              <option value="Vatican City State">Vatican City State</option>
+              <option value="Venezuela">Venezuela</option>
+              <option value="Vietnam">Vietnam</option>
+              <option value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
+              <option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
+              <option value="Wake Island">Wake Island</option>
+              <option value="Wallis & Futana Is">Wallis & Futana Is</option>
+              <option value="Yemen">Yemen</option>
+              <option value="Zaire">Zaire</option>
+              <option value="Zambia">Zambia</option>
+              <option value="Zimbabwe">Zimbabwe</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="external-url">
+          <label>
+            <span>External URL</span>
+            <p class="description"> If dataset is hosted elsewhere, please provide URL.</p>
+            <input type="text" id="dset_external_url" name="dset_external_url">
+          </label>
+        </div>
+
+        <button id="show-opt-checkboxes" class="show-opt-button">
+          Dataset Keywords
+        </button>
+
+        <div id="optional-checkboxes" class="optional-fields checkboxes page1">
+          <div class="keywords checkboxes-block-container">
+
+            <h3>Keywords</h3>
+            <p class="description">Choose as many as apply.</p>
+
+            <div class="checkboxes-container">
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="3G">
+                <span>3G</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="4G">
+                <span>4G</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="5G">
+                <span>5G</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="802.11">
+                <span>802.11</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="802.11 a">
+                <span>802.11 a</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="802.11 b">
+                <span>802.11 b</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="802.11 Frames">
+                <span>802.11 Frames</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="802.11 g">
+                <span>802.11 g</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="802.15">
+                <span>802.15</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="802.15.4">
+                <span>802.15.4</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="802.16">
+                <span>802.16</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="Authentication Log">
+                <span>Authentication Log</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="Bluetooth">
+                <span>Bluetooth</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="Cellular Network">
+                <span>Cellular Network</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="DTN">
+                <span>DTN</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="GPS">
+                <span>GPS</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="Location">
+                <span>Location</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="MANET">
+                <span>MANET</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="ORBIT">
+                <span>ORBIT</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="Packet Trace">
+                <span>Packet Trace</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="RFID">
+                <span>RFID</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="RFMON">
+                <span>RFMON</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="Sensor Network">
+                <span>Sensor Network</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="Signal Strength">
+                <span>Signal Strength</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="SNMP">
+                <span>SNMP</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="Social Network">
+                <span>Social Network</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="Syslog">
+                <span>Syslog</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="tcpdump">
+                <span>tcpdump</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="Vehicular Network">
+                <span>Vehicular Network</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="Wardriving">
+                <span>Wardriving</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="Wi-Fi Hotspot">
+                <span>Wi-Fi Hotspot</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="Wireless Mesh Network">
+                <span>Wireless Mesh Network</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_keywords" value="Wireless Multihop Networks">
+                <span>Wireless Multihop Networks</span>
+              </label>
+
+            </div>
+          </div>
+
+          <div class="measurement-purposes checkboxes-block-container">
+
+            <h3>Measurements Purposes</h3>
+            <p class="description">Choose as many as apply.</p>
+
+            <div class="checkboxes-container">
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Bit Error Characterization">
+                <span>Bit Error Characterization</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Computer Malware (Worms) Investigation">
+                <span>Computer Malware (Worms) Investigation</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Content Distribution Evaluation">
+                <span>Content Distribution Evaluation</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Educational Use">
+                <span>Educational Use</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Energy-Efficient Wireless Network">
+                <span>Energy-Efficient Wireless Network</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Human Behavior Modeling">
+                <span>Human Behavior Modeling</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Localization">
+                <span>Localization</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Location-Aware Computing">
+                <span>Location-Aware Computing</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="MAC Protocol Development">
+                <span>MAC Protocol Development</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Network Diagnosis">
+                <span>Network Diagnosis</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Network Performance Analysis">
+                <span>Network Performance Analysis</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Network Security">
+                <span>Network Security</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Opportunistic Connectivity">
+                <span>Opportunistic Connectivity</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Positioning Systems">
+                <span>Positioning Systems</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Routing Protocol">
+                <span>Routing Protocol</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes"
+                  value="Routing Protocol for DTNs (Disruption Tolerant Networks)">
+                <span>Routing Protocol for DTNs (Disruption Tolerant Networks)</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Social Network Analysis">
+                <span>Social Network Analysis</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="Usage Characterization">
+                <span>Usage Characterization</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_measurement_purposes" value="User Mobility Characterization">
+                <span>User Mobility Characterization</span>
+              </label>
+
+            </div>
+          </div>
+
+          <div class="network-type checkboxes-block-container">
+
+            <h3>Network Type</h3>
+            <p class="description">Choose as many as apply.</p>
+
+            <div class="checkboxes-container">
+              <label class="checkbox">
+                <input type="checkbox" name="dset_network_type" value="802.11 Ad-Hoc">
+                <span>802.11 Ad-Hoc</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_network_type" value="802.11 Infrastructure">
+                <span>802.11 Infrastructure</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_network_type" value="802.15 WPAN (Wireless Personal Area Networks)">
+                <span>802.15 WPAN (Wireless Personal Area Networks)</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_network_type" value="Bluetooth">
+                <span>Bluetooth</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_network_type" value="Cellular Network">
+                <span>Cellular Network</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_network_type" value="CSMA MAC">
+                <span>CSMA MAC</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_network_type" value="DTN (Delay or Disruption Tolerant Network)">
+                <span>DTN (Delay or Disruption Tolerant Network)</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_network_type" value="GPS (Global Positioning System)">
+                <span>GPS (Global Positioning System)</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_network_type" value="GSM (Global System for Mobile Communications)">
+                <span>GSM (Global System for Mobile Communications)</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_network_type" value="RFID">
+                <span>RFID</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_network_type" value="Sensor Network">
+                <span>Sensor Network</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_network_type" value="Social Network">
+                <span>Social Network</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_network_type" value="Vehicular Network">
+                <span>Vehicular Network</span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" name="dset_network_type" value="Wireless Mesh Network">
+                <span>Wireless Mesh Network</span>
+              </label>
+
+            </div>
+          </div>
+        </div>
+
+        <button id="show-opt-textboxes" class="show-opt-button">
+          Dataset Details
+        </button>
+
+        <div id="optional-textboxes" class="optional-fields" textboxes page1>
+
+          <div class="non-tech-description">
+            <label>
+              <span>Non-Technical Description of the Dataset</span>
+              <p class="description">
+                A brief overview of this dataset: what kind of data is included, how and when was it
+                captured? Save
+                the technical details about each trace, and each traceset, for the pages describing the
+                respective
+                trace(s) and traceset(s).
+              </p>
+              <textarea id="dset_nontech_description" name="dset_nontech_description" rows="10" cols="50"></textarea>
+            </label>
+          </div>
+
+          <div class="sanitization">
+            <label>
+              <span>Sanitization</span>
+              <p class="description">
+                It is the responsibility of you (the contributor) to ensure your dataset is properly
+                “sanitized”
+                before transfer to CRAWDAD. Sanitization includes the removal or modification of
+                sensitive
+                data
+                about humans or organizations. If your data includes any information about human
+                individuals
+                -
+                whether identifiable or not - it must be anonymized before upload. Similarly, if the
+                data
+                includes
+                any proprietary or other sensitive information, it should be redacted or obscured before
+                upload.
+                Provide details of sanitization methods in description of each traceset.
+              </p>
+              <textarea id="dset_sanitization" name="dset_sanitization" rows="10" cols="50"></textarea>
+            </label>
+          </div>
+
+          <div class="network-configuration">
+            <label>
+              <span>Network Configuration</span>
+              <p class="description">
+                If this dataset includes data captured from a network, describe that network and its
+                configuration.
+              </p>
+              <textarea id="dset_network_configuration" name="dset_network_configuration" rows="10"
+                cols="50"></textarea>
+            </label>
+          </div>
+
+          <div class="collection-methodology">
+            <label>
+              <span>Collection Methodology</span>
+              <p class="description">
+                Please give an overview of the collection method(s), saving the technical details about
+                each
+                trace,
+                and each traceset, for the pages describing the respective trace(s) and traceset(s).
+              </p>
+              <textarea id="dset_collection_methodology" name="dset_collection_methodology" rows="10"
+                cols="50"></textarea>
+            </label>
+          </div>
+
+          <div class="methodolody-limitation">
+            <label>
+              <span>Methodology Limitations</span>
+              <p class="description">
+                What are known limitations of your data-collection or data-sanitization methods, that
+                might
+                affect
+                the use or interpretation of the data?
+              </p>
+              <textarea id="dset_methodology_limitations" name="dset_methodology_limitations" rows="10"
+                cols="50"></textarea>
+            </label>
+          </div>
+
+          <div class="missing-data">
+            <label>
+              <span>Missing Data</span>
+              <p class="description">
+                Please note any gaps in the data; e.g., a one-month trace of a production network that
+                is
+                missing a
+                few hours due to a power failure.
+              </p>
+              <textarea id="dset_missing_data" name="dset_missing_data" rows="10" cols="50"></textarea>
+            </label>
+          </div>
+
+          <div class="incorrectly-measured-data">
+            <label>
+              <span>Incorrectly Measured Data</span>
+              <p class="description">
+                Please note any data that is known to have been collected or measured incorrectly, and
+                how
+                those
+                data are labeled.
+              </p>
+              <textarea id="dset_incorrectly_meas_data" name="dset_incorrectly_meas_data" rows="10"
+                cols="50"></textarea>
+            </label>
+          </div>
+
+          <div class="notes">
+            <label>
+              <span>Notes</span>
+              <p class="description">
+                Please use this box for any other notes about the overall dataset not covered in the
+                above
+                boxes.
+              </p>
+              <textarea id="dset_suggestions" name="dset_suggestions" rows="10" cols="50"></textarea>
+            </label>
+          </div>
+
+        </div>
+
+        <!-- <input type="submit" id="save_progress_button" class="button" value="Save Progress"
+          formaction="saveprogress.py">
+
+        <input type="submit" id="submit_form_button" class="button" value="Submit Form"
+          formaction="contribution_form_validation.py"> -->
+
+      </div>
+
+      <div class="tset-pages">
+        <div class="page1 page">
+
+          <h2>Traceset 1 Information</h2>
+
+          <div class="tset-name">
+            <label>
+              <span>Traceset Name</span>
+              <p class="description"> One-word name for the traceset. Should only contain alphanumeric
+                characters.
+                For example, "". More examples can be found <a href="#">here.</a></p>
+              <input type="text" id="tset_name" name="tset_name" required>
+            </label>
+          </div>
+
+          <div class="tset-description-short">
+            <label>
+              <span>Traceset Description (short)</span>
+              <p class="description"> Short, one-line description of the traceset.
+              </p>
+              <textarea id="tset_description_short" name="tset_description_short" rows="2" cols="70"
+                required></textarea>
+            </label>
+          </div>
+
+          <div class="tset-description-tech">
+            <label>
+              <span>Technical Description of the Traceset</span>
+              <p class="description"> Please use this box to describe the technical details of this particular
+                traceset. All traces within a traceset share a common collection method, sanitization
+                method, and file format. Details specific to the trace(s) within this traceset should be
+                entered on subsequent page(s) in which those traces are described.
+              </p>
+              <textarea id="tset_tech_description" name="tset_tech_description" rows="10" cols="70" required></textarea>
+            </label>
+          </div>
+
+          <div class="measurement-dates">
+
+            <div id="start-date">
+              <label>
+                <span>Measurement Start Date</span>
+                <p class="description">MM/DD/YY</p>
+                <input type="date" id="tset_start_date" name="tset_start_date" required>
+              </label>
+            </div>
+
+            <div id="end-date">
+              <label>
+                <span>Measurement End Date</span>
+                <p class="description">MM/DD/YY</p>
+                <input type="date" id="tset_end_date" name="tset_end_date">
+              </label>
+            </div>
+          </div>
+
+          <div class="tset-collection-method">
+            <label>
+              <span>Collection Method</span>
+              <p class="description"> Please describe the method used to collect the traces in this traceset.
+              </p>
+              <textarea id="tset_collection_method" name="tset_collection_method" rows="10" cols="70"
+                required></textarea>
+            </label>
+          </div>
+
+          <div class="tset-data-sanitization-method">
+            <label>
+              <span>Data Sanitization Method</span>
+              <p class="description"> Please provide details about how the data in this traceset was
+                sanitized, e.g., regarding the sanitization of certain records or fields within records.
+                Typical methods include removal (deleting the record or field from the data), obfuscation
+                (replacing the record or field with a blank, zero, or random alternative of the same type),
+                and pseudonymization (replacing the record or field with a consistent pseudonym of the same
+                type). For example, an IP address could be removed, obfuscated (mapping all IP addresses to
+                the same 1.1.1.1, or mapping each IP address to a random IP address each time it is
+                encountered), or pseudonymized (mapping each IP address seen to a specific unique alternate
+                IP address, e.g., 100.34.5.69). In such mappings, care should be taken not to transform
+                unicast addresses into multicast, or global addresses into local addresses, or vice versa…
+                or to document here that no such effort was made and the data user should not interpret the
+                bits of an IP address with their usual meaning.
+              </p>
+              <textarea id="tset_data_sanitization_method" name="tset_data_sanitization_method" rows="10" cols="70"
+                required></textarea>
+            </label>
+          </div>
+
+          <div class="tset-trace-note">
+            <label>
+              <span>Notes Specific to Traces</span>
+              <p class="description"> Please describe anything unusual about specific traces in this traceset,
+                e.g.,
+                missing or corrupted data, difference in experimental conditions, difference in collection
+                methods, relative to the descriptions provided for this traceset.
+              </p>
+              <textarea id="tset_trace_note" name="tset_trace_note" rows="10" cols="70" required></textarea>
+            </label>
+          </div>
+
+        </div>
+      </div>
+
+      <button id="prev_button_bottom" type="button" onclick="nextPrev(-1)">Previous</button>
+      <button id="next_button_bottom" type="button" onclick="nextPrev(1)">Next</button>
+    </form>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+    </script>
+  <script src="main.js"></script>
+
+</body>
+
+</html>
