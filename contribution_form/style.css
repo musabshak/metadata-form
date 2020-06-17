@@ -76,9 +76,6 @@ label[for^="dataset"] {
     font-weight: normal;
 }
 
-
-
-
 h2 {
     font-size: 25px;
 }
@@ -115,23 +112,42 @@ input:not([type="checkbox"]) {
     display: block;
     margin-bottom: 35px;
     line-height: 2;
-    width: 180px
 }
 
 select {
     height: 30px;
-    width: 180px;
+    /* width: 180px; */
 }
 
-input[type="text"], textarea {
-    font-size: 14px;
+input[type="text"], textarea, input[type="date"], 
+input[type="number"], select
+ {
+  font-size: 14px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1.5px;
+  font-family: Arial;
+  /* font-family: 'Open Sans', sans-serif; */
+  /* font-family: monospace; */
+  /* font-family: 'Roboto'; */
+  /* border-color: black; */
 }
+
+input[type="text"] {
+  width: 250px;
+}
+
+input[type="date"], input[type="number"] {
+  width: 200px ;
+}
+
+
 
 textarea {
     display: block;
     margin-bottom: 35px;
     width: 600px;
-    font-family: 'Open Sans', sans-serif;
+    padding: 5px;
 }
 
 input[type=checkbox] {
@@ -139,8 +155,22 @@ input[type=checkbox] {
     width: 15px;
 }
 
+#dset_external_url {
+  width: 600px !important;
+}
+
 .author-details input{
     margin-bottom: 0;
+}
+
+.author-details input, .author-details select {
+  width: 250px !important;
+  margin-top: 5px;
+}
+
+.author-details p {
+  margin-top: 5px;
+  margin-bottom: 0;
 }
 
 label {
@@ -171,8 +201,9 @@ label.checkbox {
 .measurement-dates {
     display: flex;
     justify-content: space-between;
-    width: 400px;
+    width: 440px;
 }
+
 
 #dset_author1_country {
     margin-bottom: 15px;
@@ -181,8 +212,6 @@ label.checkbox {
 #dset_author2_country {
     margin-bottom: 35px;
 }
-
-
 
 .show-opt-button {
     margin-bottom: 20px;

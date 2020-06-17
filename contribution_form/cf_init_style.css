@@ -61,10 +61,10 @@ input:not([type="checkbox"]) {
 }
 
 
-input[type="text"], textarea {
+input[type="text"], textarea, input[type="date"], input[type="select"] {
   font-size: 14px;
   border-radius: 5px;
-  border-style: solid;
+  /* border-style: solid; */
 }
 
 input[type="text"] {

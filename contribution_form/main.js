@@ -98,111 +98,19 @@ function range(start, edge, step) {
   return arr;
 }
 
-var tsetPageTemplate = `
-<div class="page[id] page">
+readStringFromFileAtPath = function(pathOfFileToReadFrom) {
+  var request = new XMLHttpRequest();
+  request.open("GET", pathOfFileToReadFrom, false);
+  request.send(null);
+  var returnValue = request.responseText;
 
-  <h2>Traceset [id] Information</h2>
+  return returnValue;
+}
 
-  <div class="tset-name">
-      <label>
-          <span>Traceset [id] Name</span>
-          <p class="description"> One-word name for the traceset. Should only contain alphanumeric
-              characters.
-              For example, "". More examples can be found <a href="#">here.</a></p>
-          <input type="text" id="tset[id]_name" name="tset[id]_name">
-      </label>
-  </div>
+// var text = readStringFromFileAtPath( "other/trace_page_template_no_value.txt" );
+// console.log(text);
 
-  <div class="tset-description-short">
-      <label>
-          <span>Traceset [id] Description (short)</span>
-          <p class="description"> Short, one-line description of the traceset.
-          </p>
-          <textarea id="tset[id]_description_short" name="tset[id]_description_short" rows="2" cols="70"
-              ></textarea>
-      </label>
-  </div>
-
-  <div class="tset-description-tech">
-      <label>
-          <span>Technical Description of Traceset [id]</span>
-          <p class="description"> Please use this box to describe the technical details of this particular
-              traceset. All traces within a traceset share a common collection method, sanitization
-              method, and file format. Details specific to the trace(s) within this traceset should be
-              entered on subsequent page(s) in which those traces are described.
-          </p>
-          <textarea id="tset[id]_tech_description" name="tset[id]_tech_description" rows="10" cols="70"
-              ></textarea>
-      </label>
-  </div>
-
-  <div class="measurement-dates">
-
-      <div id="start-date">
-          <label>
-              <span>Measurement Start Date</span>
-              <p class="description">MM/DD/YY</p>
-              <input type="date" id="tset[id]_start_date" 
-              name="tset[id]_start_date">
-          </label>
-      </div>
-
-      <div id="end-date">
-          <label>
-              <span>Measurement End Date</span>
-              <p class="description">MM/DD/YY</p>
-              <input type="date" id="tset[id]_end_date" 
-              name="tset[id]_end_date">
-          </label>
-      </div>
-  </div>
-
-  <div class="tset-collection-method">
-      <label>
-          <span>Collection Method</span>
-          <p class="description"> Please describe the method used to collect the traces in this traceset.
-          </p>
-          <textarea id="tset[id]_collection_method" name="tset[id]_collection_method" rows="10" cols="70"
-              ></textarea>
-      </label>
-  </div>
-
-  <div class="tset-data-sanitization-method">
-      <label>
-          <span>Data Sanitization Method</span>
-          <p class="description"> Please provide details about how the data in this traceset was
-              sanitized, e.g., regarding the sanitization of certain records or fields within records.
-              Typical methods include removal (deleting the record or field from the data), obfuscation
-              (replacing the record or field with a blank, zero, or random alternative of the same type),
-              and pseudonymization (replacing the record or field with a consistent pseudonym of the same
-              type). For example, an IP address could be removed, obfuscated (mapping all IP addresses to
-              the same 1.1.1.1, or mapping each IP address to a random IP address each time it is
-              encountered), or pseudonymized (mapping each IP address seen to a specific unique alternate
-              IP address, e.g., 100.34.5.69). In such mappings, care should be taken not to transform
-              unicast addresses into multicast, or global addresses into local addresses, or vice versa…
-              or to document here that no such effort was made and the data user should not interpret the
-              bits of an IP address with their usual meaning.
-          </p>
-          <textarea id="tset[id]_data_sanitization_method" name="tset[id]_data_sanitization_method" rows="10"
-              cols="70" ></textarea>
-      </label>
-  </div>
-
-  <div class="tset-trace-note">
-      <label>
-          <span>Notes Specific to Traces</span>
-          <p class="description"> Please describe anything unusual about specific traces in this traceset,
-              e.g.,
-              missing or corrupted data, difference in experimental conditions, difference in collection
-              methods, relative to the descriptions provided for this traceset.
-          </p>
-          <textarea id="tset[id]_trace_note" name="tset[id]_trace_note" 
-          rows="10" cols="70" ></textarea>
-      </label>
-  </div>
-
-</div>
-`
+var tsetPageTemplate = readStringFromFileAtPath("other/trace_page_template_no_value.txt");
 
 var currNumTsets; // default
 var newNumTsets = 0;
@@ -288,3 +196,4 @@ function getParameterByName(name) {
   var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
+

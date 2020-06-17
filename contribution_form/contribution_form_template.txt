@@ -20,8 +20,7 @@
       <a href="mailto:crawdad-team@cs.dartmouth.edu">crawdad-team@cs.dartmouth.edu.</a>
     </p>
 
-
-    <form target="_self" id="whole_form">
+    <form target="_self" id="whole_form" autocomplete="off" spellcheck="false">
       <button id="prev_button_top" type="button" onclick="nextPrev(-1)">Previous</button>
       <button id="next_button_top" type="button" onclick="nextPrev(1)">Next</button>
 
@@ -29,9 +28,11 @@
 
         <h2>Dataset Information</h2>
 
+        <p> <i> * Denotes Required Fields </i></p>
+
         <div class="dataset-name">
           <label>
-            <span>Dataset Name</span>
+            <span>* Dataset Name</span>
             <p class="description"> One-word name for the dataset. Should only contain alphanumeric
               characters.
               For example, "mobilitywireless5G". More examples can be found <a href="#">here.</a></p>
@@ -41,7 +42,7 @@
 
         <div class="institution-name">
           <label>
-            <span>Institution Name</span>
+            <span>* Institution Name</span>
             <p class="description"> One-word institution name. Should only contain alphanumeric characters.
               For example, "dartmouth". Examples of existing institution names can be found <a href="#">here.</a></p>
             <input type="text" id="dset_institution_name" name="dset_institution_name" value="[dset_institution_name]">
@@ -50,7 +51,7 @@
 
         <div class="description-short">
           <label>
-            <span>Dataset Description (short)</span>
+            <span>* Dataset Description (short)</span>
             <p class="description"> Short, one-line description of the dataset.</p>
             <textarea id="dset_description_short" name="dset_description_short" rows="2"
               cols="70">[dset_description_short]</textarea>
@@ -59,7 +60,7 @@
 
         <div class="description-long">
           <label>
-            <span>Dataset Description (long)</span>
+            <span>* Dataset Description (long)</span>
             <p class="description">
               This longer description will provide a quick summary of the details of your dataset and
               collection
@@ -75,7 +76,7 @@
         <div class="num-tracesets container">
           <div class="num-tracesets">
             <label>
-              <span>Number of tracesets</span>
+              <span>* Number of Tracesets</span>
               <p class="description"> Should be a positive integer.</p>
               <input type="number" id="dset_num_tracesets" name="dset_num_tracesets" min="1" value=[dset_num_tracesets]>
             </label>
@@ -91,7 +92,7 @@
 
           <div id="start-date">
             <label>
-              <span>Measurement Start Date</span>
+              <span>* Measurement Start Date</span>
               <p class="description">MM/DD/YY</p>
               <input type="date" id="dset_start_date" name="dset_start_date" value="[dset_start_date]">
             </label>
@@ -99,7 +100,7 @@
 
           <div id="end-date">
             <label>
-              <span>Measurement End Date</span>
+              <span>* Measurement End Date</span>
               <p class="description">MM/DD/YY</p>
               <input type="date" id="dset_end_date" name="dset_end_date" value="[dset_end_date]">
             </label>
@@ -108,10 +109,10 @@
 
         <div class="author-details">
           <label>
-            <span>Author 1</span>
+            <span>* Author 1 Details</span>
             <input type="text" id="dset_author1_name" name="dset_author1_name" placeholder="Name"
               value="[dset_author1_name]">
-            <input type="email" id="dset_author1_email" name="dset_author1_email" placeholder="Email"
+            <input type="text" id="dset_author1_email" name="dset_author1_email" placeholder="Email"
               value="[dset_author1_email]">
             <input type="text" id="dset_author1_institution" name="dset_author1_institution" placeholder="Institution"
               value="[dset_author1_institution]">
@@ -367,10 +368,10 @@
           </label>
 
           <label>
-            <span>Author 2</span>
+            <span>Author 2 Details</span>
             <input type="text" id="dset_author2_name" name="dset_author2_name" placeholder="Name"
               value="[dset_author2_name]">
-            <input type="email" id="dset_author2_email" name="dset_author2_email" placeholder="Email"
+            <input type="text" id="dset_author2_email" name="dset_author2_email" placeholder="Email"
               value="[dset_author2_email]">
             <input type="text" id="dset_author2_institution" name="dset_author2_institution" placeholder="Institution"
               value="[dset_author2_institution]">
@@ -635,7 +636,7 @@
         </div>
 
         <button id="show-opt-checkboxes" class="show-opt-button">
-          Dataset Keywords
+          Checkbox Fields
         </button>
 
         <div id="optional-checkboxes" class="optional-fields checkboxes page1">
@@ -999,7 +1000,7 @@
         </div>
 
         <button id="show-opt-textboxes" class="show-opt-button">
-          Dataset Details
+          Additional Dataset Details
         </button>
 
         <div id="optional-textboxes" class="optional-fields" textboxes page1>
