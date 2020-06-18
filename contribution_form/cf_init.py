@@ -51,7 +51,7 @@ def gen_xml_name(dset_name):
 
 ## Generate xml file from a given CGI form object
 def save_xml(form):
-  tree = parse('xml_files/init.xml')
+  tree = parse('other/init.xml')
   root = tree.getroot()
   for key in form.keys():
     field_input_list = form.getlist(key)
