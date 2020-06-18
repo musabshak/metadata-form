@@ -1139,7 +1139,7 @@
         method="post">
 
       <div class="tset-pages">
-        <div class="page1 page">
+        <!-- <div class="page1 page">
 
           <h2>Traceset 1 Information</h2>
 
@@ -1239,7 +1239,7 @@
             </label>
           </div>
 
-        </div>
+        </div> -->
       </div> <button id="prev_button_bottom" type="button" onclick="nextPrev(-1)">Previous</button>
 
       

@@ -2,6 +2,8 @@
 
   <h2>Traceset [id] Information</h2>
 
+  <p> <i> * Denotes Required Fields </i></p>
+
   <div class="tset-name">
       <label>
           <span>* Traceset [id] Name</span>

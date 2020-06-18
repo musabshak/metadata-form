@@ -26,19 +26,19 @@ def main():
   
   ## Open contribution form template. Populate field values with values read
   ## from xml file above. Render contribution form with populated values.
-  with open ("contribution_form_template.txt", "r") as form_template_file:
+  with open ("templates/contribution_form_template.txt", "r") as form_template_file:
     form_template = form_template_file.read()
 
     ## Add traceset pages based on saved form field "dset_num_tracesets"
     tracepage_template = ""
-    with open ("other/trace_page_template.txt", 'r') as tracepage_template_file:
+    with open ("templates/trace_page_template.txt", 'r') as tracepage_template_file:
       tracepage_template = tracepage_template_file.read()
 
     end_tsetpages_str = '</div> <button id="prev_button_bottom" type="button" onclick="nextPrev(-1)">Previous</button>'
     dset_num_tracesets = int(root.find('dset_num_tracesets').text)
 
     modified_tracepage = ""
-    for i in range(2, dset_num_tracesets+1):
+    for i in range(1, dset_num_tracesets+1):
       modified_tracepage = tracepage_template.replace('[id]', str(i))
       modified_tracepage += '\n' + end_tsetpages_str
       form_template = form_template.replace(end_tsetpages_str, modified_tracepage)

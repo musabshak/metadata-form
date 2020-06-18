@@ -110,7 +110,7 @@ readStringFromFileAtPath = function(pathOfFileToReadFrom) {
 // var text = readStringFromFileAtPath( "other/trace_page_template_no_value.txt" );
 // console.log(text);
 
-var tsetPageTemplate = readStringFromFileAtPath("other/trace_page_template_no_value.txt");
+var tsetPageTemplate = readStringFromFileAtPath("templates/trace_page_template_no_value.txt");
 
 var currNumTsets; // default
 var newNumTsets = 0;
@@ -149,7 +149,6 @@ $("#confirm-num-tsets").click(function(event) {
       // }
 
       for (let i=currNumTsets+1; i<newNumTsets+1; i++) {
-        console.log(i);
         tsetPageTemplateModified = tsetPageTemplate.replace(/\[id\]/g, `${i}`);
         $(".tset-pages").append(tsetPageTemplateModified);
         console.log(i);
@@ -170,30 +169,37 @@ $("#confirm-num-tsets").click(function(event) {
   }
 })
 
-// When loading form progress, find out how many traceset pages to render by 
-// reading "dset_num_tracesets" value from saved xml file.
-$(document).ready(() => {
-  var xhttp = new XMLHttpRequest();
-  let xml_file_name = getParameterByName('token');
-  console.log(`xml_files/${xml_file_name}.xml`);
-  xhttp.open("GET", `xml_files/${xml_file_name}.xml`, false);
-  xhttp.send();
-  myFunction(xhttp);//(this);
+// // When loading form progress, find out how many traceset pages exist by
+// // reading "dset_num_tracesets" value from saved xml file.
+// $(document).ready(() => {
+//   var xhttp = new XMLHttpRequest();
+//   let xml_file_name = getParameterByName('token');
+//   console.log(`xml_files/${xml_file_name}.xml`);
+//   xhttp.open("GET", `xml_files/${xml_file_name}.xml`, false);
+//   xhttp.send();
+//   myFunction(xhttp);//(this);
+// })
+
+// function myFunction(xml) {
+//   var xmlDoc = xml.responseXML;
+//   var parser = new DOMParser();
+//   var xmlDoc = parser.parseFromString(xml.responseText, "application/xml");
+//   var y;
+//   y = xmlDoc.getElementsByTagName("dset_num_tracesets");//.childNodes[0];
+//   currNumTsets = parseInt(y[0].childNodes[0].nodeValue);
+//   console.log(currNumTsets);
+//   // alert(y[0].childNodes[0].nodeValue);
+// }
+
+// function getParameterByName(name) {
+//   var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+//   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+// }
+
+// When loading form progress, find out how many traceset pages exist
+// by finding out the number of children of <div class="tset-pages"> tag.
+$(document).ready( () => {
+  currNumTsets = $(".tset-pages").children().length;
+  console.log('current number of tset pages is: ', currNumTsets);
 })
-
-function myFunction(xml) {
-  var xmlDoc = xml.responseXML;
-  var parser = new DOMParser();
-  var xmlDoc = parser.parseFromString(xml.responseText, "application/xml");
-  var y;
-  y = xmlDoc.getElementsByTagName("dset_num_tracesets");//.childNodes[0];
-  currNumTsets = parseInt(y[0].childNodes[0].nodeValue);
-  console.log(currNumTsets);
-  // alert(y[0].childNodes[0].nodeValue);
-}
-
-function getParameterByName(name) {
-  var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-  return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-}
 

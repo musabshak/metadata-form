@@ -51,7 +51,7 @@ def gen_xml_name(dset_name):
 
 ## Generate xml file from a given CGI form object
 def save_xml(form):
-  tree = parse('other/init.xml')
+  tree = parse('templates/init.xml')
   root = tree.getroot()
   for key in form.keys():
     field_input_list = form.getlist(key)
@@ -101,7 +101,7 @@ def main():
     print("emailing token unsuccessful")
 
   # Render contribution form with fields from initialization page filled in.
-  with open ("contribution_form_template.txt", "r") as form_contents_file:
+  with open ("templates/contribution_form_template.txt", "r") as form_contents_file:
     # form_contents = form_contents_file.read()
     # filled_form = form_contents
     # filled_form = filled_form.replace("[dset_name]", dset_name)
