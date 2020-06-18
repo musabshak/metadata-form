@@ -33,18 +33,23 @@
         <div class="dataset-name">
           <label>
             <span>* Dataset Name</span>
-            <p class="description"> One-word name for the dataset. Should only contain alphanumeric
-              characters.
-              For example, "mobilitywireless5G". More examples can be found <a href="#">here.</a></p>
+            <p class="description"> 
+              One-word name for the dataset. Should only contain alphanumeric characters, preferably
+              all lowercase. For example, "mobilitywireless5g". More examples can be found 
+              <a href="#">here.</a>
+            </p>
             <input type="text" id="dset_name" name="dset_name" value="[dset_name]">
           </label>
         </div>
 
         <div class="institution-name">
           <label>
-            <span>* Institution Name</span>
-            <p class="description"> One-word institution name. Should only contain alphanumeric characters.
-              For example, "dartmouth". Examples of existing institution names can be found <a href="#">here.</a></p>
+            <span>* Institution Name (short)</span>
+            <p class="description"> 
+              One-word institution name. Should only contain alphanumeric characters.
+              For example, "dartmouth". Examples of existing institution names can be found 
+              <a href="#">here.</a>
+            </p>
             <input type="text" id="dset_institution_name" name="dset_institution_name" value="[dset_institution_name]">
           </label>
         </div>
