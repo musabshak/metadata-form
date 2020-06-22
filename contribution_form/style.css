@@ -21,7 +21,7 @@ body {
 }
 
 #main {
-    border: 1px solid red;   
+    /* border: 1px solid red;    */
     display: flex;
     width: 60rem;
     flex-direction: column;
@@ -300,6 +300,11 @@ a, a:visited {
   display: none;
 }
 
+.next_button, .prev_button {
+  height: 30px;
+  width: 100px;
+}
+
 /* Form Validation */
 
 .invalid {
@@ -331,6 +336,16 @@ input:focus {
 .form-error {
   display: none;
   color: red;
+}
+
+.save-error {
+  display: none;
+  color: red;
+  position: fixed;
+  bottom: 150px;
+  right: 30px;   
+  width: 150px;
+  height: 170px;
 }
 
 .error {

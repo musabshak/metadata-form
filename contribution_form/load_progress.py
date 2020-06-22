@@ -24,6 +24,11 @@ def main():
 
   tree = ET.parse("xml_files/" + xml_file_name + ".xml")
   root = tree.getroot()
+
+  if root.attrib.get('submitted') == 'true':
+    print("Content-Type:text/html\n")    
+    print('You have already submitted the form; please contact CRAWDAD admin if you wish to make any changes.')
+    return
   
   ## Open contribution form template. Populate field values with values read
   ## from xml file above. Render contribution form with populated values.
@@ -37,7 +42,8 @@ def main():
     with open ("templates/trace_page_template.txt", 'r') as tracepage_template_file:
       tracepage_template = tracepage_template_file.read()
 
-    end_tsetpages_str = '</div> <button id="prev_button_bottom" type="button" onclick="nextPrev(-1)">Previous</button>'
+    # end_tsetpages_str = '</div> <button id="prev_button_bottom" type="button" onclick="nextPrev(-1)">Previous</button>'
+    end_tsetpages_str = '</div> <button class="prev_button" type="button">Previous</button>'
     dset_num_tracesets = int(root.find('dset_num_tracesets').text)
 
     modified_tracepage = ""

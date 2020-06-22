@@ -64,7 +64,7 @@ validateEmail = (email) => {
 }
 
 validateDatasetName = (datasetName) => {
-  const regexp = /^[a-z0-9-]+$/;
+  const regexp = /^[a-zA-Z0-9-]+$/;
   const nameCharLimit = 30;
 
   hideError('#dset_name');
@@ -80,7 +80,7 @@ validateDatasetName = (datasetName) => {
     return false;
   }
   else if (!regexp.test(datasetName)) {
-    const errorMessage = "Dataset may contain only lowercase alpha-numeric characters ";
+    const errorMessage = "Dataset name may contain only alpha-numeric characters, preferably all lowercase";
     showError('#dset_name', errorMessage);
     return false;
   } 

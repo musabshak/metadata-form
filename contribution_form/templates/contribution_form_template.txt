@@ -21,8 +21,8 @@
     </p>
 
     <form target="_self" id="whole_form" autocomplete="off" spellcheck="false" method="post">
-      <button id="prev_button_top" type="button" onclick="nextPrev(-1)">Previous</button>
-      <button id="next_button_top" type="button" onclick="nextPrev(1)">Next</button>
+      <button class="prev_button" type="button">Previous</button>
+      <button class="next_button" type="button">Next</button>
 
       <p class="form-error">
         You must fix the errors (highlighted in red) in your responses before being able to submit the form!
@@ -1232,8 +1232,12 @@
 
       </div>
 
-      <input type="submit" id="save_progress_button" class="button" value="Save Progress" formaction="save_progress.py"
-        method="post">
+      <!-- <input type="submit" id="save_progress_button" class="button" value="Save Progress" 
+        formaction="save_progress.py" method="post"> -->
+
+      <div class="save-error">Please add correctly formatted 'Dataset Name' and 'Institution Name (short)
+      before progress is able to be saved.</div>
+      <button type="button" id="save_progress_button" class="button">Save Progress</button>
 
       <div class="tset-pages">
         <!-- <div class="page1 page">
@@ -1337,14 +1341,14 @@
           </div>
 
         </div> -->
-      </div> <button id="prev_button_bottom" type="button" onclick="nextPrev(-1)">Previous</button>
+      </div> <button class="prev_button" type="button">Previous</button>
 
 
-      <button id="next_button_bottom" type="button" onclick="nextPrev(1)">Next</button>
+      <button class="next_button" type="button" >Next</button>
 
-      <p class="form-error">
+      <!-- <p class="form-error">
         You must fix the errors (highlighted in red) in your responses before being able to submit the form!
-      </p>
+      </p> -->
 
     </form>
 

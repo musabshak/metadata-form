@@ -26,18 +26,22 @@ function showPage(n) {
   // console.log(n);
   // ... and fix the Previous/Next buttons:
   if (n == 0) {
-    document.getElementById("prev_button_top").style.display = "none";
-    document.getElementById("prev_button_bottom").style.display = "none";
+    // document.getElementById("prev_button_top").style.display = "none";
+    // document.getElementById("prev_button_bottom").style.display = "none";
+    $('.prev_button').hide();
   } else {
-    document.getElementById("prev_button_top").style.display = "inline";
-    document.getElementById("prev_button_bottom").style.display = "inline";
+    // document.getElementById("prev_button_top").style.display = "inline";
+    // document.getElementById("prev_button_bottom").style.display = "inline";
+    $('.prev_button').show();
   }
   if (n == (x.length - 1)) {
-    document.getElementById("next_button_top").innerHTML = "Submit";
-    document.getElementById("next_button_bottom").innerHTML = "Submit";
+    // document.getElementById("next_button_top").innerHTML = "Submit";
+    // document.getElementById("next_button_bottom").innerHTML = "Submit";
+    $('.next_button').html("Submit");
   } else {
-    document.getElementById("next_button_top").innerHTML = "Next";
-    document.getElementById("next_button_bottom").innerHTML = "Next";
+    // document.getElementById("next_button_top").innerHTML = "Next";
+    // document.getElementById("next_button_bottom").innerHTML = "Next";
+    $('.next_button').html("Next");
   }
     
 }
@@ -157,18 +161,18 @@ $("#confirm-num-tsets").click(function(event) {
         console.log(i);
 
         /**
-          * Tracet pages validation for newly created pages
+          * Traceset pages validation for newly created pages
           */
         for (var j = 0; j < tset_required_fields.length; j++) {
-          $(`#${tset_required_fields[j].replace('X', i)}`).on('blur', validateRequired);
+          $(`#${tset_required_fields[j].replace('X', i)}`).on('blur', (e) => {validateRequired(e.target.value, e.target.id)});
         }
 
         // Validate tracet name
-        $(`#tset${i}_name`).on('blur', validateXsetName);
+        $(`#tset${i}_name`).on('blur', (e) => {validateXsetName(e.target.value, e.target.id)});
 
         // Validate traceset dates
-        $(`#tset${i}_start_date`).on('blur', validateDateFormat);
-        $(`#tset${i}_end_date`).on('blur', validateDateFormat);
+        $(`#tset${i}_start_date`).on('blur', (e) => {validateDateFormat(e.target.value, e.target.id)});
+        $(`#tset${i}_end_date`).on('blur', (e) => {validateDateFormat(e.target.value, e.target.id)});
 
         addInputCharLimitValidation();
         addTextAreaCharLimitValidation();
