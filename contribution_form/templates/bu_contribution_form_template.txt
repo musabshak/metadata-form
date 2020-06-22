@@ -35,7 +35,7 @@
         <p> <i> * Denotes Required Fields </i></p>
 
         <div class="dataset-name">
-          <div>
+          <label>
 
             <span>* Dataset Name</span>
 
@@ -50,11 +50,11 @@
               <span class="error"> </span>
             </div>
 
-          </div>
+          </label>
         </div>
 
         <div class="institution-name">
-          <div>
+          <label>
 
             <span>* Institution Name (short)</span>
 
@@ -70,11 +70,11 @@
               <span class="error"> </span>
             </div>
 
-          </div>
+          </label>
         </div>
 
         <div class="description-short">
-          <div>
+          <label>
 
             <span>* Dataset Description (short)</span>
 
@@ -86,11 +86,11 @@
               <span class="error"> </span>
             </div>
 
-          </div>
+          </label>
         </div>
 
         <div class="description-long">
-          <div>
+          <label>
 
             <span>* Dataset Description (long)</span>
 
@@ -106,12 +106,12 @@
               <span class="error"> </span>
             </div>
 
-          </div>
+          </label>
         </div>
 
         <div class="num-tracesets container">
           <div class="num-tracesets">
-            <div>
+            <label>
               <span>* Number of Tracesets</span>
               <p class="description"> Should be a positive integer.</p>
               <div class="input-error-container">
@@ -119,7 +119,7 @@
                   value=[dset_num_tracesets]>
                 <span class="error"> </span>
               </div>
-            </div>
+            </label>
           </div>
           <div id="data-loss-warning">
             Note: Reducing number of tracesets will result in a loss of data.
@@ -142,14 +142,14 @@
           </div>
 
           <div id="end-date">
-            <div>
+            <label>
               <span>* Measurement End Date</span>
               <p class="description">YYYY-MM-DD</p>
               <div class="input-error-container">
                 <input type="text" id="dset_end_date" name="dset_end_date" value="[dset_end_date]">
                 <span class="error"> </span>
               </div>
-            </div>
+            </label>
           </div>
 
 
@@ -157,7 +157,7 @@
 
 
         <div class="author-details">
-          <div>
+          <label>
             <span>* Author 1 Details</span>
 
             <div class="input-error-container">
@@ -434,9 +434,9 @@
             </datalist>
 
 
-          </div>
+          </label>
 
-          <!-- <div>
+          <!-- <label>
             <span>Author 2 Details</span>
             <input type="text" id="dset_author2_name" name="dset_author2_name" placeholder="Name"
               value="[dset_author2_name]">
@@ -693,19 +693,19 @@
               <option value="Zambia">Zambia</option>
               <option value="Zimbabwe">Zimbabwe</option>
             </select>
-          </div> -->
+          </label> -->
 
         </div>
 
         <div class="external-url">
-          <div>
+          <label>
             <span>External URL</span>
             <p class="description"> If dataset is hosted elsewhere, please provide URL.</p>
             <div class="input-error-container">
               <input type="text" id="dset_external_url" name="dset_external_url" value="[dset_external_url]">
               <span class="error"> </span>
             </div>
-          </div>
+          </label>
         </div>
 
         <button id="show-opt-checkboxes" class="show-opt-button">
@@ -719,170 +719,170 @@
             <p class="description">Choose as many as apply.</p>
 
             <div class="checkboxes-container">
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="3G">
                 <span>3G</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="4G">
                 <span>4G</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="5G">
                 <span>5G</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="802.11">
                 <span>802.11</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="802.11 a">
                 <span>802.11 a</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="802.11 b">
                 <span>802.11 b</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="802.11 Frames">
                 <span>802.11 Frames</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="802.11 g">
                 <span>802.11 g</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="802.15">
                 <span>802.15</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="802.15.4">
                 <span>802.15.4</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="802.16">
                 <span>802.16</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="Authentication Log">
                 <span>Authentication Log</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="Bluetooth">
                 <span>Bluetooth</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="Cellular Network">
                 <span>Cellular Network</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="DTN">
                 <span>DTN</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="GPS">
                 <span>GPS</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="Location">
                 <span>Location</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="MANET">
                 <span>MANET</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="ORBIT">
                 <span>ORBIT</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="Packet Trace">
                 <span>Packet Trace</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="RFID">
                 <span>RFID</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="RFMON">
                 <span>RFMON</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="Sensor Network">
                 <span>Sensor Network</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="Signal Strength">
                 <span>Signal Strength</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="SNMP">
                 <span>SNMP</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="Social Network">
                 <span>Social Network</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="Syslog">
                 <span>Syslog</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="tcpdump">
                 <span>tcpdump</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="Vehicular Network">
                 <span>Vehicular Network</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="Wardriving">
                 <span>Wardriving</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="Wi-Fi Hotspot">
                 <span>Wi-Fi Hotspot</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="Wireless Mesh Network">
                 <span>Wireless Mesh Network</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_keywords" value="Wireless Multihop Networks">
                 <span>Wireless Multihop Networks</span>
-              </div>
+              </label>
 
             </div>
           </div>
@@ -893,101 +893,101 @@
             <p class="description">Choose as many as apply.</p>
 
             <div class="checkboxes-container">
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Bit Error Characterization">
                 <span>Bit Error Characterization</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Computer Malware (Worms) Investigation">
                 <span>Computer Malware (Worms) Investigation</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Content Distribution Evaluation">
                 <span>Content Distribution Evaluation</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Educational Use">
                 <span>Educational Use</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Energy-Efficient Wireless Network">
                 <span>Energy-Efficient Wireless Network</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Human Behavior Modeling">
                 <span>Human Behavior Modeling</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Localization">
                 <span>Localization</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Location-Aware Computing">
                 <span>Location-Aware Computing</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="MAC Protocol Development">
                 <span>MAC Protocol Development</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Network Diagnosis">
                 <span>Network Diagnosis</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Network Performance Analysis">
                 <span>Network Performance Analysis</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Network Security">
                 <span>Network Security</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Opportunistic Connectivity">
                 <span>Opportunistic Connectivity</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Positioning Systems">
                 <span>Positioning Systems</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Routing Protocol">
                 <span>Routing Protocol</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes"
                   value="Routing Protocol for DTNs (Disruption Tolerant Networks)">
                 <span>Routing Protocol for DTNs (Disruption Tolerant Networks)</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Social Network Analysis">
                 <span>Social Network Analysis</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="Usage Characterization">
                 <span>Usage Characterization</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_measurement_purposes" value="User Mobility Characterization">
                 <span>User Mobility Characterization</span>
-              </div>
+              </label>
 
             </div>
           </div>
@@ -998,75 +998,75 @@
             <p class="description">Choose as many as apply.</p>
 
             <div class="checkboxes-container">
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_network_type" value="802.11 Ad-Hoc">
                 <span>802.11 Ad-Hoc</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_network_type" value="802.11 Infrastructure">
                 <span>802.11 Infrastructure</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_network_type" value="802.15 WPAN (Wireless Personal Area Networks)">
                 <span>802.15 WPAN (Wireless Personal Area Networks)</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_network_type" value="Bluetooth">
                 <span>Bluetooth</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_network_type" value="Cellular Network">
                 <span>Cellular Network</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_network_type" value="CSMA MAC">
                 <span>CSMA MAC</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_network_type" value="DTN (Delay or Disruption Tolerant Network)">
                 <span>DTN (Delay or Disruption Tolerant Network)</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_network_type" value="GPS (Global Positioning System)">
                 <span>GPS (Global Positioning System)</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_network_type" value="GSM (Global System for Mobile Communications)">
                 <span>GSM (Global System for Mobile Communications)</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_network_type" value="RFID">
                 <span>RFID</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_network_type" value="Sensor Network">
                 <span>Sensor Network</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_network_type" value="Social Network">
                 <span>Social Network</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_network_type" value="Vehicular Network">
                 <span>Vehicular Network</span>
-              </div>
+              </label>
 
-              <div class="checkbox">
+              <label class="checkbox">
                 <input type="checkbox" name="dset_network_type" value="Wireless Mesh Network">
                 <span>Wireless Mesh Network</span>
-              </div>
+              </label>
 
             </div>
           </div>
@@ -1079,7 +1079,7 @@
         <div id="optional-textboxes" class="optional-fields" textboxes page1>
 
           <div class="non-tech-description">
-            <div>
+            <label>
               <span>Non-Technical Description of the Dataset</span>
               <p class="description">
                 A brief overview of this dataset: what kind of data is included, how and when was it
@@ -1093,11 +1093,11 @@
                   cols="50">[dset_nontech_description]</textarea>
                 <span class="error"> </span>
               </div>
-            </div>
+            </label>
           </div>
 
           <div class="sanitization">
-            <div>
+            <label>
               <span>Sanitization</span>
               <p class="description">
                 It is the responsibility of you (the contributor) to ensure your dataset is properly
@@ -1120,11 +1120,11 @@
                   cols="50">[dset_sanitization]</textarea>
                 <span class="error"> </span>
               </div>
-            </div>
+            </label>
           </div>
 
           <div class="network-configuration">
-            <div>
+            <label>
               <span>Network Configuration</span>
               <p class="description">
                 If this dataset includes data captured from a network, describe that network and its
@@ -1135,11 +1135,11 @@
                   cols="50">[dset_network_configuration]</textarea>
                 <span class="error"> </span>
               </div>
-            </div>
+            </label>
           </div>
 
           <div class="collection-methodology">
-            <div>
+            <label>
               <span>Collection Methodology</span>
               <p class="description">
                 Please give an overview of the collection method(s), saving the technical details about
@@ -1152,11 +1152,11 @@
                   cols="50">[dset_collection_methodology]</textarea>
                 <span class="error"> </span>
               </div>
-            </div>
+            </label>
           </div>
 
           <div class="methodolody-limitation">
-            <div>
+            <label>
               <span>Methodology Limitations</span>
               <p class="description">
                 What are known limitations of your data-collection or data-sanitization methods, that
@@ -1169,11 +1169,11 @@
                   cols="50">[dset_methodology_limitations]</textarea>
                 <span class="error"> </span>
               </div>
-            </div>
+            </label>
           </div>
 
           <div class="missing-data">
-            <div>
+            <label>
               <span>Missing Data</span>
               <p class="description">
                 Please note any gaps in the data; e.g., a one-month trace of a production network that
@@ -1186,11 +1186,11 @@
                   cols="50">[dset_missing_data]</textarea>
                 <span class="error"> </span>
               </div>
-            </div>
+            </label>
           </div>
 
           <div class="incorrectly-measured-data">
-            <div>
+            <label>
               <span>Incorrectly Measured Data</span>
               <p class="description">
                 Please note any data that is known to have been collected or measured incorrectly, and
@@ -1203,11 +1203,11 @@
                   cols="50">[dset_incorrectly_meas_data]</textarea>
                 <span class="error"> </span>
               </div>
-            </div>
+            </label>
           </div>
 
           <div class="suggestions">
-            <div>
+            <label>
               <span>Suggestions</span>
               <p class="description">
                 Please use this box for any other notes about the overall dataset not covered in the
@@ -1219,7 +1219,7 @@
                   cols="50">[dset_suggestions]</textarea>
                 <span class="error"> </span>
               </div>
-            </div>
+            </label>
           </div>
 
         </div>
@@ -1241,27 +1241,27 @@
           <h2>Traceset 1 Information</h2>
 
           <div class="tset-name">
-            <div>
+            <label>
               <span>Traceset 1 Name</span>
               <p class="description"> One-word name for the traceset. Should only contain alphanumeric
                 characters.
                 For example, "". More examples can be found <a href="#">here.</a></p>
               <input type="text" id="tset1_name" name="tset1_name" value="[tset1_name]">
-            </div>
+            </label>
           </div>
 
           <div class="tset-description-short">
-            <div>
+            <label>
               <span>Traceset 1 Description (short)</span>
               <p class="description"> Short, one-line description of the traceset.
               </p>
               <textarea id="tset1_description_short" name="tset1_description_short" 
               rows="2" cols="70">[tset1_description_short]</textarea>
-            </div>
+            </label>
           </div>
 
           <div class="tset-description-tech">
-            <div>
+            <label>
               <span>Technical Description of Traceset 1</span>
               <p class="description"> Please use this box to describe the technical details of this particular
                 traceset. All traces within a traceset share a common collection method, sanitization
@@ -1270,40 +1270,40 @@
               </p>
               <textarea id="tset1_tech_description" name="tset1_tech_description" 
               rows="10" cols="70">[tset1_tech_description]</textarea>
-            </div>
+            </label>
           </div>
 
           <div class="measurement-dates">
 
             <div id="start-date">
-              <div>
+              <label>
                 <span>Measurement Start Date</span>
                 <p class="description">MM/DD/YY</p>
                 <input type="date" id="tset1_start_date" name="tset1_start_date" value="[tset1_start_date]">
-              </div>
+              </label>
             </div>
 
             <div id="end-date">
-              <div>
+              <label>
                 <span>Measurement End Date</span>
                 <p class="description">MM/DD/YY</p>
                 <input type="date" id="tset1_end_date" name="tset1_end_date" value="[tset1_end_date]">
-              </div>
+              </label>
             </div>
           </div>
 
           <div class="tset-collection-method">
-            <div>
+            <label>
               <span>Collection Method</span>
               <p class="description"> Please describe the method used to collect the traces in this traceset.
               </p>
               <textarea id="tset1_collection_method" name="tset1_collection_method" 
               rows="10" cols="70">[tset1_collection_method]</textarea>
-            </div>
+            </label>
           </div>
 
           <div class="tset-data-sanitization-method">
-            <div>
+            <label>
               <span>Data Sanitization Method</span>
               <p class="description"> Please provide details about how the data in this traceset was
                 sanitized, e.g., regarding the sanitization of certain records or fields within records.
@@ -1320,11 +1320,11 @@
               </p>
               <textarea id="tset1_data_sanitization_method" name="tset1_data_sanitization_method" rows="10"
                 cols="70">[tset1_data_sanitization_method]</textarea>
-            </div>
+            </label>
           </div>
 
           <div class="tset-trace-note">
-            <div>
+            <label>
               <span>Notes Specific to Traces</span>
               <p class="description"> Please describe anything unusual about specific traces in this traceset,
                 e.g.,
@@ -1333,7 +1333,7 @@
               </p>
               <textarea id="tset1_trace_note" name="tset1_trace_note" 
               rows="10" cols="70">[tset1_trace_note]</textarea>
-            </div>
+            </label>
           </div>
 
         </div> -->
