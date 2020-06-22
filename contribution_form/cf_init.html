@@ -3,33 +3,31 @@
 
 <head>
   <title> Contribution Form Init</title>
-  <link rel="stylesheet" type="text/css" href="cf_init_style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" type='text/css' />
 </head>
 
 <body>
   <div id="main">
     <h1> CRAWDAD Dataset Contribution Form: Start Here! </h1>
-    <p> Thank you for offering to contribute your data to
+    <p> 
+      Thank you for offering to contribute your data to
       CRAWDAD! If we will be only mirroring data that is already hosted elsewhere, only
       your permission is needed. However, if your data will be only hosted at
       CRAWDAD, you will need to sign <a href="other/CRAWDAD-Contribution-Agreement.pdf">
-        this agreement form.</a> Please ensure that you are able to sign the agreement before proceeding
+      this agreement form.</a> Please ensure that you are able to sign the agreement before proceeding
       with submission of the description of your data. Please mail your signed agreement to
       <a href="mailto:crawdad-team@cs.dartmouth.edu">crawdad-team@cs.dartmouth.edu.</a>
     </p>
 
-
     <form target="_self" id="whole_form" action="cf_init.py" method="post" autocomplete="on">
-
-      
 
         <h2>Dataset Information</h2>
 
         <p> <i> * Denotes Required Fields </i></p>
 
         <div class="dataset-name">
-          <label>
+          <div>
             <span>Dataset Name *</span>
             <p class="description"> 
               One-word name for the dataset. Should only contain alphanumeric characters, preferably
@@ -41,30 +39,25 @@
                 <input type="text" id="dset_name" name="dset_name" placeholder="Dataset Name">
                 <span class="error"> </span>
               </div>
-          </label>
+            </div>
         </div>
 
-       
-
         <div class="author-details">
-          <label>
+          <div>
             <span>Author 1 Email *</span>
             <p class="description"> 
               The URL for accessing the contribution form for later use will be sent to this email.
             </p>
             <div class="input-error-container">
-              <input type="text" id="dset_author1_email" name="dset_author1_email" placeholder="Email" />
+              <input type="text" class="landing-page" id="dset_author1_email" name="dset_author1_email" placeholder="Email" />
               <span class="error"> </span>
             </div>
-          </label>
-
-         
-          
+          </div>
         </div>
 
-        <input id="submit-button" type="button" value="submit"></input>
+        <input id="submit-button" class="landing-page" type="button" value="submit"></input>
 
-        <p id="form-error">
+        <p class="form-error landing-page">
           You must fix the errors (highlighted in red) in your responses before being able to submit the form!
         </p>
 

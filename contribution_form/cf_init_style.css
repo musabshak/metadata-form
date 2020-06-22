@@ -53,7 +53,6 @@ input:not([type="checkbox"]) {
   margin-right: 20px;
   line-height: 2;
   width: 180px;
-  outline: none;
 }
 
 #dset_author1_name {
@@ -64,14 +63,20 @@ input:not([type="checkbox"]) {
 input[type="text"], textarea, input[type="date"], input[type="select"] {
   font-size: 14px;
   border-radius: 5px;
-  /* border-style: solid; */
+  border-style: solid;
+  border-width: 1.5px;
+  font-family: Arial;
+}
+
+input:focus {
+  outline: normal;
 }
 
 input[type="text"] {
   margin: 0,
 }
 
-label:not([class="checkbox"]) span, h3 {
+div:not([class="checkbox"]) span, h3 {
   font-weight: bold;
   font-size: 16px;
 }
@@ -106,10 +111,6 @@ textarea {
   border-style: solid;
 }
 
-input:focus {
-  outline: normal;
-}
-
 .error {
   display: none;
   color: red;
@@ -126,4 +127,9 @@ input:focus {
 #form-error {
   display: none;
   color: red;
+}
+
+#submit-button.landing-page {
+  width: 100px;
+  height: 30px;
 }

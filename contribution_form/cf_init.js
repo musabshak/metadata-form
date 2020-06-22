@@ -1,37 +1,3 @@
-// var fields = [
-//   {
-//     name: 'dset_author1_name',
-//     display: 'dset_author1_name',
-//     rules: 'required|callback_name_len'
-//   }
-// ]
-
-// function callback(errors, event) {
-//   console.log('errors', errors);
-//   if (errors.length > 0) {
-//     var errorString = '';
-
-//     for (var i = 0, errorLength = errors.length; i < errorLength; i++) {
-//       errorString += errors[i].message + ' <br>';
-//     }
-
-//     $('.errors').show();
-//     $('.errors span').text(errorString);
-//   }
-// }
-
-// var validator = new FormValidator('whole_form', fields, callback);
-
-// validator.registerCallback('name_len', (value) => {
-//   console.log('value', value);
-//   if (value.length > 5) {
-//     return true;
-//   }
-
-//   return false;
-// }).setMessage('name_len', "please choose a longer name");
-
-
 hideError = (selector) => {
   $(selector).removeClass('invalid');
   $(`${selector} + .error`).hide();
@@ -89,8 +55,8 @@ validateDatasetName = (datasetName) => {
 }
 
 
-
 handleSubmit = (e) => {
+  e.stopPropagation();
 
   const name_valid = validateDatasetName($('#dset_name').val()); 
   const email_valid = validateEmail($('#dset_author1_email').val());
@@ -99,13 +65,11 @@ handleSubmit = (e) => {
   if (form_valid) {
     $('#whole_form').submit();
   } else {
-    $('#form-error').show();
+    $('.form-error.landing-page').show();
   }
 }
 
-$('#dset_name').on('click', () => $('#form-error').hide());
-$('#dset_author1_email').on('click', () => $('#form-error').hide());
-
+$('body').not('#submit-button').on('click', () => {$('.form-error.landing-page').hide()});
 $('#dset_name').on('blur', (e) => {validateDatasetName(e.target.value)});
 $('#dset_author1_email').on('blur', (e) => {validateEmail(e.target.value)});
 $('#submit-button').on('click', handleSubmit);

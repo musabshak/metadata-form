@@ -151,6 +151,7 @@ input[type=checkbox] {
 
 #dset_external_url {
   width: 600px !important;
+  margin-bottom: 35px !important;
 }
 
 .author-details input{
@@ -163,12 +164,12 @@ input[type=checkbox] {
 }
 
 .author-details p {
-  margin-top: 5px;
-  margin-bottom: 0;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 #dset_author1_country {
-  margin-bottom: 15px !important;
+  margin-bottom: 35px !important;
 }
 
 /* label[for^="dataset"] {
@@ -219,8 +220,9 @@ div.checkbox {
     /* width: 440px; */
 }
 
-
-
+#show-opt-textboxes {
+  margin-bottom: 35px !important;
+}
 
 .show-opt-button {
     margin-bottom: 20px;
@@ -338,6 +340,8 @@ input:focus {
   color: red;
 }
 
+
+
 .save-error {
   display: none;
   color: red;
@@ -364,3 +368,14 @@ input:focus {
   align-items: center;
 }
 
+/* landing page */
+.form-error.landing-page {
+  display: none;
+  color: red;
+}
+
+#submit-button.landing-page {
+  margin-top: 40px;
+  width: 100px;
+  height: 30px;
+}
