@@ -11,18 +11,37 @@
   <div id="main">
 
     <h1> CRAWDAD Dataset Contribution Form </h1>
-    <p> 
+    <p>
       Thank you for offering to contribute your data to
       CRAWDAD! If we will be only mirroring data that is already hosted elsewhere, only
       your permission is needed. However, if your data will be only hosted at
-      CRAWDAD, you will need to sign <a href="other/CRAWDAD-Contribution-Agreement.pdf">
-      this agreement form.</a> Please ensure that you are able to sign the agreement before proceeding
+      CRAWDAD, you will need to sign <a target="_blank" href="other/CRAWDAD-Contribution-Agreement.pdf">
+        this agreement form.</a> Please ensure that you are able to sign the agreement before proceeding
       with submission of the description of your data. Please mail your signed agreement to
-      <a href="mailto:crawdad-team@cs.dartmouth.edu">crawdad-team@cs.dartmouth.edu.</a>
+      <a target="_blank" href="mailto:crawdad-team@cs.dartmouth.edu">crawdad-team@cs.dartmouth.edu.</a>
+    </p>
+    <p>
+      A dataset is a set of wireless network data, collected by the same organization in the course of the same research
+      project. The dataset can consist of multiple tracesets, and a traceset can contain multiple traces. A traceset is
+      a set of traces collected using the same measuring tool, e.g. tcpdump, snmp, syslog, or collected on the same
+      date. A trace is the minimal unit of data collection, generally a file or a set of files collected by the same
+      device at the same time. Here is an example of a dataset, as displayed on our website: 
+      <a target="_blank" href="http://crawdad.org/ucsd/sigcomm2001/20020423/">ucsd/sigcomm2001.</a>
+    </p>
+    <p style="margin: 0px">
+      Notes about the form:
+    </p>
+    <ul style="margin: 0px;">
+      <li>Required Fields are denoted by an *.</li>
+      <li>You may save progress at any point and return to the form using the URL emailed to the primary author.</li>
+      <li>Saving progress redirects back to the "Dataset Information" first page.</li>
+    </ul>
+    <p style="margin-bottom: 30px;">
+      -----------------------------------------------------------------------------------------------------------------
     </p>
 
     <form target="_self" id="whole_form" autocomplete="off" spellcheck="false" method="post">
-      <button class="prev_button" type="button">Previous</button>
+      <button id="prev_button_top" class="prev_button" type="button">Previous</button>
       <button class="next_button" type="button">Next</button>
 
       <p class="form-error">
@@ -33,7 +52,7 @@
 
         <h2>Dataset Information</h2>
 
-        <p> <i> * Denotes Required Fields </i></p>
+        <!-- <p> <i> * Denotes Required Fields </i></p> -->
 
         <div class="dataset-name">
           <div>
@@ -179,8 +198,8 @@
             </div>
 
             <div class="input-error-container">
-              <input type="text" id="dset_author1_country" name="dset_author1_country" placeholder="Country" 
-              list="country_list" value="[dset_author1_country]">
+              <input type="text" id="dset_author1_country" name="dset_author1_country" placeholder="Country"
+                list="country_list" value="[dset_author1_country]">
               <span class="error"> </span>
             </div>
             <datalist id="country_list">
@@ -966,17 +985,17 @@
       </div>
 
       <div class="save-error">Please add correctly formatted 'Dataset Name' and 'Institution Name (short)
-      before progress is able to be saved.</div>
+        before progress is able to be saved.</div>
       <button type="button" id="save_progress_button" class="button">Save Progress</button>
 
       <div class="tset-pages">
-        
+
         <!-- Exact formatting of next line is very important -- if you change it, make sure to reflect
         the change in the 'load_progress.py' script. This is because string formatting is used to implement
         the 'load progress' feature. -->
       </div> <button class="prev_button" type="button">Previous</button>
 
-      <button class="next_button" type="button" >Next</button>
+      <button class="next_button" type="button">Next</button>
 
     </form>
 
@@ -984,7 +1003,7 @@
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
-  </script>
+    </script>
   <script src="main.js"></script>
   <script src="main_validation.js"></script>
 

@@ -74,7 +74,13 @@ function nextPrev(n) {
   // Otherwise, display the correct tab:
   console.log(current_page);
   showPage(current_page);
-  $(window).scrollTop(0);
+
+  // Scroll to the top of the document
+  // $(window).scrollTop(0);
+
+  let posY = window.scrollY + document.querySelector('#prev_button_top').getBoundingClientRect().top;
+  window.scroll(0, posY-10); 
+
 }
 
 // Render Trace Pages

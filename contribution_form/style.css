@@ -21,10 +21,12 @@ body {
 }
 
 #main {
-    /* border: 1px solid red;    */
+    border: 1px solid red;   
     display: flex;
-    width: 60rem;
+    width: 53rem;
     flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 /* #sidebar {
@@ -76,6 +78,8 @@ body {
 
 h2 {
     font-size: 25px;
+    /* margin-top: 5px; */
+    margin-bottom: 35px;
 }
 
 h3 {
@@ -87,10 +91,13 @@ h3 {
 } */
 
 
-
+p, ul {
+  margin-top: 0;
+  font-size: 14px;
+}
 
 p.description, *::placeholder {
-    font-size: 14px;
+    font-size: 13px;
     font-style: italic;
     margin-top: 0;
     margin-bottom: 5px;
@@ -211,7 +218,7 @@ div.checkbox {
     flex-wrap: wrap;
     /* border: solid; */
     height: 250px;
-    width: 600px;
+    /* width: 600px; */
 }
 
 .measurement-dates {
@@ -269,7 +276,7 @@ div.checkbox {
   right: 10px;
 }
 
-a, a:visited {
+a, a:visited, a:active, a:hover {
     text-decoration: none;
     color: rgb(7, 52, 255);
 }
@@ -338,6 +345,7 @@ input:focus {
 .form-error {
   display: none;
   color: red;
+  margin-top: 20px;
 }
 
 
