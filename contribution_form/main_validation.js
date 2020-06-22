@@ -286,20 +286,6 @@ validateRequired = (e) => {
   return true;
 }
 
-handleSubmit = (e) => {
-  // alert();
-  
-  // const name_valid = validateDatasetName($('#dset_name').val()); 
-  // const email_valid = validateEmail($('#dset_author1_email').val());
-  // const form_valid = name_valid && email_valid;
-  
-  if (form_valid) {
-    // $('#whole_form').submit();
-  } else {
-    $('.form-error').show();
-  }
-}
-
 // As soon as document is ready, add validation-performing event handlers to 'on blur' events associated
 // with dataset/traceset page input fields.
 $(document).ready( () => {
@@ -347,3 +333,20 @@ $(document).ready( () => {
   addInputCharLimitValidation();
   addTextAreaCharLimitValidation();
 })
+
+handleSubmit = (e) => {
+  // const name_valid = validateDatasetName($('#dset_name').val()); 
+  // const email_valid = validateEmail($('#dset_author1_email').val());
+  // const form_valid = name_valid && email_valid;
+
+  // check all required fields
+  // check Xset names
+  // check all dates
+  // check all emails
+  
+  if (form_valid) {
+    // $('#whole_form').submit();
+  } else {
+    $('.form-error').show();
+  }
+}
