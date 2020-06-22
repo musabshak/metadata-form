@@ -42,30 +42,33 @@ function showPage(n) {
     
 }
 
+// This function will figure out which page to display
 function nextPrev(n) {
-  // This function will figure out which page to display
   var x = document.getElementsByClassName("page");
-  // console.log(x);
   // console.log(current_page);
-  // Exit the function if any field in the current tab is invalid:
-  // if (n == 1 && !validateForm()) return false;
+  // console.log(x);
+
   // Hide the current tab:
-  if (current_page + n >= x.length) {
-    // console.log('hey');
-    return;
-  }
   x[current_page].style.display = "none";
+
   // Increase or decrease the current tab by 1:
   current_page = current_page + n;
-  // if you have reached the end of the form... :
+
+   // if you have reached the end of the form... :
   if (current_page >= x.length) {
-    // console.log(current_page);
+    // alert();
+    current_page -= 1;
+
+    handleSubmit();
+
     //...the form gets submitted:
     //document.getElementById("whole_form").submit();
     //$("#next_button").attr({type:"submit", formaction:"saveprogress.py" })
-    return false;
+    // return false;
   }
+
   // Otherwise, display the correct tab:
+  console.log(current_page);
   showPage(current_page);
   $(window).scrollTop(0);
 }
@@ -152,6 +155,24 @@ $("#confirm-num-tsets").click(function(event) {
         tsetPageTemplateModified = tsetPageTemplate.replace(/\[id\]/g, `${i}`);
         $(".tset-pages").append(tsetPageTemplateModified);
         console.log(i);
+
+        /**
+          * Tracet pages validation for newly created pages
+          */
+        for (var j = 0; j < tset_required_fields.length; j++) {
+          $(`#${tset_required_fields[j].replace('X', i)}`).on('blur', validateRequired);
+        }
+
+        // Validate tracet name
+        $(`#tset${i}_name`).on('blur', validateXsetName);
+
+        // Validate traceset dates
+        $(`#tset${i}_start_date`).on('blur', validateDateFormat);
+        $(`#tset${i}_end_date`).on('blur', validateDateFormat);
+
+        addInputCharLimitValidation();
+        addTextAreaCharLimitValidation();
+
       }
 
     }
@@ -203,3 +224,8 @@ $(document).ready( () => {
   console.log('current number of tset pages is: ', currNumTsets);
 })
 
+/**
+ * VALIDATION
+ */
+
+ 

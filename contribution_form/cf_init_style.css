@@ -89,31 +89,32 @@ textarea {
 }
 
 /* Form Validation CSS */
-.errors {
-  display: none;
-  background-color: #ffdddd;
-}
-
 
 .invalid {
   background-color: #ffdddd;
   border-color: red;
   border-width: 1px;
   border-style: solid;
-  
   box-shadow: 1px 1px 1px red;
   outline: none;
 }
 
-input:focus {
+.invalid:focus {
   outline: none;
+  border-color: red;
+  border-width: 2px;
+  border-style: solid;
+}
+
+input:focus {
+  outline: normal;
 }
 
 .error {
   display: none;
   color: red;
   font-weight: normal !important;
-  font-size: 14px;
+  font-size: 14px !important;
 }
 
 .input-error-container {

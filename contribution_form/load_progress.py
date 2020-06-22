@@ -2,6 +2,7 @@
 
 import cgi,cgitb, os
 import xml.etree.ElementTree as ET
+import re
 
 """
 Normal fields (have either 'value' attribute or can fill in text)
@@ -28,6 +29,8 @@ def main():
   ## from xml file above. Render contribution form with populated values.
   with open ("templates/contribution_form_template.txt", "r") as form_template_file:
     form_template = form_template_file.read()
+    form_template = form_template.replace("label", "div")
+    # form_template = form_template.replace("</label>", "")
 
     ## Add traceset pages based on saved form field "dset_num_tracesets"
     tracepage_template = ""
@@ -49,11 +52,11 @@ def main():
     filled_form = form_template
     for child in root: 
       # 'Select' datafield
-      if ("country" in child.tag):
-        ## TODO: Deal with this edge case by re-formatting country option tags in template file
-        continue
+      # if ("country" in child.tag):
+      #   ## TODO: Deal with this edge case by re-formatting country option tags in template file
+      #   continue
       # 'input type="checkbox"' datafield
-      elif ("checkbox" in child.attrib):
+      if ("checkbox" in child.attrib):
         for sub_child in child:
           checkbox_str = f'input type="checkbox" name="{child.tag}" value="{sub_child.text}"'
           filled_form = filled_form.replace(checkbox_str, checkbox_str + ' checked')

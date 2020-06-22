@@ -2,6 +2,7 @@
 import cgi,cgitb
 from xml.etree.ElementTree import Element, SubElement, Comment, tostring
 import os
+import re
 
 CHECKBOX_FIELD_KEYS = ["dset_keywords", "dset_measurement_purposes", "dset_network_type"]
 

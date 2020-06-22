@@ -21,9 +21,9 @@ body {
 }
 
 #main {
-    /* border: 1px solid red;    */
+    border: 1px solid red;   
     display: flex;
-    width: 50rem;
+    width: 60rem;
     flex-direction: column;
 }
 
@@ -72,9 +72,7 @@ body {
     padding: 5px;
 } */
 
-label[for^="dataset"] {
-    font-weight: normal;
-}
+
 
 h2 {
     font-size: 25px;
@@ -88,14 +86,8 @@ h3 {
     margin-bottom: 5px;
 } */
 
-label:not([class="checkbox"]) span, h3 {
-    font-weight: bold;
-    font-size: 16px;
-}
 
-label.checkbox span {
-    font-size: 14px;
-}
+
 
 p.description, *::placeholder {
     font-size: 14px;
@@ -105,22 +97,23 @@ p.description, *::placeholder {
 }
 
 p.description {
-    max-width: 580px;
+    max-width: 600px;
 }
 
-input:not([type="checkbox"]) {
+input:not([type="checkbox" ]):not([type="submit" ]) {
     display: block;
-    margin-bottom: 35px;
+    margin-right: 20px;
+    margin-bottom: 35px;    
     line-height: 2;
 }
 
 select {
-    height: 30px;
+    height: 32px;
     /* width: 180px; */
 }
 
-input[type="text"], textarea, input[type="date"], 
-input[type="number"], select
+input[type="text"], textarea, 
+input[type="number"]
  {
   font-size: 14px;
   border-radius: 5px;
@@ -137,7 +130,7 @@ input[type="text"] {
   width: 250px;
 }
 
-input[type="date"], input[type="number"] {
+.measurement-dates input, input[type="number"] {
   width: 200px ;
 }
 
@@ -145,6 +138,7 @@ input[type="date"], input[type="number"] {
 
 textarea {
     display: block;
+    margin-right: 20px;
     margin-bottom: 35px;
     width: 600px;
     padding: 5px;
@@ -160,11 +154,11 @@ input[type=checkbox] {
 }
 
 .author-details input{
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
 
-.author-details input, .author-details select {
-  width: 250px !important;
+.author-details input {
+  width: 250px ;
   margin-top: 5px;
 }
 
@@ -173,11 +167,32 @@ input[type=checkbox] {
   margin-bottom: 0;
 }
 
-label {
-    display: block;
+#dset_author1_country {
+  margin-bottom: 15px !important;
 }
 
-label.checkbox {
+/* label[for^="dataset"] {
+  font-weight: normal;
+} */
+
+/* changed from label */
+div:not([class="checkbox"]) span, h3 {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* changed from label */
+div.checkbox span {
+    font-size: 14px;
+    font-weight: normal !important;
+}
+
+/* label {
+    display: block;
+} */
+
+/* changed from label */
+div.checkbox {
     display: flex;
     align-items: center;
 }
@@ -200,18 +215,12 @@ label.checkbox {
 
 .measurement-dates {
     display: flex;
-    justify-content: space-between;
-    width: 440px;
+    justify-content: flex-start;
+    /* width: 440px; */
 }
 
 
-#dset_author1_country {
-    margin-bottom: 15px;
-}
 
-#dset_author2_country {
-    margin-bottom: 35px;
-}
 
 .show-opt-button {
     margin-bottom: 20px;
@@ -290,3 +299,53 @@ a, a:visited {
   width: 180px;
   display: none;
 }
+
+/* Form Validation */
+
+.invalid {
+  background-color: #ffdddd;
+  border-color: red;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: 1px 1px 1px red;
+  outline: none;
+}
+
+.invalid:focus {
+  outline: none;
+  border-color: red;
+  border-width: 2px;
+  border-style: solid;
+}
+
+input:focus {
+  outline: normal;
+}
+
+.input-error-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.form-error {
+  display: none;
+  color: red;
+}
+
+.error {
+  display: none;
+  color: red;
+  font-weight: normal !important;
+  font-size: 14px !important;
+}
+
+.measurement-dates .input-error-container {
+  /* align-items: center; */
+  margin-right: 30px;
+}
+
+.author-details .input-error-container {
+  align-items: center;
+}
+

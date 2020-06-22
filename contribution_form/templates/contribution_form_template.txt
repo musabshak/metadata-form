@@ -20,9 +20,13 @@
       <a href="mailto:crawdad-team@cs.dartmouth.edu">crawdad-team@cs.dartmouth.edu.</a>
     </p>
 
-    <form target="_self" id="whole_form" autocomplete="off" spellcheck="false">
+    <form target="_self" id="whole_form" autocomplete="off" spellcheck="false" method="post">
       <button id="prev_button_top" type="button" onclick="nextPrev(-1)">Previous</button>
       <button id="next_button_top" type="button" onclick="nextPrev(1)">Next</button>
+
+      <p class="form-error">
+        You must fix the errors (highlighted in red) in your responses before being able to submit the form!
+      </p>
 
       <div class="page0 page">
 
@@ -32,49 +36,76 @@
 
         <div class="dataset-name">
           <label>
+
             <span>* Dataset Name</span>
-            <p class="description"> 
+
+            <p class="description">
               One-word name for the dataset. Should only contain alphanumeric characters, preferably
-              all lowercase. For example, "mobilitywireless5g". More examples can be found 
+              all lowercase. For example, "mobilitywireless5g". More examples can be found
               <a href="#">here.</a>
             </p>
-            <input type="text" id="dset_name" name="dset_name" value="[dset_name]">
+
+            <div class="input-error-container">
+              <input type="text" id="dset_name" name="dset_name" value="[dset_name]">
+              <span class="error"> </span>
+            </div>
+
           </label>
         </div>
 
         <div class="institution-name">
           <label>
+
             <span>* Institution Name (short)</span>
-            <p class="description"> 
-              One-word institution name. Should only contain alphanumeric characters.
-              For example, "dartmouth". Examples of existing institution names can be found 
+
+            <p class="description">
+              One-word institution name. Should only contain alphanumeric characters, preferably
+              all lowercase. For example, "dartmouth". Examples of existing institution names can be found
               <a href="#">here.</a>
             </p>
-            <input type="text" id="dset_institution_name" name="dset_institution_name" value="[dset_institution_name]">
+
+            <div class="input-error-container">
+              <input type="text" id="dset_institution_name" name="dset_institution_name"
+                value="[dset_institution_name]">
+              <span class="error"> </span>
+            </div>
+
           </label>
         </div>
 
         <div class="description-short">
           <label>
+
             <span>* Dataset Description (short)</span>
+
             <p class="description"> Short, one-line description of the dataset.</p>
-            <textarea id="dset_description_short" name="dset_description_short" rows="2"
-              cols="70">[dset_description_short]</textarea>
+
+            <div class="input-error-container">
+              <textarea id="dset_description_short" name="dset_description_short"
+                rows=2>[dset_description_short]</textarea>
+              <span class="error"> </span>
+            </div>
+
           </label>
         </div>
 
         <div class="description-long">
           <label>
+
             <span>* Dataset Description (long)</span>
+
             <p class="description">
               This longer description will provide a quick summary of the details of your dataset and
-              collection
-              methods to CRAWDAD users. Some highlights of your methodology and results (for example, from
-              the
-              abstract of your paper) may be appropriate.
+              collection methods to CRAWDAD users. Some highlights of your methodology and results
+              (for example, from the abstract of your paper) may be appropriate.
             </p>
-            <textarea id="dset_description_long" name="dset_description_long" rows="10"
-              cols="70">[dset_description_long]</textarea>
+
+            <div class="input-error-container">
+              <textarea id="dset_description_long" name="dset_description_long"
+                rows=10>[dset_description_long]</textarea>
+              <span class="error"> </span>
+            </div>
+
           </label>
         </div>
 
@@ -83,7 +114,11 @@
             <label>
               <span>* Number of Tracesets</span>
               <p class="description"> Should be a positive integer.</p>
-              <input type="number" id="dset_num_tracesets" name="dset_num_tracesets" min="1" value=[dset_num_tracesets]>
+              <div class="input-error-container">
+                <input type="number" id="dset_num_tracesets" name="dset_num_tracesets" min="1" max="20"
+                  value=[dset_num_tracesets]>
+                <span class="error"> </span>
+              </div>
             </label>
           </div>
           <div id="data-loss-warning">
@@ -93,36 +128,63 @@
 
         </div>
 
-        <div class="measurement-dates">
+        <div class="dset-measurement-dates measurement-dates">
 
           <div id="start-date">
-            <label>
+            <div>
               <span>* Measurement Start Date</span>
-              <p class="description">MM/DD/YY</p>
-              <input type="date" id="dset_start_date" name="dset_start_date" value="[dset_start_date]">
-            </label>
+              <p class="description">YYYY-MM-DD</p>
+              <div class="input-error-container">
+                <input type="text" id="dset_start_date" name="dset_start_date" value="[dset_start_date]">
+                <span class="error"> </span>
+              </div>
+            </div>
           </div>
 
           <div id="end-date">
             <label>
               <span>* Measurement End Date</span>
-              <p class="description">MM/DD/YY</p>
-              <input type="date" id="dset_end_date" name="dset_end_date" value="[dset_end_date]">
+              <p class="description">YYYY-MM-DD</p>
+              <div class="input-error-container">
+                <input type="text" id="dset_end_date" name="dset_end_date" value="[dset_end_date]">
+                <span class="error"> </span>
+              </div>
             </label>
           </div>
+
+
         </div>
+
 
         <div class="author-details">
           <label>
             <span>* Author 1 Details</span>
-            <input type="text" id="dset_author1_name" name="dset_author1_name" placeholder="Name"
-              value="[dset_author1_name]">
-            <input type="text" id="dset_author1_email" name="dset_author1_email" placeholder="Email"
-              value="[dset_author1_email]">
-            <input type="text" id="dset_author1_institution" name="dset_author1_institution" placeholder="Institution"
-              value="[dset_author1_institution]">
-            <p class="description">Country</p>
-            <select id="dset_author1_country" name="dset_author1_country">
+
+            <div class="input-error-container">
+              <input type="text" id="dset_author1_name" name="dset_author1_name" placeholder="Name"
+                value="[dset_author1_name]">
+              <span class="error"> </span>
+            </div>
+
+            <div class="input-error-container">
+              <input type="text" id="dset_author1_email" name="dset_author1_email" placeholder="Email"
+                value="[dset_author1_email]">
+              <span class="error"> </span>
+            </div>
+
+            <div class="input-error-container">
+              <input type="text" id="dset_author1_institution" name="dset_author1_institution" placeholder="Institution"
+                value="[dset_author1_institution]">
+              <span class="error"> </span>
+            </div>
+
+            <!-- <p class="description">Country</p> -->
+            <div class="input-error-container">
+              <input type="text" id="dset_author1_country" name="dset_author1_country" placeholder="Country" 
+              list="country_list" value="[dset_author1_country]">
+              <span class="error"> </span>
+            </div>
+            <datalist id="country_list">
               <option value="Afganistan">Afghanistan</option>
               <option value="Albania">Albania</option>
               <option value="Algeria">Algeria</option>
@@ -369,10 +431,12 @@
               <option value="Zaire">Zaire</option>
               <option value="Zambia">Zambia</option>
               <option value="Zimbabwe">Zimbabwe</option>
-            </select>
+            </datalist>
+
+
           </label>
 
-          <label>
+          <!-- <label>
             <span>Author 2 Details</span>
             <input type="text" id="dset_author2_name" name="dset_author2_name" placeholder="Name"
               value="[dset_author2_name]">
@@ -629,14 +693,18 @@
               <option value="Zambia">Zambia</option>
               <option value="Zimbabwe">Zimbabwe</option>
             </select>
-          </label>
+          </label> -->
+
         </div>
 
         <div class="external-url">
           <label>
             <span>External URL</span>
             <p class="description"> If dataset is hosted elsewhere, please provide URL.</p>
-            <input type="text" id="dset_external_url" name="dset_external_url" value="[dset_external_url]">
+            <div class="input-error-container">
+              <input type="text" id="dset_external_url" name="dset_external_url" value="[dset_external_url]">
+              <span class="error"> </span>
+            </div>
           </label>
         </div>
 
@@ -1020,8 +1088,11 @@
                 respective
                 trace(s) and traceset(s).
               </p>
-              <textarea id="dset_nontech_description" name="dset_nontech_description" rows="10"
-                cols="50">[dset_nontech_description]</textarea>
+              <div class="input-error-container">
+                <textarea id="dset_nontech_description" name="dset_nontech_description" rows="10"
+                  cols="50">[dset_nontech_description]</textarea>
+                <span class="error"> </span>
+              </div>
             </label>
           </div>
 
@@ -1044,8 +1115,11 @@
                 upload.
                 Provide details of sanitization methods in description of each traceset.
               </p>
-              <textarea id="dset_sanitization" name="dset_sanitization" 
-              rows="10" cols="50">[dset_sanitization]</textarea>
+              <div class="input-error-container">
+                <textarea id="dset_sanitization" name="dset_sanitization" rows="10"
+                  cols="50">[dset_sanitization]</textarea>
+                <span class="error"> </span>
+              </div>
             </label>
           </div>
 
@@ -1056,8 +1130,11 @@
                 If this dataset includes data captured from a network, describe that network and its
                 configuration.
               </p>
-              <textarea id="dset_network_configuration" name="dset_network_configuration" rows="10"
-                cols="50">[dset_network_configuration]</textarea>
+              <div class="input-error-container">
+                <textarea id="dset_network_configuration" name="dset_network_configuration" rows="10"
+                  cols="50">[dset_network_configuration]</textarea>
+                <span class="error"> </span>
+              </div>
             </label>
           </div>
 
@@ -1070,8 +1147,11 @@
                 trace,
                 and each traceset, for the pages describing the respective trace(s) and traceset(s).
               </p>
-              <textarea id="dset_collection_methodology" name="dset_collection_methodology" rows="10"
-                cols="50">[dset_collection_methodology]</textarea>
+              <div class="input-error-container">
+                <textarea id="dset_collection_methodology" name="dset_collection_methodology" rows="10"
+                  cols="50">[dset_collection_methodology]</textarea>
+                <span class="error"> </span>
+              </div>
             </label>
           </div>
 
@@ -1084,8 +1164,11 @@
                 affect
                 the use or interpretation of the data?
               </p>
-              <textarea id="dset_methodology_limitations" name="dset_methodology_limitations" rows="10"
-                cols="50">[dset_methodology_limitations]</textarea>
+              <div class="input-error-container">
+                <textarea id="dset_methodology_limitations" name="dset_methodology_limitations" rows="10"
+                  cols="50">[dset_methodology_limitations]</textarea>
+                <span class="error"> </span>
+              </div>
             </label>
           </div>
 
@@ -1098,8 +1181,11 @@
                 missing a
                 few hours due to a power failure.
               </p>
-              <textarea id="dset_missing_data" name="dset_missing_data" 
-              rows="10" cols="50">[dset_missing_data]</textarea>
+              <div class="input-error-container">
+                <textarea id="dset_missing_data" name="dset_missing_data" rows="10"
+                  cols="50">[dset_missing_data]</textarea>
+                <span class="error"> </span>
+              </div>
             </label>
           </div>
 
@@ -1112,21 +1198,27 @@
                 those
                 data are labeled.
               </p>
-              <textarea id="dset_incorrectly_meas_data" name="dset_incorrectly_meas_data" rows="10"
-                cols="50">[dset_incorrectly_meas_data]</textarea>
+              <div class="input-error-container">
+                <textarea id="dset_incorrectly_meas_data" name="dset_incorrectly_meas_data" rows="10"
+                  cols="50">[dset_incorrectly_meas_data]</textarea>
+                <span class="error"> </span>
+              </div>
             </label>
           </div>
 
-          <div class="notes">
+          <div class="suggestions">
             <label>
-              <span>Notes</span>
+              <span>Suggestions</span>
               <p class="description">
                 Please use this box for any other notes about the overall dataset not covered in the
                 above
                 boxes.
               </p>
-              <textarea id="dset_suggestions" name="dset_suggestions" 
-              rows="10" cols="50">[dset_suggestions]</textarea>
+              <div class="input-error-container">
+                <textarea id="dset_suggestions" name="dset_suggestions" rows="10"
+                  cols="50">[dset_suggestions]</textarea>
+                <span class="error"> </span>
+              </div>
             </label>
           </div>
 
@@ -1247,8 +1339,13 @@
         </div> -->
       </div> <button id="prev_button_bottom" type="button" onclick="nextPrev(-1)">Previous</button>
 
-      
+
       <button id="next_button_bottom" type="button" onclick="nextPrev(1)">Next</button>
+
+      <p class="form-error">
+        You must fix the errors (highlighted in red) in your responses before being able to submit the form!
+      </p>
+
     </form>
 
   </div>
@@ -1257,6 +1354,7 @@
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
     </script>
   <script src="main.js"></script>
+  <script src="main_validation.js"></script>
 
 </body>
 
