@@ -45,7 +45,9 @@
       <button class="next_button" type="button">Next</button>
 
       <p class="form-error">
-        You must fix the errors (highlighted in red) in your responses before being able to submit the form!
+        You must fix the errors (highlighted in red) in your responses before being able to submit the form.
+        Make sure to check the "Checkbox Fields" and "Additional Dataset Details" collapsible sections for
+        possible errors!
       </p>
 
       <div class="page0 page">
