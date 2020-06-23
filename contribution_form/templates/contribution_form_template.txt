@@ -35,6 +35,9 @@
       <li>Required Fields are denoted by an *.</li>
       <li>You may save progress at any point and return to the form using the URL emailed to the primary author.</li>
       <li>Saving progress redirects back to the "Dataset Information" first page.</li>
+      <li>The 'Submit' button appears on the last traceset page.</li>
+      <li>Once you submit the form, you will not be able to re-access the form via the URL. For any changes/edits, 
+        please contact <a target="_blank" href="mailto:crawdad-team@cs.dartmouth.edu">crawdad-team@cs.dartmouth.edu.</a></li>
     </ul>
     <p style="margin-bottom: 30px;">
       -----------------------------------------------------------------------------------------------------------------
@@ -46,7 +49,7 @@
 
       <p class="form-error">
         You must fix the errors (highlighted in red) in your responses before being able to submit the form.
-        Make sure to check the "Checkbox Fields" and "Additional Dataset Details" collapsible sections for
+        Make sure to check the "Additional Dataset Details" collapsible section on the first page for
         possible errors!
       </p>
 
