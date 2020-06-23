@@ -460,17 +460,6 @@
 
         </div>
 
-        <div class="external-url">
-          <div>
-            <span>External URL</span>
-            <p class="description"> If dataset is hosted elsewhere, please provide URL.</p>
-            <div class="input-error-container">
-              <input type="text" id="dset_external_url" name="dset_external_url" value="[dset_external_url]">
-              <span class="error"> </span>
-            </div>
-          </div>
-        </div>
-
         <button id="show-opt-checkboxes" class="show-opt-button">
           Checkbox Fields
         </button>
@@ -839,7 +828,18 @@
           Additional Dataset Details
         </button>
 
-        <div id="optional-textboxes" class="optional-fields" textboxes page1>
+        <div id="optional-textboxes" class="optional-fields textboxes page1">
+
+          <div class="external-url">
+            <div>
+              <span>External URL</span>
+              <p class="description"> If dataset is hosted elsewhere, please provide URL.</p>
+              <div class="input-error-container">
+                <input type="text" id="dset_external_url" name="dset_external_url" value="[dset_external_url]">
+                <span class="error"> </span>
+              </div>
+            </div>
+          </div>
 
           <div class="non-tech-description">
             <div>

@@ -55,7 +55,7 @@ body {
 
 #save_progress_button {
     position: fixed;
-    bottom: 80px;
+    bottom: 5px;
     right: 30px;   
 }
 
@@ -354,10 +354,11 @@ input:focus {
   display: none;
   color: red;
   position: fixed;
-  bottom: 150px;
+  bottom: 30px;
   right: 30px;   
   width: 150px;
   height: 170px;
+  font-size: 14px;
 }
 
 .error {
