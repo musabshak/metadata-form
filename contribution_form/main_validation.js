@@ -69,7 +69,6 @@ validateXsetName = (value, id) => {
   const fieldID = `#${id}`;
 
   const regexp = /^[a-zA-Z0-9-]+$/;
-  const nameCharLimit = 30;
 
   hideError(fieldID);
 
@@ -80,7 +79,7 @@ validateXsetName = (value, id) => {
     return false;
   }
   else if (!regexp.test(XsetName)) {
-    const errorMessage = "Datset/Traceset name may contain only alpha-numeric characters, preferable all lowercase ";
+    const errorMessage = "Dataset/Traceset name may contain only alpha-numeric characters, preferable all lowercase";
     showError(fieldID, errorMessage);
     return false;
   } 
@@ -189,7 +188,7 @@ validateEmail = (value, id) => {
     showError(fieldID, errorMessage);
     return false;
   }
-  if (!EMAIL_RE1.test(email) || !EMAIL_RE2.test(email)) {
+  else if (!EMAIL_RE1.test(email) || !EMAIL_RE2.test(email)) {
     const errorMessage = "Must provide a correct email";
     showError(fieldID, errorMessage);
     return false;

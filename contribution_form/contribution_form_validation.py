@@ -49,7 +49,7 @@ print(tostring(top).decode('UTF-8'), file=open("xml_files/" + xml_file_name + ".
 
 print("Content-Type:text/html\n") 
 
-with open('templates/success.txt', 'r') as success_file:  
+with open('templates/submit_success.txt', 'r') as success_file:  
   print(success_file.read())
 
 # Redirect user back to the form

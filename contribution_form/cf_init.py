@@ -9,6 +9,7 @@ import secrets
 
 from email.message import EmailMessage
 from datetime import datetime
+from validationCommon import *
 
 # Send token link to author for accessing the initialized metadata form.
 def email_token(receiver_email, token):
@@ -71,24 +72,22 @@ def main():
   # print("Content-Type:text/html\n")                          
   
   cgitb.enable() #for debugging
-  form = cgi.FieldStorage()
+  form = cgi.FieldStorage(keep_blank_values=True)
 
-  # print(", ".join(form.getlist("hair color")))
-  # cgi.print_form(form)
-  # cgi.print_directory()
-  # print()
+  try:
+    validation_errors = validate_init_form(form)
+  except: 
+    validation_errors = "<li>Cannot parse request<li>\n"
 
-  # print(form.getlist("dset_name"))
-  # print(form.getlist("dset_num_tracesets"))
+  if validation_errors != '':
+    print("Content-Type:text/html\n")
+    with open('templates/submit_failure.txt') as submit_failure_file:
+      submit_failure_template = submit_failure_file.read()
+      submit_failure_template = submit_failure_template.replace('[error_list]', validation_errors)
+      print(submit_failure_template)     
+    return
 
-  ## Gather filled fields from the initialization page.
-  # dset_name = form.getlist("dset_name")[0]
-  # dset_description_short = form.getlist("dset_description_short")[0]
-  # dset_institution_name = form.getlist("dset_institution_name")[0]
-  # dset_author1_name = form.getlist("dset_author1_name")[0]
   dset_author1_email = form.getlist("dset_author1_email")[0]
-  # dset_author1_institution = form.getlist("dset_author1_institution")[0]
-  # dset_author1_country = form.getlist("dset_author1_country")[0]
 
   ## Generate xml file. Save initial fields to xml file.
   xml_file_name = save_xml(form)
@@ -98,20 +97,11 @@ def main():
   try: 
     email_token(dset_author1_email, token)
   except: 
+    print("Content-Type:text/html\n")
     print("emailing token unsuccessful")
 
   # Render contribution form with fields from initialization page filled in.
   with open ("templates/contribution_form_template.txt", "r") as form_contents_file:
-    # form_contents = form_contents_file.read()
-    # filled_form = form_contents
-    # filled_form = filled_form.replace("[dset_name]", dset_name)
-    # filled_form = filled_form.replace("[dset_description_short]", dset_description_short)
-    # filled_form = filled_form.replace("[dset_institution_name]", dset_institution_name)
-    # filled_form = filled_form.replace("[dset_author1_name]", dset_author1_name)
-    # filled_form = filled_form.replace("[dset_author1_email]", dset_author1_email)
-    # filled_form = filled_form.replace("[dset_author1_institution]", dset_author1_institution)
-    # filled_form = filled_form.replace(f">{dset_author1_country}", f"selected> {dset_author1_country}")
-    # print(filled_form)
     print('Location:', 'http://', token, '\n', sep="")   
 
 
