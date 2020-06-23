@@ -25,10 +25,10 @@ def main():
   tree = ET.parse("xml_files/" + xml_file_name + ".xml")
   root = tree.getroot()
 
-  if root.attrib.get('submitted') == 'true':
-    print("Content-Type:text/html\n")    
-    print('You have already submitted the form; please contact CRAWDAD admin if you wish to make any changes.')
-    return
+  # if root.attrib.get('submitted') == 'true':
+  #   print("Content-Type:text/html\n")    
+  #   print('You have already submitted the form; please contact CRAWDAD admin if you wish to make any changes.')
+  #   return
   
   ## Open contribution form template. Populate field values with values read
   ## from xml file above. Render contribution form with populated values.
@@ -36,6 +36,20 @@ def main():
     form_template = form_template_file.read()
     # form_template = form_template.replace("label", "div")
     # form_template = form_template.replace("</label>", "")
+
+    ## Add author details based on saved form field "dset_num_authors"
+    author_template = ""
+    with open("templates/author_details_template.txt") as author_template_file:
+      author_template = author_template_file.read()
+    
+    end_author_details_str = "</div> <!-- End of Author Details-->"
+    dset_num_authors = int(root.find('dset_num_authors').text)
+
+    modified_author_details = ""
+    for i in range(2, dset_num_authors+1):
+      modified_author_details = author_template.replace('[id]', str(i))
+      modified_author_details += '\n' + end_author_details_str
+      form_template = form_template.replace(end_author_details_str, modified_author_details)
 
     ## Add traceset pages based on saved form field "dset_num_tracesets"
     tracepage_template = ""
@@ -54,7 +68,7 @@ def main():
 
     # print("Content-Type:text/html\n")
     # print(form_template)
-    
+
     filled_form = form_template
     for child in root: 
       # 'Select' datafield

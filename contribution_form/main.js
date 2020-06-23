@@ -78,7 +78,7 @@ function nextPrev(n) {
   // Scroll to the top of the document
   // $(window).scrollTop(0);
 
-  let posY = window.scrollY + document.querySelector('#prev_button_top').getBoundingClientRect().top;
+  let posY = window.scrollY + document.querySelector('#next_button_top').getBoundingClientRect().top;
   window.scroll(0, posY-10); 
 
 }
@@ -200,6 +200,44 @@ $("#confirm-num-tsets").click(function(event) {
   }
 })
 
+var authorDetailsTemplate = readStringFromFileAtPath("templates/author_details_template_no_value.txt");
+
+
+var currNumAuthors;
+$('#add-author-btn').on('click', (e) => {
+  if (currNumAuthors+1 > MAX_AUTHORS) {
+    alert("Maximum 4 authors allowed");
+    return
+  }
+
+  let authorDetailsTemplateModified = authorDetailsTemplate.replace(/\[id\]/g, `${currNumAuthors+1}`);
+  $('.author-details').append(authorDetailsTemplateModified);
+  currNumAuthors = $('.author-details').children().length;
+  $('#dset_num_authors').val(currNumAuthors);
+
+   // Hide all 'remove author' buttons except for for the last author
+   for (var i=2; i<currNumAuthors; i++) {
+    $(`.remove-author-btn.author${i}`).hide();
+  }
+
+  $(`.remove-author-btn.author${currNumAuthors}`).on('click', (e) => {
+    console.log(e.target.offsetParent);
+    const authorID = e.target.offsetParent.classList[1];
+    console.log(authorID);
+    $(`div#${authorID}`).remove();
+    currNumAuthors = $('.author-details').children().length;
+    $(`.remove-author-btn.author${currNumAuthors}`).show();
+    $('#dset_num_authors').val(currNumAuthors);
+  })
+
+  // addInputCharLimitValidation();
+})
+
+
+
+
+
+
 // // When loading form progress, find out how many traceset pages exist by
 // // reading "dset_num_tracesets" value from saved xml file.
 // $(document).ready(() => {
@@ -231,11 +269,31 @@ $("#confirm-num-tsets").click(function(event) {
 // by finding out the number of children of <div class="tset-pages"> tag.
 $(document).ready( () => {
   currNumTsets = $(".tset-pages").children().length;
+  currNumAuthors = $('.author-details').children().length;
   console.log('current number of tset pages is: ', currNumTsets);
+
+  for (var i=2; i<currNumAuthors; i++) {
+    $(`.remove-author-btn.author${i}`).on('click', (e) => {
+      console.log(e.target.offsetParent);
+      const authorID = e.target.offsetParent.classList[1];
+      console.log(authorID);
+      $(`div#${authorID}`).remove();
+      currNumAuthors = $('.author-details').children().length;
+      $(`.remove-author-btn.author${currNumAuthors}`).show();
+      $('#dset_num_authors').val(currNumAuthors);
+    })
+    $(`.remove-author-btn.author${i}`).hide();
+  }
+
+  $(`.remove-author-btn.author${currNumAuthors}`).on('click', (e) => {
+    console.log(e.target.offsetParent);
+    const authorID = e.target.offsetParent.classList[1];
+    console.log(authorID);
+    $(`div#${authorID}`).remove();
+    currNumAuthors = $('.author-details').children().length;
+    $(`.remove-author-btn.author${currNumAuthors}`).show();
+    $('#dset_num_authors').val(currNumAuthors);
+  })
+
+  
 })
-
-/**
- * VALIDATION
- */
-
- 

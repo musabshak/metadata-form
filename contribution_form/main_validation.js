@@ -21,6 +21,7 @@
 const INPUT_TEXT_CHARLIMIT = 50;
 const TEXTAREA_CHARLIMIT = 500;
 const MAX_TSET_PAGES = 15;
+const MAX_AUTHORS = 4;
 
 // Required dataset fields
 const dset_required_fields = [
@@ -176,6 +177,8 @@ validateEmail = (value, id) => {
   const email = value;
   const fieldID = `#${id}`;
 
+  $(fieldID).addClass('email');
+
   const EMAIL_RE1 = /^([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@]+)$/;
   const EMAIL_RE2 = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
@@ -186,7 +189,7 @@ validateEmail = (value, id) => {
     showError(fieldID, errorMessage);
     return false;
   }
-  else if (!EMAIL_RE1.test(email) || !EMAIL_RE2.test(email)) {
+  if (!EMAIL_RE1.test(email) || !EMAIL_RE2.test(email)) {
     const errorMessage = "Must provide a correct email";
     showError(fieldID, errorMessage);
     return false;
@@ -226,7 +229,7 @@ validateInputCharLimit = (value, id) => {
 
   // console.log('checking input char limit');
 
-  if (!$(fieldID).hasClass('required')) {
+  if (! ($(fieldID).hasClass('required')) && !($(fieldID).hasClass('email')) ) {
     hideError(fieldID);
   }
 
@@ -246,7 +249,7 @@ validateTextAreaCharLimit = (value, id) => {
 
   // console.log('checking textarea char limit');
 
-  if (!$(fieldID).hasClass('required')) {
+  if (! ($(fieldID).hasClass('required')) && !($(fieldID).hasClass('email')) ) {
     hideError(fieldID);
   }
 
@@ -341,7 +344,9 @@ validateFormForSubmit = () => {
   }
 
   /* Validate emails*/
-  checks.push(validateEmail($('#dset_author1_email').val(), 'dset_author1_email'));
+  for (var i = 1; i <= currNumAuthors; i++) {
+    checks.push(validateEmail($(`#dset_author${i}_email`).val(), `dset_author${i}_email`));
+  }
 
   /* Validate all input[type="text"] character limits */
   const all_text_inputs = $('input[type="text"]').get();
@@ -355,7 +360,7 @@ validateFormForSubmit = () => {
     checks.push(validateTextAreaCharLimit($(all_textarea_inputs[i]).val(), all_textarea_inputs[i].id));
   }
 
-  console.log(checks);
+  // console.log(checks);
 
   // Return true if every value in 'checks' array is true; false otherwise
   return checks.every((val) => (val===true));
@@ -397,7 +402,7 @@ $(document).ready( () => {
       $(`#${tset_required_fields[j].replace('X', i)}`).on('blur', (e) => {validateRequired(e.target.value, e.target.id)});
     }
 
-    // Validate tracet name
+    // Validate traceset name
     $(`#tset${i}_name`).on('blur', (e) => {validateXsetName(e.target.value, e.target.id)});
 
     // Validate traceset dates
@@ -428,8 +433,10 @@ $(document).ready( () => {
   $('#dset_start_date').on('blur', (e) => {validateDateFormat(e.target.value, e.target.id)});
   $('#dset_end_date').on('blur', (e) => {validateDateFormat(e.target.value, e.target.id)});
   
-  // Validate dataset author email
-  $('#dset_author1_email').on('blur', (e) => {validateEmail(e.target.value, e.target.id)});
+  // Validate dataset author emails
+  for (var i = 1; i <= currNumAuthors; i++) {
+    $(`#dset_author${i}_email`).on('blur', (e) => {validateEmail(e.target.value, e.target.id)});
+  }
 
   // Add 'character limit' validation check to all input and textarea fields currently in the form
   addInputCharLimitValidation();

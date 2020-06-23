@@ -175,9 +175,7 @@ input[type=checkbox] {
   margin-bottom: 0px;
 }
 
-#dset_author1_country {
-  margin-bottom: 35px !important;
-}
+
 
 /* label[for^="dataset"] {
   font-weight: normal;
@@ -387,4 +385,46 @@ input:focus {
   margin-top: 40px;
   width: 100px;
   height: 30px;
+}
+
+/* Author details */
+#dset_author1_country.landing-page {
+  margin-bottom: 35px !important;
+}
+
+#add-author-btn {
+  margin-top: 7px;
+  margin-bottom: 35px;
+  background-color: Transparent;
+  /* border: none; */
+  cursor: pointer;
+  outline: none;
+  /* padding-left: 0px; */
+  /* margin-left: 0px; */
+}
+
+#add-author-btn span {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.fa-plus-circle {
+  font-size: 14px;
+}
+
+.fa-times {
+  color: black;
+  font-size: 16px;
+}
+
+.remove-author-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 4px;
+    top: 2px;
+}
+
+.author-title {
+  position: relative;
+  width: 250px;
 }

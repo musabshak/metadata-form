@@ -1,0 +1,32 @@
+<div id="author[id]" style="margin-top: 10px">
+  <div class="author-title">
+    <span>Author [id] Details</span>
+    <div class="remove-author-btn author[id]">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+  </div>
+
+  <div class="input-error-container">
+    <input type="text" id="dset_author[id]_name" name="dset_author[id]_name" placeholder="Name" 
+    >
+    <span class="error"> </span>
+  </div>
+
+  <div class="input-error-container">
+    <input type="text" id="dset_author[id]_email" name="dset_author[id]_email" placeholder="Email"
+      >
+    <span class="error"> </span>
+  </div>
+
+  <div class="input-error-container">
+    <input type="text" id="dset_author[id]_institution" name="dset_author[id]_institution" placeholder="Institution"
+      >
+    <span class="error"> </span>
+  </div>
+
+  <div class="input-error-container">
+    <input type="text" id="dset_author[id]_country" name="dset_author[id]_country" placeholder="Country" list="country_list"
+      >
+    <span class="error"> </span>
+  </div>
+</div>
