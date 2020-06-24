@@ -79,7 +79,7 @@ validateXsetName = (value, id) => {
     return false;
   }
   else if (!regexp.test(XsetName)) {
-    const errorMessage = "Dataset/Traceset name may contain only alpha-numeric characters, preferable all lowercase";
+    const errorMessage = "Dataset/Traceset name may contain only alpha-numeric characters, preferably all lowercase";
     showError(fieldID, errorMessage);
     return false;
   } 

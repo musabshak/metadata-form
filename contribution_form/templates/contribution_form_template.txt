@@ -844,7 +844,7 @@
               <span>External URL</span>
               <p class="description"> If dataset is hosted elsewhere, please provide URL.</p>
               <div class="input-error-container">
-                <input type="text" id="dset_external_url" name="dset_external_url" value="[dset_external_url]">
+                <textarea id="dset_external_url" name="dset_external_url" rows="1">[dset_external_url]</textarea>
                 <span class="error"> </span>
               </div>
             </div>

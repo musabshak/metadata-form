@@ -229,8 +229,11 @@ $('#add-author-btn').on('click', (e) => {
     $(`.remove-author-btn.author${currNumAuthors}`).show();
     $('#dset_num_authors').val(currNumAuthors);
   })
-
-  // addInputCharLimitValidation();
+  
+  for (var i = 1; i <= currNumAuthors; i++) {
+    $(`#dset_author${i}_email`).on('blur', (e) => {validateEmail(e.target.value, e.target.id)});
+  }
+  addInputCharLimitValidation();
 })
 
 
