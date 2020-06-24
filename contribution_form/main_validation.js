@@ -102,6 +102,7 @@ validateNumTsets = (value, id) => {
 
 validateDateFormat = (value, id) => {
   const fieldID = `#${id}`;
+  console.log('validating date: ', value, fieldID);
 
   const regexp = /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
 
@@ -114,6 +115,7 @@ validateDateFormat = (value, id) => {
   }
 
   else if (!regexp.test(value)) {
+    console.log('trying to show error', fieldID);
     const errorMessage = "Please make sure date is formatted correctly";
     showError(fieldID, errorMessage);
     return false;
@@ -337,7 +339,7 @@ validateFormForSubmit = () => {
     let fieldName1 = `tset${[i]}_start_date`;
     let formattedFieldName1 = `#${fieldName1}`;
     let fieldName2 = `tset${[i]}_end_date`;
-    let formattedFieldName2 = `#${fieldName1}`;
+    let formattedFieldName2 = `#${fieldName2}`;
     checks.push(validateDateFormat($(formattedFieldName1).val(), fieldName1));
     checks.push(validateDateFormat($(formattedFieldName2).val(), fieldName2));
   }
@@ -392,8 +394,18 @@ handleSubmit = (e) => {
 // As soon as document is ready, add validation-performing event handlers to 'on blur' events associated
 // with dataset/traceset page input fields.
 $(document).ready( () => {
+  window.addEventListener( "pageshow", function ( event ) {
+    var historyTraversal = event.persisted || 
+                           ( typeof window.performance != "undefined" && 
+                                window.performance.navigation.type === 2 );
+    if ( historyTraversal ) {
+      // Handle page restore.
+      window.location.reload();
+    }
+  });
+
   /**
-   * Tracet pages validation
+   * Traceset pages validation
    */
   for (var i = 1; i <= currNumTsets; i++) {
     // Add 'required' validation check to relevant traceset fields
@@ -454,5 +466,7 @@ $(document).ready( () => {
   // Hide error that appears when "Save Progress" is not successful, when user clicks elsewhere
   $('body').not('#next_button_top').on('click', () => {$('.form-error').hide()});
 })
+
+
 
 

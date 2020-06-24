@@ -48,18 +48,20 @@ def save_progress(form, submitting=False):
   # Save created xml tree to xml file on server
   print(tostring(top).decode('UTF-8'), file=open("xml_files/" + xml_file_name + ".xml", 'w'))
 
-  if submitting:
-    print("Content-Type:text/html\n") 
-    with open('templates/submit_success.txt', 'r') as success_file:  
-      print(success_file.read())
-  else:
-    # Redirect user back to the form
-    print('Location:', original_page, '\n')   
+  # if submitting:
+  #   print("Content-Type:text/html\n") 
+  #   with open('templates/submit_success.txt', 'r') as success_file:  
+  #     print(success_file.read())
+  # else:
+  #   # Redirect user back to the form
+  #   print('Location:', original_page, '\n')   
 
 def main():
   cgitb.enable() #for debugging
   form = cgi.FieldStorage(keep_blank_values=True)
   save_progress(form, submitting=False)
+  original_page = os.environ['HTTP_REFERER']
+  print('Location:', original_page, '\n')  
 
 if __name__ == "__main__":
   main()

@@ -8,6 +8,8 @@ def main():
 
   cgitb.enable() # for debugging
   form = cgi.FieldStorage(keep_blank_values=True)
+  save_progress(form, submitting=False)
+
 
   try:
     validation_errors = validate_contribution_form(form)
@@ -24,6 +26,10 @@ def main():
 
 
   save_progress(form, submitting=True)
+
+  print("Content-Type:text/html\n") 
+  with open('templates/submit_success.txt', 'r') as success_file:  
+    print(success_file.read())
 
 
 if __name__ == "__main__":
