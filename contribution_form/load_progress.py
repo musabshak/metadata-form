@@ -61,7 +61,7 @@ def main():
       tracepage_template = tracepage_template_file.read()
 
     # end_tsetpages_str = '</div> <button id="prev_button_bottom" type="button" onclick="nextPrev(-1)">Previous</button>'
-    end_tsetpages_str = '</div> <button class="prev_button" type="button">Previous</button>'
+    end_tsetpages_str = '</div> <!-- End of Tset Pages-->'
     dset_num_tracesets = int(root.find('dset_num_tracesets').text)
 
     modified_tracepage = ""

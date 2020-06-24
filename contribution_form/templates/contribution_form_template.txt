@@ -1004,11 +1004,9 @@
 
       <div class="tset-pages">
 
-        <!-- Exact formatting of next line is very important -- if you change it, make sure to reflect
-        the change in the 'load_progress.py' script. This is because string formatting is used to implement
-        the 'load progress' feature. -->
-      </div> <button class="prev_button" type="button">Previous</button>
-
+      </div> <!-- End of Tset Pages-->
+      
+      <button class="prev_button" type="button">Previous</button>
       <button class="next_button" type="button">Next</button>
 
     </form>

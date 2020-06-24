@@ -41,10 +41,12 @@ function showPage(n) {
   } else {
     // document.getElementById("next_button_top").innerHTML = "Next";
     // document.getElementById("next_button_bottom").innerHTML = "Next";
-    $('.next_button').html("Next");
+    $('.next_button').html('Next <i class="fas fa-arrow-right"></i>');
   }
     
 }
+
+$('.prev_button').html(' Previous <i class="fas fa-arrow-left"></i>');
 
 // This function will figure out which page to display
 function nextPrev(n) {

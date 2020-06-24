@@ -310,7 +310,20 @@ a, a:visited, a:active, a:hover {
 .next_button, .prev_button {
   height: 30px;
   width: 100px;
+  position: relative;
 }
+
+.fa-arrow-right {
+  margin-left: 4px;
+  font-size: 14px;
+}
+
+.fa-arrow-left {
+  position: absolute;
+  left: 2px;
+  font-size: 14px;
+}
+
 
 /* Form Validation */
 
