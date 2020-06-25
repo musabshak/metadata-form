@@ -26,7 +26,7 @@
       project. The dataset can consist of multiple tracesets, and a traceset can contain multiple traces. A traceset is
       a set of traces collected using the same measuring tool, e.g. tcpdump, snmp, syslog, or collected on the same
       date. A trace is the minimal unit of data collection, generally a file or a set of files collected by the same
-      device at the same time. Here is an example of a dataset, as displayed on our website: 
+      device at the same time. Here is an example of a dataset, as displayed on our website:
       <a target="_blank" href="http://crawdad.org/ucsd/sigcomm2001/20020423/">ucsd/sigcomm2001.</a>
     </p>
     <p style="margin: 0px">
@@ -37,8 +37,9 @@
       <li>You may save progress at any point and return to the form using the URL emailed to the primary author.</li>
       <li>Saving progress redirects back to the "Dataset Information" first page.</li>
       <li>The 'Submit' button appears on the last traceset page.</li>
-      <li>Once you submit the form, you will not be able to re-access the form via the URL. For any changes/edits, 
-        please contact <a target="_blank" href="mailto:crawdad-team@cs.dartmouth.edu">crawdad-team@cs.dartmouth.edu.</a></li>
+      <li>Once you submit the form, you will not be able to re-access the form via the URL. For any changes/edits,
+        please contact <a target="_blank" href="mailto:crawdad-team@cs.dartmouth.edu">crawdad-team@cs.dartmouth.edu.</a>
+      </li>
     </ul>
     <p style="margin-bottom: 30px;">
       -----------------------------------------------------------------------------------------------------------------
@@ -430,7 +431,8 @@
           <option value="Zimbabwe">Zimbabwe</option>
         </datalist>
 
-        <input type="number" id="dset_num_authors" name="dset_num_authors" style="display: none" value="[dset_num_authors]">
+        <input type="number" id="dset_num_authors" name="dset_num_authors" style="display: none"
+          value="[dset_num_authors]">
 
         <div class="author-details">
 
@@ -1000,12 +1002,15 @@
 
       <div class="save-error">Please add correctly formatted 'Dataset Name' and 'Institution Name (short)
         before progress is able to be saved.</div>
-      <button type="button" id="save_progress_button" class="button">Save Progress</button>
+      <button type="button" id="save_progress_button" class="button">
+        <div>Save Progress</div>
+        <div style="font-size: 11px">(redirects to first page after saving)</div>
+      </button>
 
       <div class="tset-pages">
 
       </div> <!-- End of Tset Pages-->
-      
+
       <button class="prev_button" type="button">Previous</button>
       <button class="next_button" type="button">Next</button>
 

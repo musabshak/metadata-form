@@ -9,7 +9,7 @@ import secrets
 
 from email.message import EmailMessage
 from datetime import datetime
-from validationCommon import *
+from validation_common import *
 
 # Send token link to author for accessing the initialized metadata form.
 def email_token(receiver_email, token):
@@ -101,7 +101,7 @@ def main():
     print("emailing token unsuccessful")
 
   # Render contribution form with fields from initialization page filled in.
-  with open ("templates/contribution_form_template.txt", "r") as form_contents_file:
+  with open ("templates/cf_template.txt", "r") as form_contents_file:
     print('Location:', 'http://', token, '\n', sep="")   
 
 

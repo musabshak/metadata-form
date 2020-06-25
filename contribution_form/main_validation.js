@@ -384,7 +384,7 @@ handleSubmit = (e) => {
   const form_valid_for_submit = validateFormForSubmit();
 
   if (form_valid_for_submit) {
-    $('#whole_form').attr('action', 'contribution_form_validation.py');
+    $('#whole_form').attr('action', 'cf_validation.py');
     $('#whole_form').submit();
   } else {
     $('.form-error').show();

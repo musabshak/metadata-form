@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import cgi, cgitb
 from save_progress import save_progress
-from validationCommon import *
+from validation_common import validate_contribution_form
 
 
 def main():

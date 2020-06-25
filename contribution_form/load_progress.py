@@ -36,7 +36,7 @@ def main():
     
   ## Open contribution form template. Populate field values with values read
   ## from xml file above. Render contribution form with populated values.
-  with open ("templates/contribution_form_template.txt", "r") as form_template_file:
+  with open ("templates/cf_template.txt", "r") as form_template_file:
     form_template = form_template_file.read()
     # form_template = form_template.replace("label", "div")
     # form_template = form_template.replace("</label>", "")
