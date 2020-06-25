@@ -91,7 +91,7 @@ def main():
 
   ## Generate xml file. Save initial fields to xml file.
   xml_file_name = save_xml(form)
-  token = f"home.cs.dartmouth.edu/~mshakeel/contribution_form/load_progress.py?token={xml_file_name}"
+  token = f"home.cs.dartmouth.edu/~mshakeel/contribution_form/progress_load.py?token={xml_file_name}"
 
   ## Email token to primary author
   try: 

@@ -373,7 +373,7 @@ handleSave = (e) => {
   const form_valid_for_save = validateFormForSave();
 
   if (form_valid_for_save) {
-    $('#whole_form').attr('action', 'save_progress.py');
+    $('#whole_form').attr('action', 'progress_save.py');
     $('#whole_form').submit();
   } else {
     $('.save-error').show();
@@ -384,7 +384,7 @@ handleSubmit = (e) => {
   const form_valid_for_submit = validateFormForSubmit();
 
   if (form_valid_for_submit) {
-    $('#whole_form').attr('action', 'cf_validation.py');
+    $('#whole_form').attr('action', 'progress_submit.py');
     $('#whole_form').submit();
   } else {
     $('.form-error').show();

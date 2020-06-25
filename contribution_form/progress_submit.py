@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import cgi, cgitb
-from save_progress import save_progress
+from progress_save import save_progress
 from validation_common import validate_contribution_form
 
 
