@@ -25,14 +25,14 @@ def main():
   tree = ET.parse("xml_files/" + xml_file_name + ".xml")
   root = tree.getroot()
 
-  # if root.attrib.get('submitted') == 'true':
-  #   print("Content-Type:text/html\n")   
-  #   submit_error = "<li>You have already submitted the form; please contact CRAWDAD admin if you wish to make any changes</li>\n"
-  #   with open('templates/submit_failure.txt') as submit_failure_file:
-  #     submit_failure_template = submit_failure_file.read()
-  #     submit_failure_template = submit_failure_template.replace('[error_list]', submit_error)
-  #     print(submit_failure_template)     
-  #   return
+  if root.attrib.get('submitted') == 'true':
+    print("Content-Type:text/html\n")   
+    submit_error = "<li>You have already submitted the form; please contact CRAWDAD admin if you wish to make any changes</li>\n"
+    with open('templates/submit_failure.txt') as submit_failure_file:
+      submit_failure_template = submit_failure_file.read()
+      submit_failure_template = submit_failure_template.replace('[error_list]', submit_error)
+      print(submit_failure_template)     
+    return
     
   ## Open contribution form template. Populate field values with values read
   ## from xml file above. Render contribution form with populated values.
