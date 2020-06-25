@@ -21,7 +21,7 @@ body {
 }
 
 #main {
-    border: 1px solid red;   
+    /* border: 1px solid red;    */
     display: flex;
     width: 53rem;
     flex-direction: column;
@@ -358,8 +358,6 @@ input:focus {
   color: red;
   margin-top: 20px;
 }
-
-
 
 .save-error {
   display: none;
