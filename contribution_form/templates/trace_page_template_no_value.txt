@@ -6,7 +6,7 @@
     <div>
       <span>Traceset [id] Name *</span>
       <p class="description"> One-word name for the traceset. Should only contain alphanumeric characters, 
-        preferably all lowercase. For example, "". More examples can be found <a href="#">here.</a></p>
+        preferably all lowercase. For example, "tcpdump". More examples can be found <a href="#">here.</a></p>
       <div class="input-error-container">
         <input type="text" id="tset[id]_name" name="tset[id]_name">
         <span class="error"> </span>
