@@ -1,31 +1,29 @@
 #!/usr/bin/python
+
 import cgi,cgitb
 from xml.etree.ElementTree import Element, SubElement, Comment, tostring
 import os
 import re
 
+
 CHECKBOX_FIELD_KEYS = ["dset_keywords", "dset_measurement_purposes", "dset_network_type"]
 
+
 def save_progress(form, submitting=False):
-  
-  # cgi.print_form(form)
-
-  #print(", ".join(form.getlist("hair color")))
-  # cgi.print_directory()
-  # print(form["dset_name"].value)
-
+  """
+  Given a form via CGI, save the fields to an xml file. 
+  If 'submitting=true', set the 'submitted' attribute of the top element in 
+  the xml file to 'true'.
+  """
   top = Element('form_in_progress')
   if submitting:
     top.set('submitted', 'true')
 
   for key in sorted(form.keys()):
-    # print("<h3>{key}</h3>".format(key=key))
-    # print(form.getlist(key))
-
     field_input_list = form.getlist(key)
     child = SubElement(top, key)
 
-    # Checkbox datafield
+    ## Checkbox datafield
     if key in CHECKBOX_FIELD_KEYS:
       child.set('checkbox', 'true')
       option_ct = 1
@@ -39,7 +37,7 @@ def save_progress(form, submitting=False):
       elif len(field_input_list) == 1:
         child.text = field_input_list[0]
   
-  # Contribution form URL
+  ## Form URL
   original_page = os.environ['HTTP_REFERER']
 
   # Token stored in contribution form URL as a query parameter (?token=YYYY-MM-DD-randomstring-datasetname)
@@ -48,18 +46,13 @@ def save_progress(form, submitting=False):
   # Save created xml tree to xml file on server
   print(tostring(top).decode('UTF-8'), file=open("xml_files/" + xml_file_name + ".xml", 'w'))
 
-  # if submitting:
-  #   print("Content-Type:text/html\n") 
-  #   with open('templates/submit_success.txt', 'r') as success_file:  
-  #     print(success_file.read())
-  # else:
-  #   # Redirect user back to the form
-  #   print('Location:', original_page, '\n')   
 
 def main():
-  cgitb.enable() #for debugging
+  cgitb.enable() # For debugging
   form = cgi.FieldStorage(keep_blank_values=True)
   save_progress(form, submitting=False)
+
+  ## After saving progress, redirect user back to original page
   original_page = os.environ['HTTP_REFERER']
   print('Location:', original_page, '\n')  
 
