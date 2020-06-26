@@ -1,29 +1,20 @@
-// $('.error').show();
-// $('.error').text("there is some error with this text field!");
-
-
 /**
- * Validation
- * - All 'textarea' fields have character limit of 5000
- * - All input[type="text"] have character limit of 50
- * - Certain dataset/tracet fields are required
- * - The following fields have special validation checks:
- *    + dset_name
- *    + dset_institution_name
- *    + dset_author1_email
- *    + dset_start_date
- *    + dset_end_date
- *    + tsetX_name
- *    + tsetX_start_date
- *    + tsetX_end_date
+ * This file contains the client-side validation functions. The 'on blur' event listeners are also 
+ * attached in this file, as soon as the form is loaded.
  */
+
+ /**
+  * Constants
+  */
+
+const VALIDATION_ON = true; // client-side validation toggle
 
 const INPUT_TEXT_CHARLIMIT = 50;
 const TEXTAREA_CHARLIMIT = 5000;
 const MAX_TSET_PAGES = 15;
 const MAX_AUTHORS = 4;
 
-// Required dataset fields
+// Required dataset field names
 const dset_required_fields = [
   "dset_name", 
   "dset_institution_name",
@@ -38,7 +29,7 @@ const dset_required_fields = [
   "dset_end_date"
 ]
 
-// Required traceset fields
+// Required traceset field names
 const tset_required_fields = [
   "tsetX_name",
   "tsetX_description_short",
@@ -47,9 +38,10 @@ const tset_required_fields = [
   "tsetX_end_date"
 ]
 
+// ******************* END OF CONSTANTS ******************* //
 
 /**
- * Validation Methods
+ * Validation Functions
  */
 
 hideError = (selector) => {
@@ -59,11 +51,12 @@ hideError = (selector) => {
 
 showError = (selector, errorMessage) => {
   $(selector).addClass('invalid');
-  
   $(`${selector} + .error`).show();
   $(`${selector} + .error`).text( errorMessage || "Something wrong with this field");
 }
 
+// Used to validate dataset/traceset names + institution name.
+// Only accept alphanumeric characters and '-'
 validateXsetName = (value, id) => {
   const XsetName = value;
   const fieldID = `#${id}`;
@@ -73,7 +66,6 @@ validateXsetName = (value, id) => {
   hideError(fieldID);
 
   if (XsetName=== "") {
-    // console.log('yahan aagaya', fieldID);
     const errorMessage = "This is a required field";
     showError(fieldID, errorMessage);
     return false;
@@ -90,8 +82,6 @@ validateXsetName = (value, id) => {
 validateNumTsets = (value, id) => {
   const fieldID = `#${id}`;
 
-  // console.log('validating numtsets');
-
   hideError(fieldID);
 
   if (value > MAX_TSET_PAGES) {
@@ -100,9 +90,10 @@ validateNumTsets = (value, id) => {
   }
 }
 
+// Validates 'measurement dates' format. Also validates that the start date is <= end date
+// for the dataset/traceset.
 validateDateFormat = (value, id) => {
   const fieldID = `#${id}`;
-  console.log('validating date: ', value, fieldID);
 
   const regexp = /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
 
@@ -113,7 +104,6 @@ validateDateFormat = (value, id) => {
     showError(fieldID, errorMessage);
     return false;
   }
-
   else if (!regexp.test(value)) {
     console.log('trying to show error', fieldID);
     const errorMessage = "Please make sure date is formatted correctly";
@@ -122,9 +112,9 @@ validateDateFormat = (value, id) => {
   }
 
   // If both start and corresponding end dates formatted correctly, 
-  // check that start date <= end date
+  // check that start date <= end date.
 
-  // Current event triggered on start date
+  // Current event triggered on start date.
   if (/start/.test(fieldID)) {
     const startDateStr = value;
     const temp = fieldID.replace('start', 'end');
@@ -132,7 +122,7 @@ validateDateFormat = (value, id) => {
 
     hideError(temp);
     if (!regexp.test(endDateStr)) {
-      return true;
+      return false;
     }
 
     const startDateSplit = startDateStr.split('-');
@@ -148,7 +138,7 @@ validateDateFormat = (value, id) => {
     }
   }
 
-  // Current event triggered on end date
+  // Current event triggered on end date.
   else if (/end/.test(fieldID)) {
     const endDateStr = value;
     const temp = fieldID.replace('end', 'start');
@@ -156,7 +146,7 @@ validateDateFormat = (value, id) => {
 
     hideError(temp);
     if (!regexp.test(startDateStr)) {
-      return true;
+      return false;
     }
 
     const startDateSplit = startDateStr.split('-');
@@ -199,43 +189,15 @@ validateEmail = (value, id) => {
   return true;
 }
 
-validateXMLProtection = (e) => {
-  let inputString = e.target.value;
-  const fieldID = e.target.id;
-
-  inputString = inputString.replace(/&(?!amp;)(?!quot;)(?!apos;)(?!lt;)(?!gt;)/g, '&amp;');
-  inputString = inputString.replace(/"/g, '&quot;');
-  inputString = inputString.replace(/'/g, '&apos;');
-  inputString = inputString.replace(/</g, '&lt;');
-  inputString = inputString.replace(/>/g, '&gt;');
-  // console.log(inputString);
-  // console.log(fieldID);
-  $(`#${fieldID}`).val(inputString);
-}
-
-// Protect xml for all textarea + input fields
-addXMLProtectionValidation = () => {
-  const all_text_inputs = $('input[type="text"]').get();
-  const all_textarea_inputs = $('textarea').get();
-  const all_protectXML_inputs = all_text_inputs.concat(all_textarea_inputs);
-  for (var i=0; i < all_protectXML_inputs.length; i++) {
-    $(all_protectXML_inputs[i]).on('blur', validateXMLProtection);
-    $(all_protectXML_inputs[i]).on('blur', validateXMLProtection);
-  }
-}
-
 validateInputCharLimit = (value, id) => {
   const inputStr = value;
   const fieldID = `#${id}`;
-
-  // console.log('checking input char limit');
 
   if (! ($(fieldID).hasClass('required')) && !($(fieldID).hasClass('email')) ) {
     hideError(fieldID);
   }
 
   if (inputStr.length > INPUT_TEXT_CHARLIMIT) {
-    // console.log('inside if');
     const errorMessage = `Text must not exceed ${INPUT_TEXT_CHARLIMIT} characters`;
     showError(fieldID, errorMessage);
     return false;
@@ -248,14 +210,11 @@ validateTextAreaCharLimit = (value, id) => {
   const inputStr = value;
   const fieldID = `#${id}`;
 
-  // console.log('checking textarea char limit');
-
   if (! ($(fieldID).hasClass('required')) && !($(fieldID).hasClass('email')) ) {
     hideError(fieldID);
   }
 
   if (inputStr.length > TEXTAREA_CHARLIMIT) {
-    // console.log('inside if', fieldID);
     const errorMessage = `Text must not exceed ${TEXTAREA_CHARLIMIT} characters`;
     showError(fieldID, errorMessage);
     return false;
@@ -264,6 +223,8 @@ validateTextAreaCharLimit = (value, id) => {
   return true;
 }
 
+// Add character limit validation function as the event handler for the 'on blur' event for all
+// input[type="text"] fields.
 addInputCharLimitValidation = () => {
   const all_text_inputs = $('input[type="text"]').get();
   for (var i=0; i < all_text_inputs.length; i++) {
@@ -271,6 +232,8 @@ addInputCharLimitValidation = () => {
   }
 }
 
+// Add character limit validation function as the event handler for the 'on blur' event for all
+// textarea fields.
 addTextAreaCharLimitValidation = () => {
   const all_textarea_inputs = $('textarea').get();
   for (var i=0; i < all_textarea_inputs.length; i++) {
@@ -278,14 +241,12 @@ addTextAreaCharLimitValidation = () => {
   }
 }
 
-// "Required" event handler
+// Event handler for 'required' input fields.
 validateRequired = (value, id) => {
-  // console.log(e.target.value);
   const fieldID = `#${id}`;
 
   $(fieldID).addClass('required');
 
-  // console.log('checking textarea required');
   hideError(fieldID);
 
   if (value === "") {
@@ -297,10 +258,11 @@ validateRequired = (value, id) => {
   return true;
 }
 
+// When saving, only validate the dataset and institution names
 validateFormForSave = () => {
   let checks = []
 
-  /* Validate dataset name and institution name*/
+  // Validate dataset name and institution name
   checks.push(validateXsetName($('#dset_name').val(), 'dset_name'));
   checks.push(validateXsetName($('#dset_institution_name').val(), 'dset_institution_name'));
 
@@ -361,8 +323,6 @@ validateFormForSubmit = () => {
     checks.push(validateTextAreaCharLimit($(all_textarea_inputs[i]).val(), all_textarea_inputs[i].id));
   }
 
-  // console.log(checks);
-
   // Return true if every value in 'checks' array is true; false otherwise
   return checks.every((val) => (val===true));
 }
@@ -372,7 +332,7 @@ handleSave = (e) => {
   e.stopPropagation();
   const form_valid_for_save = validateFormForSave();
 
-  if (form_valid_for_save) {
+  if (!VALIDATION_ON || form_valid_for_save) {
     $('#whole_form').attr('action', 'progress_save.py');
     $('#whole_form').submit();
   } else {
@@ -383,7 +343,7 @@ handleSave = (e) => {
 handleSubmit = (e) => {
   const form_valid_for_submit = validateFormForSubmit();
 
-  if (true) {
+  if (!VALIDATION_ON || form_valid_for_submit) {
     $('#whole_form').attr('action', 'progress_submit.py');
     $('#whole_form').submit();
   } else {
@@ -394,21 +354,13 @@ handleSubmit = (e) => {
 // As soon as document is ready, add validation-performing event handlers to 'on blur' events associated
 // with dataset/traceset page input fields.
 $(document).ready( () => {
-  window.addEventListener( "pageshow", function ( event ) {
-    var historyTraversal = event.persisted || 
-                           ( typeof window.performance != "undefined" && 
-                                window.performance.navigation.type === 2 );
-    if ( historyTraversal ) {
-      // Handle page restore.
-      window.location.reload();
-    }
-  });
-
+  
   /**
    * Traceset pages validation
    */
+
+  // Add 'required' validation check to relevant traceset fields
   for (var i = 1; i <= currNumTsets; i++) {
-    // Add 'required' validation check to relevant traceset fields
     for (var j = 0; j < tset_required_fields.length; j++) {
       $(`#${tset_required_fields[j].replace('X', i)}`).on('blur', (e) => {validateRequired(e.target.value, e.target.id)});
     }
@@ -453,10 +405,12 @@ $(document).ready( () => {
   addInputCharLimitValidation();
   addTextAreaCharLimitValidation();
 
-  // Attach handler for "Save Progress" button
+  // ******************* END OF VALIDATION ******************* //
+
+  // Attach event handler for "Save Progress" button
   $('#save_progress_button').on('click', handleSave);
 
-  // Attach handler for next/prev page buttons
+  // Attach event handlers for next/prev page buttons
   $('.next_button').on('click', (e) => {e.stopPropagation(); nextPrev(1);});
   $('.prev_button').on('click', (e) => {nextPrev(-1);});
 
@@ -465,6 +419,20 @@ $(document).ready( () => {
   
   // Hide error that appears when "Save Progress" is not successful, when user clicks elsewhere
   $('body').not('#next_button_top').on('click', () => {$('.form-error').hide()});
+
+  // If form is navigated to from history (ie browser 'back' button), hard refresh the page. This may happen
+  // if a server-side validation check fails and the user presses the 'back' button to go back to the form
+  // to fix errors.
+  window.addEventListener( "pageshow", function ( event ) {
+    var historyTraversal = event.persisted || 
+                           ( typeof window.performance != "undefined" && 
+                                window.performance.navigation.type === 2 );
+    if ( historyTraversal ) {
+      // Handle page restore.
+      window.location.reload();
+    }
+  });
+
 })
 
 

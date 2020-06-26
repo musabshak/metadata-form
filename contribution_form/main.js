@@ -1,9 +1,18 @@
-// Code for Collapsibles
+/**
+ * This file contains: 
+ * - Code for navigating between different pages of the form on the client-side.
+ * - Code for the collapsibles denoting the optional checkbox/textbox fields for the dataset page.
+ * - Code for dynamic rendering of multiple traceset pages.
+ * - Code for dynamic rendering of multiple authors.
+ */
+
+
+
+
+// ******************* START OF CODE FOR COLLAPSIBLES ******************* //
 var coll = document.getElementsByClassName("show-opt-button");
 var i;
-
 for (i = 0; i < coll.length; i++) {
-  // console.log("hey!");
   coll[i].addEventListener("click", function(event) {
     event.preventDefault();
     this.classList.toggle("active");
@@ -15,197 +24,153 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+// ******************* END OF CODE FOR COLLAPSIBLES ******************* //
 
+
+
+
+// ******************* START OF PAGE NAVIGATION CODE ******************* //
 var current_page = 0;
 showPage(current_page);
 
+// This function will display the specified page of the form amd fix the 
+// next/previous buttons accordingly.
 function showPage(n) {
-  // This function will display the specified page of the form ...
   var x = document.getElementsByClassName("page");
   x[n].style.display = "block";
-  // console.log(n);
-  // ... and fix the Previous/Next buttons:
-  if (n == 0) {
-    // document.getElementById("prev_button_top").style.display = "none";
-    // document.getElementById("prev_button_bottom").style.display = "none";
+  if (n == 0) { // Hide previous button if on first page
     $('.prev_button').hide();
   } else {
-    // document.getElementById("prev_button_top").style.display = "inline";
-    // document.getElementById("prev_button_bottom").style.display = "inline";
     $('.prev_button').show();
   }
-  if (n == (x.length - 1)) {
-    // document.getElementById("next_button_top").innerHTML = "Submit";
-    // document.getElementById("next_button_bottom").innerHTML = "Submit";
+  if (n == (x.length - 1)) { // Show submit button if on last page
     $('.next_button').html("Submit");
   } else {
-    // document.getElementById("next_button_top").innerHTML = "Next";
-    // document.getElementById("next_button_bottom").innerHTML = "Next";
     $('.next_button').html('Next <i class="fas fa-arrow-right"></i>');
   }
-    
 }
 
 $('.prev_button').html(' Previous <i class="fas fa-arrow-left"></i>');
 
-// This function will figure out which page to display
+
+// This function will figure out which page to display, based on the whether the 
+// the user clicked on the 'next' button or the 'previous' button.
 function nextPrev(n) {
   var x = document.getElementsByClassName("page");
-  // console.log(current_page);
-  // console.log(x);
-
-  // Hide the current tab:
+  
+  // Hide the current page:
   x[current_page].style.display = "none";
 
-  // Increase or decrease the current tab by 1:
+  // Increase or decrease the current page number by 1:
   current_page = current_page + n;
 
-   // if you have reached the end of the form... :
+   // If you have reached the end of the form:
   if (current_page >= x.length) {
-    // alert();
     current_page -= 1;
-
     handleSubmit();
-
-    //...the form gets submitted:
-    //document.getElementById("whole_form").submit();
-    //$("#next_button").attr({type:"submit", formaction:"saveprogress.py" })
-    // return false;
   }
 
-  // Otherwise, display the correct tab:
-  console.log(current_page);
+  // Otherwise, display the correct page:
   showPage(current_page);
 
-  // Scroll to the top of the document
-  // $(window).scrollTop(0);
-
+  // Scroll to the 'next/prev' button part of the page
   let posY = window.scrollY + document.querySelector('#next_button_top').getBoundingClientRect().top;
   window.scroll(0, posY-10); 
-
 }
+// ******************* END OF PAGE NAVIGATION CODE ******************* //
 
-// Render Trace Pages
 
-// var tracePageTemplate;
-// $.get('other/trace_page_template.txt', function(data) {
-//   tracePageTemplate = data;
-//   console.log(tracePageTemplate);
-// })
 
-// https://wsvincent.com/javascript-array-range-function/
-function range(start, edge, step) {
-  // If only 1 number passed make it the edge and 0 the start
-  if (arguments.length === 1) {
-    edge = start;
-    start = 0;
-  }
 
-  // Validate edge/start
-  edge = edge || 0;
-  step = step || 1;
+// ******************* START OF TRACESET PAGE RENDERING CODE ******************* //
 
-  // Create array of numbers, stopping before the edge
-  let arr = [];
-  for (arr; (edge - start) * step > 0; start += step) {
-    arr.push(start);
-  }
-  return arr;
-}
-
+// Read a local text file using synchronous XMLHttp Request
 readStringFromFileAtPath = function(pathOfFileToReadFrom) {
   var request = new XMLHttpRequest();
   request.open("GET", pathOfFileToReadFrom, false);
   request.send(null);
   var returnValue = request.responseText;
-
   return returnValue;
 }
 
-// var text = readStringFromFileAtPath( "other/trace_page_template_no_value.txt" );
-// console.log(text);
-
+// Load the traceset page template
 var tsetPageTemplate = readStringFromFileAtPath("templates/trace_page_template_no_value.txt");
 
-var currNumTsets; // default
+// Get the current number of tracesets based on the html that the server has rendered. 
+// Update the number of tracesets based on user's input. Render the number of traceset pages the user 
+// sees accordingly. 
+var currNumTsets;                                    // This is set in the $(document).ready() function at the end of this file
 var newNumTsets = 0;
-$("#dset_num_tracesets").change(function(event) {
-  $("#confirm-num-tsets").css("display", "block");
+$("#dset_num_tracesets").change(function(event) {    // When user changes number of tracesets ..
+  $("#confirm-num-tsets").css("display", "block");   // Show the 'confirm' button
   newNumTsets = parseInt(event.target.value);
   if (newNumTsets < currNumTsets) {
-    $('#data-loss-warning').css("display", "block");
+    $('#data-loss-warning').css("display", "block"); // Warn user of data loss if reducing number of tsets
   }
   else {
-    // Warn user of loss of data in last traceset pages
     $('#data-loss-warning').css("display", "none");
   }
 })
 
-$("#confirm-num-tsets").click(function(event) {
+$("#confirm-num-tsets").click(function(event) {       // When the 'confirm' button is clicked ..
   if (newNumTsets != 0) {
-    $('#data-loss-warning').css("display", "none");
-    $("#confirm-num-tsets").hide();
+    $('#data-loss-warning').css("display", "none");   // Hide the warning
+    $("#confirm-num-tsets").hide();                   // Hide the 'confirm' button
+
     /* Render traceset pages according to number of tracesets specified */
 
-    // Increasing num tracesets (just append)
+    // Increasing num tracesets (just append traceset page template, substituting field names/IDs accordingly)
     if (newNumTsets > currNumTsets) {
       
-      console.log("currnum: ", currNumTsets);
-      console.log("newnum: ", newNumTsets);
-
-      // addPage = (i) => {
-      //   $.get('other/trace_page_template.txt', (tsetPageTemplate) => {
-      //     tsetPageTemplateModified = tsetPageTemplate.replace(/\[id\]/g, `${i}`);
-      //     $(".tset-pages").append(tsetPageTemplateModified);
-          
-      //   });
-      //   console.log(`appended ${i}`);
-        
-      // }
-
       for (let i=currNumTsets+1; i<newNumTsets+1; i++) {
         tsetPageTemplateModified = tsetPageTemplate.replace(/\[id\]/g, `${i}`);
         $(".tset-pages").append(tsetPageTemplateModified);
         console.log(i);
 
-        /**
-          * Traceset pages validation for newly created pages
-          */
+        /* Add traceset page validation event handlers for newly created pages */
+          
+        // Validate required traceset fields
         for (var j = 0; j < tset_required_fields.length; j++) {
           $(`#${tset_required_fields[j].replace('X', i)}`).on('blur', (e) => {validateRequired(e.target.value, e.target.id)});
         }
 
-        // Validate tracet name
+        // Validate traceset names
         $(`#tset${i}_name`).on('blur', (e) => {validateXsetName(e.target.value, e.target.id)});
 
         // Validate traceset dates
         $(`#tset${i}_start_date`).on('blur', (e) => {validateDateFormat(e.target.value, e.target.id)});
         $(`#tset${i}_end_date`).on('blur', (e) => {validateDateFormat(e.target.value, e.target.id)});
 
+        // Also re-attach character limit validation event handlers for newly created pages
         addInputCharLimitValidation();
         addTextAreaCharLimitValidation();
-
       }
-
     }
 
     // Decreasing num tracesets [!! data loss warning]
     else if (newNumTsets < currNumTsets) {
       for (var i=0; i<currNumTsets-newNumTsets; i++) {
-        $(".tset-pages").children().last().remove();
+        $(".tset-pages").children().last().remove();      // Remove the appropriate number of traceset pages
       }
     }
 
-    // If altered numTsets is same as original numTsets, do nothing
     currNumTsets = newNumTsets;
     newNumTsets = 0;
   }
 })
+// ******************* END OF TRACESET PAGE RENDERING CODE ******************* //
 
+
+
+
+// ******************* START OF MULTIPLE AUTHOR RENDERING CODE ******************* //
+
+// Read html template for author details
 var authorDetailsTemplate = readStringFromFileAtPath("templates/author_details_template_no_value.txt");
 
+var currNumAuthors;  // This is set in the $(document).ready() function at the end of this file
 
-var currNumAuthors;
+// Adding one new author
 $('#add-author-btn').on('click', (e) => {
   if (currNumAuthors+1 > MAX_AUTHORS) {
     alert("Maximum 4 authors allowed");
@@ -215,73 +180,44 @@ $('#add-author-btn').on('click', (e) => {
   let authorDetailsTemplateModified = authorDetailsTemplate.replace(/\[id\]/g, `${currNumAuthors+1}`);
   $('.author-details').append(authorDetailsTemplateModified);
   currNumAuthors = $('.author-details').children().length;
-  $('#dset_num_authors').val(currNumAuthors);
+  $('#dset_num_authors').val(currNumAuthors); // Hidden input field that is used on the server-side for loading form 
+                                              // with appropriate number of authors
 
    // Hide all 'remove author' buttons except for for the last author
    for (var i=2; i<currNumAuthors; i++) {
     $(`.remove-author-btn.author${i}`).hide();
   }
 
+  // Add event handler for the 'remove' button for the new author
   $(`.remove-author-btn.author${currNumAuthors}`).on('click', (e) => {
-    console.log(e.target.offsetParent);
-    const authorID = e.target.offsetParent.classList[1];
-    console.log(authorID);
+    const authorID = e.target.offsetParent.classList[1]; // Use offsetParent because click is registered on fa icon, not the underlying button
     $(`div#${authorID}`).remove();
     currNumAuthors = $('.author-details').children().length;
     $(`.remove-author-btn.author${currNumAuthors}`).show();
     $('#dset_num_authors').val(currNumAuthors);
   })
   
-  for (var i = 1; i <= currNumAuthors; i++) {
-    $(`#dset_author${i}_email`).on('blur', (e) => {validateEmail(e.target.value, e.target.id)});
-  }
+  // Add email validation for new author
+  $(`#dset_author${currNumAuthors}_email`).on('blur', (e) => {validateEmail(e.target.value, e.target.id)});
+
+  // Re-add input character validation for all input fields (to account for newly created author fields)
   addInputCharLimitValidation();
 })
+// ******************* END OF MULTIPLE AUTHOR RENDERING CODE ******************* //
 
 
 
-
-
-
-// // When loading form progress, find out how many traceset pages exist by
-// // reading "dset_num_tracesets" value from saved xml file.
-// $(document).ready(() => {
-//   var xhttp = new XMLHttpRequest();
-//   let xml_file_name = getParameterByName('token');
-//   console.log(`xml_files/${xml_file_name}.xml`);
-//   xhttp.open("GET", `xml_files/${xml_file_name}.xml`, false);
-//   xhttp.send();
-//   myFunction(xhttp);//(this);
-// })
-
-// function myFunction(xml) {
-//   var xmlDoc = xml.responseXML;
-//   var parser = new DOMParser();
-//   var xmlDoc = parser.parseFromString(xml.responseText, "application/xml");
-//   var y;
-//   y = xmlDoc.getElementsByTagName("dset_num_tracesets");//.childNodes[0];
-//   currNumTsets = parseInt(y[0].childNodes[0].nodeValue);
-//   console.log(currNumTsets);
-//   // alert(y[0].childNodes[0].nodeValue);
-// }
-
-// function getParameterByName(name) {
-//   var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-//   return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-// }
-
-// When loading form progress, find out how many traceset pages exist
-// by finding out the number of children of <div class="tset-pages"> tag.
+// As soon as form is loaded ..
 $(document).ready( () => {
+  // Find out how many traceset pages and how many authors have been rendered by the server
   currNumTsets = $(".tset-pages").children().length;
   currNumAuthors = $('.author-details').children().length;
-  console.log('current number of tset pages is: ', currNumTsets);
+  // console.log('current number of tset pages is: ', currNumTsets);
 
-  for (var i=2; i<currNumAuthors; i++) {
+  // Add the 'remove' button event handler for all the authors that have been rendered
+  for (var i=2; i<=currNumAuthors; i++) {
     $(`.remove-author-btn.author${i}`).on('click', (e) => {
-      console.log(e.target.offsetParent);
       const authorID = e.target.offsetParent.classList[1];
-      console.log(authorID);
       $(`div#${authorID}`).remove();
       currNumAuthors = $('.author-details').children().length;
       $(`.remove-author-btn.author${currNumAuthors}`).show();
@@ -290,15 +226,7 @@ $(document).ready( () => {
     $(`.remove-author-btn.author${i}`).hide();
   }
 
-  $(`.remove-author-btn.author${currNumAuthors}`).on('click', (e) => {
-    console.log(e.target.offsetParent);
-    const authorID = e.target.offsetParent.classList[1];
-    console.log(authorID);
-    $(`div#${authorID}`).remove();
-    currNumAuthors = $('.author-details').children().length;
-    $(`.remove-author-btn.author${currNumAuthors}`).show();
-    $('#dset_num_authors').val(currNumAuthors);
-  })
+  // Show the remove button only for the last author
+  $(`.remove-author-btn.author${currNumAuthors}`).show();
 
-  
 })
