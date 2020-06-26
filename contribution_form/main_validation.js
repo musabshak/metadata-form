@@ -9,6 +9,7 @@
 
 const VALIDATION_ON = true; // client-side validation toggle
 
+// Should match the constants at the top of 'validation_common.py' file
 const INPUT_TEXT_CHARLIMIT = 50;
 const TEXTAREA_CHARLIMIT = 5000;
 const MAX_TSET_PAGES = 15;
@@ -262,9 +263,26 @@ validateRequired = (value, id) => {
 validateFormForSave = () => {
   let checks = []
 
-  // Validate dataset name and institution name
+  /* Validate all Xset names*/
   checks.push(validateXsetName($('#dset_name').val(), 'dset_name'));
   checks.push(validateXsetName($('#dset_institution_name').val(), 'dset_institution_name'));
+  for (var i=1; i <= currNumTsets; i++) {
+    let fieldName = `tset${[i]}_name`;
+    let formattedFieldName = `#${fieldName}`;
+    checks.push(validateXsetName($(formattedFieldName).val(), fieldName));
+  }
+
+  /* Validate all input[type="text"] character limits */
+  const all_text_inputs = $('input[type="text"]').get();
+  for (var i=0; i < all_text_inputs.length; i++) {
+    checks.push(validateInputCharLimit($(all_text_inputs[i]).val(), all_text_inputs[i].id));
+  }
+
+  /* Validate all textarea character limits */
+  const all_textarea_inputs = $('textarea').get();
+  for (var i=0; i < all_textarea_inputs.length; i++) {
+    checks.push(validateTextAreaCharLimit($(all_textarea_inputs[i]).val(), all_textarea_inputs[i].id));
+  }
 
   // Return true if every value in 'checks' array is true; false otherwise
   return checks.every((val) => (val===true));

@@ -30,6 +30,38 @@ SUBMIT_ERROR_PAGE = """
 </html>
 """
 
+SAVE_ERROR_PAGE = """
+<html>
+<head>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    div#main {
+      max-width: 40rem;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="main">
+    Could not save form because of the following errors:
+    <ul>
+      [error_list]
+    </ul>
+    Please go back to the form by clicking on the back button on your browser and fix the errors.
+  </div>
+</body>
+
+
+</html>
+"""
+
 SUBMIT_SUCCESS_PAGE = """
 <html>
 <head>

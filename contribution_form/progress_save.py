@@ -4,6 +4,8 @@ import cgi,cgitb
 from xml.etree.ElementTree import Element, SubElement, Comment, tostring
 import os
 import re
+from error_pages import SAVE_ERROR_PAGE
+from validation_common import validate_save_progress
 
 
 CHECKBOX_FIELD_KEYS = ["dset_keywords", "dset_measurement_purposes", "dset_network_type"]
@@ -49,8 +51,24 @@ def save_progress(form, submitting=False):
 
 def main():
   cgitb.enable() # For debugging
+
   form = cgi.FieldStorage(keep_blank_values=True)
-  save_progress(form, submitting=False)
+
+  ## Validate form for save
+  try:
+    validation_errors = validate_save_progress(form)
+  except: 
+    validation_errors = "<li>Cannot parse request</li>\n"
+
+  ## If 'save' validation checks not passed, display error page
+  if validation_errors != '':
+    print("Content-Type:text/html\n")
+    error_page_mod = SAVE_ERROR_PAGE.replace('[error_list]', validation_errors)
+    print(error_page_mod)
+    return
+
+  ## If validation checks passed, save the form
+  save_progress(form, submitting=False) 
 
   ## After saving progress, redirect user back to original page
   original_page = os.environ['HTTP_REFERER']

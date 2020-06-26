@@ -313,7 +313,7 @@ input:focus {
   display: none;
   color: red;
   position: fixed;
-  bottom: 30px;
+  bottom: 60px;
   right: 30px;   
   width: 150px;
   height: 170px;

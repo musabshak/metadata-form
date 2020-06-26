@@ -999,8 +999,10 @@
 
       </div>
 
-      <div class="save-error">Please add correctly formatted 'Dataset Name' and 'Institution Name (short)
-        before progress is able to be saved.</div>
+      <div class="save-error">
+        Make sure all dataset/traceset names and institution name is properly formatted, and 
+        all fields are within the character limits.
+      </div>
       <button type="button" id="save_progress_button" class="button">
         <div>Save Progress</div>
         <div style="font-size: 11px">(redirects to first page after saving)</div>
