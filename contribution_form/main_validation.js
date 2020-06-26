@@ -383,7 +383,7 @@ handleSave = (e) => {
 handleSubmit = (e) => {
   const form_valid_for_submit = validateFormForSubmit();
 
-  if (form_valid_for_submit) {
+  if (true) {
     $('#whole_form').attr('action', 'progress_submit.py');
     $('#whole_form').submit();
   } else {

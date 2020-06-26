@@ -1,10 +1,10 @@
 html {
-    box-sizing: border-box;
-    scroll-behavior: smooth; 
+  box-sizing: border-box;
+  scroll-behavior: smooth; 
 }
 
 *, *:before, *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
@@ -16,80 +16,55 @@ body {
   justify-content: center;
 }
 
+h2 {
+  /* margin-top: 5px; */
+  font-size: 25px;
+  margin-bottom: 35px;
+}
+
+h3 {
+  margin: 0;
+}
+
 div {
   margin: 0px;
 }
 
 #main {
-    /* border: 1px solid red;    */
-    display: flex;
-    width: 53rem;
-    flex-direction: column;
-    margin-left: 10px;
-    margin-right: 10px;
+  /* border: 1px solid red;    */
+  display: flex;
+  width: 53rem;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-/* #sidebar {
-    flex: 0 1 20%;
-    order: 2;
-    border: 1px solid;
-    display: flex;
-    justify-content: center;
-} */
-
-
 .button {
-    width: 150px;
-    height: 70px;
-    background-color: #1E1E1E;
-    border-radius: 7px;
-    border: none;
-    outline: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
+  width: 150px;
+  height: 70px;
+  background-color: #1E1E1E;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 #save_progress_button {
-    position: fixed;
-    bottom: 5px;
-    right: 30px;   
+  position: fixed;
+  bottom: 5px;
+  right: 30px;   
 }
 
 #submit_form_button {
-    position: fixed;
-    bottom: 0;
-    right: 30px;
+  position: fixed;
+  bottom: 0;
+  right: 30px;
 }
-
-
-/* #content {
-    flex: 1;
-    border: 1px solid;
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-} */
-
-
-
-h2 {
-    font-size: 25px;
-    /* margin-top: 5px; */
-    margin-bottom: 35px;
-}
-
-h3 {
-    margin: 0;
-}
-
-/* .checkboxes-block-container h3 {
-    margin-bottom: 5px;
-} */
-
 
 p, ul {
   margin-top: 0;
@@ -97,40 +72,29 @@ p, ul {
 }
 
 p.description, *::placeholder {
-    font-size: 13px;
-    font-style: italic;
-    margin-top: 0;
-    margin-bottom: 5px;
+  font-size: 13px;
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 
 p.description {
-    max-width: 600px;
+  max-width: 600px;
 }
 
 input:not([type="checkbox" ]):not([type="submit" ]) {
-    display: block;
-    margin-right: 20px;
-    margin-bottom: 35px;    
-    line-height: 2;
+  display: block;
+  margin-right: 20px;
+  margin-bottom: 35px;    
+  line-height: 2;
 }
 
-select {
-    height: 32px;
-    /* width: 180px; */
-}
-
-input[type="text"], textarea, 
-input[type="number"]
- {
+input[type="text"], textarea, input[type="number"] {
   font-size: 14px;
   border-radius: 5px;
   border-style: solid;
   border-width: 1.5px;
   font-family: Arial;
-  /* font-family: 'Open Sans', sans-serif; */
-  /* font-family: monospace; */
-  /* font-family: 'Roboto'; */
-  /* border-color: black; */
 }
 
 input[type="text"] {
@@ -141,14 +105,12 @@ input[type="text"] {
   width: 200px ;
 }
 
-
-
 textarea {
-    display: block;
-    margin-right: 20px;
-    margin-bottom: 35px;
-    width: 600px;
-    padding: 5px;
+  display: block;
+  margin-right: 20px;
+  margin-bottom: 35px;
+  width: 600px;
+  padding: 5px;
 }
 
 input[type=checkbox] {
@@ -162,7 +124,7 @@ input[type=checkbox] {
 }
 
 .author-details input{
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .author-details input {
@@ -175,54 +137,41 @@ input[type=checkbox] {
   margin-bottom: 0px;
 }
 
-
-
-/* label[for^="dataset"] {
-  font-weight: normal;
-} */
-
-/* changed from label */
 div:not([class="checkbox"]) span, h3 {
-    font-weight: bold;
-    font-size: 16px;
+  font-weight: bold;
+  font-size: 16px;
 }
 
-/* changed from label */
 div.checkbox span {
-    font-size: 14px;
-    font-weight: normal !important;
+  font-size: 14px;
+  font-weight: normal !important;
 }
 
-/* label {
-    display: block;
-} */
-
-/* changed from label */
 div.checkbox {
     display: flex;
     align-items: center;
 }
 
 .checkboxes-block-container {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    /* border: solid 2px; */
+  /* border: solid 2px; */
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .checkboxes-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    /* border: solid; */
-    height: 250px;
-    /* width: 600px; */
+  /* border: solid; */
+  /* width: 600px; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 250px;
 }
 
 .measurement-dates {
-    display: flex;
-    justify-content: flex-start;
-    /* width: 440px; */
+  /* width: 440px; */
+  display: flex;
+  justify-content: flex-start;
 }
 
 #show-opt-textboxes {
@@ -230,27 +179,27 @@ div.checkbox {
 }
 
 .show-opt-button {
-    margin-bottom: 20px;
-    width: 100%;
-    height: 50px;
-    background-color: rgb(60, 60, 60);
-    cursor: pointer;
-    border-radius: 4px;
-    border: none;
-    outline: none;
-    color: white;
-    text-decoration: none;
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    cursor: pointer;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 50px;
+  background-color: rgb(60, 60, 60);
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 /* https://www.w3schools.com/howto/howto_js_collapsible.asp */
 .active, .show-opt-button:hover {
-    background-color: rgb(150, 150, 150);
+  background-color: rgb(150, 150, 150);
 }
 
 .show-opt-button:after {
@@ -275,29 +224,29 @@ div.checkbox {
 }
 
 a, a:visited, a:active, a:hover {
-    text-decoration: none;
-    color: rgb(7, 52, 255);
+  text-decoration: none;
+  color: rgb(7, 52, 255);
 }
 
 .optional-fields {
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
 }
 
 .page {
-    display: none;
+  display: none;
 }
 
 .container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 #confirm-num-tsets {
-    display: none;
-    margin-left: 20px;
+  display: none;
+  margin-left: 20px;
 }
 
 #data-loss-warning {
@@ -324,8 +273,9 @@ a, a:visited, a:active, a:hover {
   font-size: 14px;
 }
 
-
-/* Form Validation */
+/**
+ * Form Validation
+ */
 
 .invalid {
   background-color: #ffdddd;
@@ -386,7 +336,10 @@ input:focus {
   align-items: center;
 }
 
-/* landing page */
+/**
+ * Landing Page
+ */
+
 .form-error.landing-page {
   display: none;
   color: red;
@@ -398,20 +351,20 @@ input:focus {
   height: 30px;
 }
 
-/* Author details */
 #dset_author1_country.landing-page {
   margin-bottom: 35px !important;
 }
+
+/**
+ * Add/remove author buttons
+ */
 
 #add-author-btn {
   margin-top: 7px;
   margin-bottom: 35px;
   background-color: Transparent;
-  /* border: none; */
   cursor: pointer;
   outline: none;
-  /* padding-left: 0px; */
-  /* margin-left: 0px; */
 }
 
 #add-author-btn span {

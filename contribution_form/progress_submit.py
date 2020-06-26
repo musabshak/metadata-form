@@ -2,6 +2,11 @@
 import cgi, cgitb
 from progress_save import save_progress
 from validation_common import validate_contribution_form
+from error_pages import FORM_SUBMISSION_ERROR_PAGE, SUBMIT_SUCCESS_PAGE
+
+
+
+
 
 
 def main():
@@ -18,18 +23,15 @@ def main():
 
   if validation_errors != '':
     print("Content-Type:text/html\n")
-    with open('templates/submit_failure.txt') as submit_failure_file:
-      submit_failure_template = submit_failure_file.read()
-      submit_failure_template = submit_failure_template.replace('[error_list]', validation_errors)
-      print(submit_failure_template)     
+    error_page_mod = ERROR_PAGE.replace('[error_list]', validation_errors)
+    print(error_page_mod)
     return
 
 
   save_progress(form, submitting=True)
 
   print("Content-Type:text/html\n") 
-  with open('templates/submit_success.txt', 'r') as success_file:  
-    print(success_file.read())
+  print(SUBMIT_SUCCESS_PAGE)
 
 
 if __name__ == "__main__":

@@ -6,10 +6,10 @@ from xml.etree.ElementTree import Element, SubElement, Comment, tostring, parse
 import os
 import string
 import secrets
-
 from email.message import EmailMessage
 from datetime import datetime
 from validation_common import *
+from error_pages import FORM_SUBMISSION_ERROR_PAGE
 
 # Send token link to author for accessing the initialized metadata form.
 def email_token(receiver_email, token):
@@ -81,10 +81,8 @@ def main():
 
   if validation_errors != '':
     print("Content-Type:text/html\n")
-    with open('templates/submit_failure.txt') as submit_failure_file:
-      submit_failure_template = submit_failure_file.read()
-      submit_failure_template = submit_failure_template.replace('[error_list]', validation_errors)
-      print(submit_failure_template)     
+    error_page_mod = FORM_SUBMISSION_ERROR_PAGE.replace('[error_list]', validation_errors)
+    print(error_page_mod)
     return
 
   dset_author1_email = form.getlist("dset_author1_email")[0]

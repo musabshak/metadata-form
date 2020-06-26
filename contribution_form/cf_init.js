@@ -62,7 +62,7 @@ handleSubmit = (e) => {
   const email_valid = validateEmail($('#dset_author1_email').val());
   const form_valid = name_valid && email_valid;
   
-  if (form_valid) {
+  if (true) {
     $('#whole_form').submit();
   } else {
     $('.form-error.landing-page').show();
