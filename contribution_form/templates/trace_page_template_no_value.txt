@@ -33,7 +33,7 @@
       <p class="description"> Please use this box to describe the technical details of this particular
         traceset. All traces within a traceset share a common collection method, sanitization
         method, and file format. Details specific to the trace(s) within this traceset should be
-        entered on subsequent page(s) in which those traces are described.
+        entered in the last field of this page ("Notes Specific to Traces").
       </p>
       <div class="input-error-container">
         <textarea id="tset[id]_tech_description" name="tset[id]_tech_description" rows="10"

@@ -732,8 +732,7 @@
               </div>
 
               <div class="checkbox">
-                <input type="checkbox" name="dset_measurement_purposes"
-                  value="Routing Protocol for DTNs (Disruption Tolerant Networks)">
+                <input type="checkbox" name="dset_measurement_purposes" value="Routing Protocol for DTNs (Disruption Tolerant Networks)">
                 <span>Routing Protocol for DTNs (Disruption Tolerant Networks)</span>
               </div>
 
