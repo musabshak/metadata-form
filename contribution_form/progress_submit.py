@@ -2,7 +2,7 @@
 import cgi, cgitb
 from progress_save import save_progress
 from validation_common import validate_contribution_form
-from error_pages import FORM_SUBMISSION_ERROR_PAGE, SUBMIT_SUCCESS_PAGE
+from error_pages import SUBMIT_ERROR_PAGE, SUBMIT_SUCCESS_PAGE
 
 
 def main():
@@ -19,7 +19,7 @@ def main():
 
   if validation_errors != '':
     print("Content-Type:text/html\n")
-    error_page_mod = FORM_SUBMISSION_ERROR_PAGE.replace('[error_list]', validation_errors)
+    error_page_mod = SUBMIT_ERROR_PAGE.replace('[error_list]', validation_errors)
     print(error_page_mod)
     return
 

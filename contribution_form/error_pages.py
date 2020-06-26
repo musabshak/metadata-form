@@ -1,4 +1,4 @@
-FORM_SUBMISSION_ERROR_PAGE = """
+SUBMIT_ERROR_PAGE = """
 <html>
 <head>
   <style>

@@ -7,7 +7,7 @@
   * Constants
   */
 
-const VALIDATION_ON = true; // client-side validation toggle
+const VALIDATION_ON = false; // client-side validation toggle
 
 const INPUT_TEXT_CHARLIMIT = 50;
 const TEXTAREA_CHARLIMIT = 5000;

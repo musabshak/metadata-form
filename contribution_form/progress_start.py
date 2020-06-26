@@ -9,19 +9,20 @@ import secrets
 from email.message import EmailMessage
 from datetime import datetime
 from validation_common import *
-from error_pages import FORM_SUBMISSION_ERROR_PAGE
+from error_pages import SUBMIT_ERROR_PAGE
 
-# Send token link to author for accessing the initialized metadata form.
+
 def email_token(receiver_email, token):
+  """
+  Send token link to author for accessing the initialized metadata form.
+  """
   ## Setting up server and credentials
   port = 465  # For SSL
   smtp_server = "smtp.gmail.com"
-  # smtp_server = "127.0.0.1"
   sender_email = "emailtesting253@gmail.com"  # Enter your address
-  # receiver_email = "musabshakeel@gmail.com"  # Enter receiver address
   password = "emailtesting123"
 
-  ## Set up message contents
+  ## Set up message content
   message = EmailMessage()
   message['Subject'] = "Contribution Form Token"
   message['From'] = f"CRAWDAD Admin {sender_email}"
@@ -30,18 +31,16 @@ def email_token(receiver_email, token):
   f"following link:\n\n{token}"
   message.set_content(content)
 
-  # server = smtplib.SMTP('127.0.0.1', 1025)
-  # server.set_debuglevel(True)
-  # server.sendmail(sender_email, receiver_email, message)
-
   context = ssl.create_default_context()
   with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
       server.login(sender_email, password)
       server.send_message(message)
-      # server.sendmail(sender_email, receiver_email, message)
 
-## Generate xml file name from dataset name, initialization page submission date, randomly string
+
 def gen_xml_name(dset_name):
+  """
+  Generate xml file name from dataset name and form initialization date
+  """
   alphabet = string.ascii_letters + string.digits
   random_str = ''.join(secrets.choice(alphabet) for i in range(8))
 
@@ -50,9 +49,12 @@ def gen_xml_name(dset_name):
 
   return xml_file_name
 
-## Generate xml file from a given CGI form object
+
 def save_xml(form):
-  tree = parse('templates/init.xml')
+  """
+  Save xml file locally from a given CGI form object
+  """
+  tree = parse('templates/init.xml') # Template xml
   root = tree.getroot()
   for key in form.keys():
     field_input_list = form.getlist(key)
@@ -60,17 +62,15 @@ def save_xml(form):
       element = root.find(key)
       element.text = field_input_list[0]
 
-  xml_file_name = gen_xml_name(form.getlist("dset_name")[0])
-  # prefix = "home.cs.dartmouth.edu/~mshakeel/contribution_form/xml_files"
-  abs_filename = f"xml_files/{xml_file_name}.xml"
+  xml_file_name = gen_xml_name(form.getlist("dset_name")[0]) # "2020-06-25-FcBwiGO2-mobility5g"
+  abs_filename = f"xml_files/{xml_file_name}.xml" # "xml_files/2020-06-25-FcBwiGO2-mobility5g.xml"
+
   print(tostring(root).decode('UTF-8'), file=open(abs_filename, 'w'))
 
   return xml_file_name
 
 
-def main():
-  # print("Content-Type:text/html\n")                          
-  
+def main():  
   cgitb.enable() #for debugging
   form = cgi.FieldStorage(keep_blank_values=True)
 
@@ -81,7 +81,7 @@ def main():
 
   if validation_errors != '':
     print("Content-Type:text/html\n")
-    error_page_mod = FORM_SUBMISSION_ERROR_PAGE.replace('[error_list]', validation_errors)
+    error_page_mod = SUBMIT_ERROR_PAGE.replace('[error_list]', validation_errors)
     print(error_page_mod)
     return
 
@@ -98,9 +98,8 @@ def main():
     print("Content-Type:text/html\n")
     print("emailing token unsuccessful")
 
-  # Render contribution form with fields from initialization page filled in.
-  with open ("templates/cf_template.txt", "r") as form_contents_file:
-    print('Location:', 'http://', token, '\n', sep="")   
+  ## Render contribution form with fields from initialization page filled in.
+  print('Location:', 'http://', token, '\n', sep="")   
 
 
 if __name__ == '__main__':
