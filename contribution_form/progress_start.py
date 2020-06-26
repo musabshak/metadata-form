@@ -71,7 +71,7 @@ def save_xml(form):
 
 
 def main():  
-  cgitb.enable() #for debugging
+  cgitb.enable() # For debugging
   form = cgi.FieldStorage(keep_blank_values=True)
 
   try:
