@@ -30,7 +30,7 @@ validateEmail = (email) => {
 }
 
 validateDatasetName = (datasetName) => {
-  const regexp = /^[a-zA-Z0-9-]+$/;
+  const regexp = /^[a-zA-Z0-9-_]+$/;
   const nameCharLimit = 30;
 
   hideError('#dset_name');

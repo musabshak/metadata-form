@@ -60,7 +60,14 @@
 
         <h2>Dataset Information</h2>
 
-        <!-- <p> <i> * Denotes Required Fields </i></p> -->
+        <p class="description">
+          The dataset name and the short institution name you enter below will be used to generate
+          the URL where your dataset will be hosted. The following is the likely URL where your dataset
+          will be hosted. Note that this is not the final URL and modifications may need to be made 
+          post-submission.
+        </p>
+
+        <p class="likely-URL"></p>
 
         <div class="dataset-name">
           <div>
@@ -73,7 +80,6 @@
               More examples can be found 
               <a href="http://crawdad.org/all-byname.html" target="_blank">here.</a>
             </p>
-
             <div class="input-error-container">
               <input type="text" id="dset_name" name="dset_name" value="[dset_name]">
               <span class="error"> </span>

@@ -1,10 +1,30 @@
 /**
  * This file contains: 
- * - Code for navigating between different pages of the form on the client-side.
+ * - Code for generating the likely URL based off dataset name and short institution name.
  * - Code for the collapsibles denoting the optional checkbox/textbox fields for the dataset page.
+ * - Code for navigating between different pages of the form on the client-side.
  * - Code for dynamic rendering of multiple traceset pages.
  * - Code for dynamic rendering of multiple authors.
  */
+
+
+// ******************* START OF CODE FOR LIKELY URL ******************* //
+$('#dset_name').on('input', (e) => {
+  let url = $('.likely-URL').html();
+  let urlArray = url.split('/');
+  urlArray[4]= e.target.value;
+  let newUrl = urlArray.join('/');
+  $('.likely-URL').html(newUrl);
+})
+
+$('#dset_institution_name').on('input', (e) => {
+  let url = $('.likely-URL').html();
+  let urlArray = url.split('/');
+  urlArray[3]= e.target.value;
+  let newUrl = urlArray.join('/');
+  $('.likely-URL').html(newUrl);
+})
+// ******************* END OF CODE FOR LIKELY URL ******************* //
 
 
 
@@ -207,6 +227,7 @@ $('#add-author-btn').on('click', (e) => {
 
 
 
+
 // As soon as form is loaded ..
 $(document).ready( () => {
   // Find out how many traceset pages and how many authors have been rendered by the server
@@ -229,4 +250,14 @@ $(document).ready( () => {
   // Show the remove button only for the last author
   $(`.remove-author-btn.author${currNumAuthors}`).show();
 
+  // Initialize likely URL
+  const dsetName = $('#dset_name').val()
+  const institutionName = $('#dset_institution_name').val();
+
+  if (institutionName === '') {
+    $('.likely-URL').html(`http://crawdad.org/institution-name/${dsetName}`);
+  } else {
+    $('.likely-URL').html(`http://crawdad.org/${institutionName}/${dsetName}`);
+  }
+  
 })
