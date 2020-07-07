@@ -3,7 +3,7 @@
 
 <head>
   <script src="https://kit.fontawesome.com/07f4a8b46a.js" crossorigin="anonymous"></script>
-  <title> CRAWDAD Contribution Form </title>
+  <title> CRAWDAD Metadata Form </title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" type='text/css' />
 </head>
@@ -11,8 +11,8 @@
 <body>
   <div id="main">
 
-    <h1> CRAWDAD Dataset Contribution Form </h1>
-    <p>
+    <h1> CRAWDAD Metadata Form </h1>
+    <!-- <p>
       Thank you for offering to contribute your data to
       CRAWDAD! If we will be only mirroring data that is already hosted elsewhere, only
       your permission is needed. However, if your data will be only hosted at
@@ -20,8 +20,9 @@
         this agreement form.</a> Please ensure that you are able to sign the agreement before proceeding
       with submission of the description of your data. Please mail your signed agreement to
       <a target="_blank" href="mailto:crawdad-team@cs.dartmouth.edu">crawdad-team@cs.dartmouth.edu.</a>
-    </p>
+    </p> -->
     <p>
+      <i>Definition of "dataset", "traceset", and "trace":</i> <br>
       A dataset is a set of wireless network data, collected by the same organization in the course of the same research
       project. The dataset can consist of multiple tracesets, and a traceset can contain multiple traces. A traceset is
       a set of traces collected using the same measuring tool, e.g. tcpdump, snmp, syslog, or collected on the same
@@ -30,7 +31,7 @@
       <a target="_blank" href="http://crawdad.org/ucsd/sigcomm2001/20020423/">ucsd/sigcomm2001.</a>
     </p>
     <p style="margin: 0px">
-      Notes about the form:
+      <i>Notes about the form:</i>
     </p>
     <ul style="margin: 0px;">
       <li>Required Fields are denoted by an *.</li>
@@ -67,9 +68,10 @@
             <span>Dataset Name *</span>
 
             <p class="description">
-              One-word name for the dataset. Should only contain alphanumeric characters, preferably
-              all lowercase. For example, "mobilitywireless5g". More examples can be found
-              <a href="#">here.</a>
+              One-word name for the dataset. Should only contain alphanumeric characters (preferably
+              all lowercase), hyphens, and/or underscores. For example, "mobility-wireless5g". 
+              More examples can be found 
+              <a href="http://crawdad.org/all-byname.html" target="_blank">here.</a>
             </p>
 
             <div class="input-error-container">
@@ -87,9 +89,11 @@
             <span>Institution Name (short) *</span>
 
             <p class="description">
-              One-word institution name. Should only contain alphanumeric characters, preferably
-              all lowercase. For example, "dartmouth". Examples of existing institution names can be found
-              <a href="#">here.</a>
+              One-word name for the institution that the dataset is associated with. 
+              Should only contain alphanumeric characters (preferably
+              all lowercase), hyphens, and/or underscores. For example, "dartmouth".  
+              Examples of existing institution names can be found
+              <a href="http://crawdad.org/all-byname.html" target="_blank">here.</a>
             </p>
 
             <div class="input-error-container">
@@ -141,19 +145,24 @@
           <div class="num-tracesets">
             <div>
               <span>Number of Tracesets *</span>
-              <p class="description"> Should be a positive integer.</p>
+              <p class="description"> 
+                Please use the arrows to enter a positive integer between 1 and 15. There must 
+                be at least one traceset in the dataset. Refer to the definition of "traceset" at the 
+                top of the page for clarification.
+              </p>
               <div class="input-error-container">
                 <input type="number" id="dset_num_tracesets" name="dset_num_tracesets" min="1" max="20"
                   value=[dset_num_tracesets]>
+                <button type="button" id="confirm-num-tsets">Confirm</button>
                 <span class="error"> </span>
               </div>
             </div>
           </div>
-          <div id="data-loss-warning">
+          <div id="data-loss-warning" style="font-size: 14px">
             Note: Reducing number of tracesets will result in a loss of data.
           </div>
-          <button type="button" id="confirm-num-tsets">Confirm</button>
-
+          
+          
         </div>
 
         <div class="dset-measurement-dates measurement-dates">
@@ -979,17 +988,17 @@
             </div>
           </div>
 
-          <div class="suggestions">
+          <div class="notes">
             <div>
-              <span>Suggestions</span>
+              <span>Notes</span>
               <p class="description">
                 Please use this box for any other notes about the overall dataset not covered in the
                 above
                 boxes.
               </p>
               <div class="input-error-container">
-                <textarea id="dset_suggestions" name="dset_suggestions" rows="10"
-                  cols="50">[dset_suggestions]</textarea>
+                <textarea id="dset_notes" name="dset_notes" rows="10"
+                  cols="50">[dset_notes]</textarea>
                 <span class="error"> </span>
               </div>
             </div>

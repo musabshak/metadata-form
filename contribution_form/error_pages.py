@@ -76,7 +76,11 @@ SUBMIT_SUCCESS_PAGE = """
 </head>
 
 <body>
-  <h2> Thank you for contributing your dataset! </h2>
+  <h3> 
+    Thank you for providing metadata to describe your dataset.  
+    We will contact you soon if we have any questions or concerns about the details, and to discuss the 
+    best means for transfer of your data to our server.
+  </h3>
 </body>
 
 </html>

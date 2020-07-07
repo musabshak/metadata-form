@@ -31,11 +31,11 @@ tset_required_fields = [
 def validateXsetName(value, fieldID):
   XsetName = value
 
-  regexp = r"^[a-zA-Z0-9-]+$"
+  regexp = r"^[a-zA-Z0-9-_]+$"
   if XsetName == "":
      return (f"<li>{fieldID} is a required field</li>\n")
   elif (not re.match(regexp, XsetName)):
-    return (f"<li>{fieldID} may contain only alpha-numeric characters, preferably all lowercase</li>\n")
+    return (f"<li>{fieldID} may contain only alpha-numeric characters and/or hyphens and underscores</li>\n")
 
   return ''
 

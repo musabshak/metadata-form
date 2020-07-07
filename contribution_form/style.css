@@ -247,6 +247,12 @@ a, a:visited, a:active, a:hover {
 #confirm-num-tsets {
   display: none;
   margin-left: 20px;
+  margin-right: 20px;
+}
+
+#dset_num_tracesets {
+  color: transparent;
+  text-shadow: 0 0 0 black;
 }
 
 #data-loss-warning {

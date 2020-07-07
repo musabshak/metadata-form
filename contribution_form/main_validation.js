@@ -47,13 +47,13 @@ const tset_required_fields = [
 
 hideError = (selector) => {
   $(selector).removeClass('invalid');
-  $(`${selector} + .error`).hide();
+  $(`${selector} ~ .error`).hide();
 }
 
 showError = (selector, errorMessage) => {
   $(selector).addClass('invalid');
-  $(`${selector} + .error`).show();
-  $(`${selector} + .error`).text( errorMessage || "Something wrong with this field");
+  $(`${selector} ~ .error`).show();
+  $(`${selector} ~ .error`).text( errorMessage || "Something wrong with this field");
 }
 
 // Used to validate dataset/traceset names + institution name.
@@ -62,7 +62,7 @@ validateXsetName = (value, id) => {
   const XsetName = value;
   const fieldID = `#${id}`;
 
-  const regexp = /^[a-zA-Z0-9-]+$/;
+  const regexp = /^[a-zA-Z0-9-_]+$/;
 
   hideError(fieldID);
 
