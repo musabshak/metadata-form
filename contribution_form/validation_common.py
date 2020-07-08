@@ -16,8 +16,8 @@ dset_required_fields = [
   "dset_author1_email", 
   "dset_author1_institution",
   "dset_author1_country",
-  "dset_start_date",
-  "dset_end_date"
+  # "dset_start_date",
+  # "dset_end_date"
 ]
 
 tset_required_fields = [
@@ -163,10 +163,10 @@ def validate_contribution_form(form):
     errs += validateXsetName(form.getlist(fieldName)[0], fieldName)
 
   ## Validate all dates (format only)
-  dset_start_date = form.getlist('dset_start_date')[0]
-  dset_end_date = form.getlist('dset_end_date')[0]
-  errs += validateDateFormat(dset_start_date, 'dset_start_date')
-  errs += validateDateFormat(dset_end_date, 'dset_end_date')
+  # dset_start_date = form.getlist('dset_start_date')[0]
+  # dset_end_date = form.getlist('dset_end_date')[0]
+  # errs += validateDateFormat(dset_start_date, 'dset_start_date')
+  # errs += validateDateFormat(dset_end_date, 'dset_end_date')
 
   for i in range(1, dset_num_tracesets+1):
     fieldName1 = f"tset{i}_start_date"

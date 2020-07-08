@@ -26,8 +26,8 @@ const dset_required_fields = [
   "dset_author1_email", 
   "dset_author1_institution",
   "dset_author1_country",
-  "dset_start_date",
-  "dset_end_date"
+  // "dset_start_date",
+  // "dset_end_date"
 ]
 
 // Required traceset field names
@@ -72,7 +72,7 @@ validateXsetName = (value, id) => {
     return false;
   }
   else if (!regexp.test(XsetName)) {
-    const errorMessage = "Dataset/Traceset name may contain only alpha-numeric characters, preferably all lowercase";
+    const errorMessage = "Name may contain only alpha-numeric characters, hyphens, and/or underscores.";
     showError(fieldID, errorMessage);
     return false;
   } 
@@ -313,8 +313,8 @@ validateFormForSubmit = () => {
   }
 
   /* Validate all dates*/
-  checks.push(validateDateFormat($('#dset_start_date').val(), 'dset_start_date'));
-  checks.push(validateDateFormat($('#dset_end_date').val(), 'dset_end_date'));
+  // checks.push(validateDateFormat($('#dset_start_date').val(), 'dset_start_date'));
+  // checks.push(validateDateFormat($('#dset_end_date').val(), 'dset_end_date'));
   for (var i=1; i <= currNumTsets; i++) {
     let fieldName1 = `tset${[i]}_start_date`;
     let formattedFieldName1 = `#${fieldName1}`;
@@ -410,9 +410,9 @@ $(document).ready( () => {
   $('#dset_num_tracesets').keypress((e) => {e.preventDefault()}); // Prevent typing into number input field
   $('#dset_num_tracesets').on('change', (e) => {validateNumTsets(e.target.value, e.target.id)});
   
-  // Validate dataset dates
-  $('#dset_start_date').on('blur', (e) => {validateDateFormat(e.target.value, e.target.id)});
-  $('#dset_end_date').on('blur', (e) => {validateDateFormat(e.target.value, e.target.id)});
+  // // Validate dataset dates
+  // $('#dset_start_date').on('blur', (e) => {validateDateFormat(e.target.value, e.target.id)});
+  // $('#dset_end_date').on('blur', (e) => {validateDateFormat(e.target.value, e.target.id)});
   
   // Validate dataset author emails
   for (var i = 1; i <= currNumAuthors; i++) {

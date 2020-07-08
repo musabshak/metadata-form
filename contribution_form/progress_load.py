@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 import re
 from error_pages import ALREADY_SUBMITTED_ERROR_PAGE
 
-SUBMIT_CHECK = False
+SUBMIT_CHECK = True
 
 def main():
   cgitb.enable() # For debugging

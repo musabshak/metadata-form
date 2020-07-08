@@ -38,7 +38,7 @@
       <li>You may save progress at any point and return to the form using the URL emailed to the primary author.</li>
       <li>Saving progress redirects back to the "Dataset Information" first page.</li>
       <li>The 'Submit' button appears on the last traceset page.</li>
-      <li>Once you submit the form, you will not be able to re-access the form via the URL. For any changes/edits,
+      <li>Once you submit the form, you will not be able to re-access it via the emailed URL. For any changes/edits,
         please contact <a target="_blank" href="mailto:crawdad-team@cs.dartmouth.edu">crawdad-team@cs.dartmouth.edu.</a>
       </li>
     </ul>
@@ -62,8 +62,8 @@
 
         <p class="description">
           The dataset name and the short institution name you enter below will be used to generate
-          the URL where your dataset will be hosted. The following is the likely URL where your dataset
-          will be hosted. Note that this is not the final URL and modifications may need to be made 
+          the URL where your dataset will be hosted; the following is the likely URL that we will use. 
+          Note that this is not the final URL and modifications may need to be made 
           post-submission.
         </p>
 
@@ -171,7 +171,7 @@
           
         </div>
 
-        <div class="dset-measurement-dates measurement-dates">
+        <!-- <div class="dset-measurement-dates measurement-dates">
 
           <div id="start-date">
             <div>
@@ -195,7 +195,7 @@
             </div>
           </div>
 
-        </div>
+        </div> -->
 
         <datalist id="country_list">
           <option value="Afganistan">Afghanistan</option>
@@ -494,7 +494,7 @@
           <div class="keywords checkboxes-block-container">
 
             <h3>Keywords</h3>
-            <p class="description">Choose as many as apply.</p>
+            <p class="description">Choose those boxes that apply to any of the tracesets.</p>
 
             <div class="checkboxes-container">
               <div class="checkbox">
@@ -668,7 +668,7 @@
           <div class="measurement-purposes checkboxes-block-container">
 
             <h3>Measurements Purposes</h3>
-            <p class="description">Choose as many as apply.</p>
+            <p class="description">Choose those boxes that apply to any of the tracesets.</p>
 
             <div class="checkboxes-container">
               <div class="checkbox">
@@ -772,7 +772,7 @@
           <div class="network-type checkboxes-block-container">
 
             <h3>Network Type</h3>
-            <p class="description">Choose as many as apply.</p>
+            <p class="description">Choose those boxes that apply to any of the tracesets.</p>
 
             <div class="checkboxes-container">
               <div class="checkbox">
@@ -884,7 +884,7 @@
             </div>
           </div>
 
-          <div class="sanitization">
+          <!-- <div class="sanitization">
             <div>
               <span>Sanitization</span>
               <p class="description">
@@ -909,9 +909,9 @@
                 <span class="error"> </span>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="network-configuration">
+          <!-- <div class="network-configuration">
             <div>
               <span>Network Configuration</span>
               <p class="description">
@@ -924,9 +924,9 @@
                 <span class="error"> </span>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="collection-methodology">
+          <!-- <div class="collection-methodology">
             <div>
               <span>Collection Methodology</span>
               <p class="description">
@@ -941,16 +941,14 @@
                 <span class="error"> </span>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="methodolody-limitation">
+          <!-- <div class="methodolody-limitation">
             <div>
               <span>Methodology Limitations</span>
               <p class="description">
                 What are known limitations of your data-collection or data-sanitization methods, that
-                might
-                affect
-                the use or interpretation of the data?
+                might affect the use or interpretation of the data?
               </p>
               <div class="input-error-container">
                 <textarea id="dset_methodology_limitations" name="dset_methodology_limitations" rows="10"
@@ -958,16 +956,14 @@
                 <span class="error"> </span>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="missing-data">
+          <!-- <div class="missing-data">
             <div>
               <span>Missing Data</span>
               <p class="description">
                 Please note any gaps in the data; e.g., a one-month trace of a production network that
-                is
-                missing a
-                few hours due to a power failure.
+                is missing a few hours due to a power failure.
               </p>
               <div class="input-error-container">
                 <textarea id="dset_missing_data" name="dset_missing_data" rows="10"
@@ -975,16 +971,14 @@
                 <span class="error"> </span>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="incorrectly-measured-data">
+          <!-- <div class="incorrectly-measured-data">
             <div>
               <span>Incorrectly Measured Data</span>
               <p class="description">
                 Please note any data that is known to have been collected or measured incorrectly, and
-                how
-                those
-                data are labeled.
+                how those data are labeled.
               </p>
               <div class="input-error-container">
                 <textarea id="dset_incorrectly_meas_data" name="dset_incorrectly_meas_data" rows="10"
@@ -992,11 +986,11 @@
                 <span class="error"> </span>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="notes">
             <div>
-              <span>Notes</span>
+              <span>Other Notes</span>
               <p class="description">
                 Please use this box for any other notes about the overall dataset not covered in the
                 above

@@ -5,7 +5,7 @@
   <div class="tset-name">
     <div>
       <span>Traceset [id] Name *</span>
-      <p class="description"> One-word name for the traceset. Should only contain alphanumeric characters, 
+      <p class="description"> One-word name for the traceset. Should only contain alphanumeric characters,
         preferably all lowercase. For example, "tcpdump". More examples can be found <a href="#">here.</a></p>
       <div class="input-error-container">
         <input type="text" id="tset[id]_name" name="tset[id]_name" value="[tset[id]_name]">
@@ -45,8 +45,6 @@
 
   <div class="tset-measurement-dates measurement-dates">
 
-
-
     <div id="start-date">
       <div>
         <span>Measurement Start Date *</span>
@@ -69,61 +67,134 @@
       </div>
     </div>
 
-
-
   </div>
 
-  <div class="tset-collection-method">
-    <div>
-      <span>Collection Method</span>
-      <p class="description"> Please describe the method used to collect the traces in this traceset.
-      </p>
-      <div class="input-error-container">
-        <textarea id="tset[id]_collection_method" name="tset[id]_collection_method" rows="10"
-          cols="70">[tset[id]_collection_method]</textarea>
-        <span class="error"> </span>
-      </div>
-    </div>
-  </div>
+  <button id="show-opt-textboxes" class="show-opt-button">
+    Additional Traceset Details
+  </button>
 
-  <div class="tset-data-sanitization-method">
-    <div>
-      <span>Data Sanitization Method</span>
-      <p class="description"> Please provide details about how the data in this traceset was
-        sanitized, e.g., regarding the sanitization of certain records or fields within records.
-        Typical methods include removal (deleting the record or field from the data), obfuscation
-        (replacing the record or field with a blank, zero, or random alternative of the same type),
-        and pseudonymization (replacing the record or field with a consistent pseudonym of the same
-        type). For example, an IP address could be removed, obfuscated (mapping all IP addresses to
-        the same 1.1.1.1, or mapping each IP address to a random IP address each time it is
-        encountered), or pseudonymized (mapping each IP address seen to a specific unique alternate
-        IP address, e.g., 100.34.5.69). In such mappings, care should be taken not to transform
-        unicast addresses into multicast, or global addresses into local addresses, or vice versa…
-        or to document here that no such effort was made and the data user should not interpret the
-        bits of an IP address with their usual meaning.
-      </p>
-      <div class="input-error-container">
-        <textarea id="tset[id]_data_sanitization_method" name="tset[id]_data_sanitization_method" rows="10"
-          cols="70">[tset[id]_data_sanitization_method]</textarea>
-        <span class="error"> </span>
-      </div>
-    </div>
-  </div>
+  <div class="optional-fields">
 
-  <div class="tset-trace-note">
-    <div>
-      <span>Notes Specific to Traces</span>
-      <p class="description"> Please describe anything unusual about specific traces in this traceset,
-        e.g.,
-        missing or corrupted data, difference in experimental conditions, difference in collection
-        methods, relative to the descriptions provided for this traceset.
-      </p>
-      <div class="input-error-container">
-        <textarea id="tset[id]_trace_note" name="tset[id]_trace_note" rows="10"
-          cols="70">[tset[id]_trace_note]</textarea>
-        <span class="error"> </span>
+    <div class="tset-collection-method">
+      <div>
+        <span>Collection Method</span>
+        <p class="description"> Please describe the method used to collect the traces in this traceset.
+        </p>
+        <div class="input-error-container">
+          <textarea id="tset[id]_collection_method" name="tset[id]_collection_method" rows="10"
+            cols="70">[tset[id]_collection_method]</textarea>
+          <span class="error"> </span>
+        </div>
       </div>
     </div>
+
+    <div class="methodolody-limitation">
+      <div>
+        <span>Methodology Limitations</span>
+        <p class="description">
+          What are known limitations of your data-collection or data-sanitization methods, that
+          might affect the use or interpretation of the data?
+        </p>
+        <div class="input-error-container">
+          <textarea id="tset[id]_methodology_limitations" name="tset[id]_methodology_limitations" rows="10"
+            cols="50">[tset[id]_methodology_limitations]</textarea>
+          <span class="error"> </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tset-data-sanitization-method">
+      <div>
+        <span>Data Sanitization Method</span>
+        <p class="description">
+          It is the responsibility of you (the contributor) to ensure your dataset is properly “sanitized” before transfer
+          to CRAWDAD. Sanitization includes the removal or modification of sensitive data about humans or organizations.
+          If your data includes any information about human individuals - whether identifiable or not - it must be
+          anonymized before upload. Similarly, if the data includes any proprietary or other sensitive information, it
+          should be redacted or obscured before upload. Provide details of sanitization methods in description of each
+          traceset. <br>
+          Please provide details about how the data in this traceset was
+          sanitized, e.g., regarding the sanitization of certain records or fields within records.
+          Typical methods include removal (deleting the record or field from the data), obfuscation
+          (replacing the record or field with a blank, zero, or random alternative of the same type),
+          and pseudonymization (replacing the record or field with a consistent pseudonym of the same
+          type). For example, an IP address could be removed, obfuscated (mapping all IP addresses to
+          the same 1.1.1.1, or mapping each IP address to a random IP address each time it is
+          encountered), or pseudonymized (mapping each IP address seen to a specific unique alternate
+          IP address, e.g., 100.34.5.69). In such mappings, care should be taken not to transform
+          unicast addresses into multicast, or global addresses into local addresses, or vice versa…
+          or to document here that no such effort was made and the data user should not interpret the
+          bits of an IP address with their usual meaning.
+        </p>
+        <div class="input-error-container">
+          <textarea id="tset[id]_data_sanitization_method" name="tset[id]_data_sanitization_method" rows="10"
+            cols="70">[tset[id]_data_sanitization_method]</textarea>
+          <span class="error"> </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="missing-data">
+      <div>
+        <span>Missing Data</span>
+        <p class="description">
+          Please note any gaps in the data; e.g., a one-month trace of a production network that
+          is missing a few hours due to a power failure.
+        </p>
+        <div class="input-error-container">
+          <textarea id="tset[id]_missing_data" name="tset[id]_missing_data" rows="10"
+            cols="50">[tset[id]_missing_data]</textarea>
+          <span class="error"> </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="incorrectly-measured-data">
+      <div>
+        <span>Incorrectly Measured Data</span>
+        <p class="description">
+          Please note any data that is known to have been collected or measured incorrectly, and
+          how those data are labeled.
+        </p>
+        <div class="input-error-container">
+          <textarea id="tset[id]_incorrectly_meas_data" name="tset[id]_incorrectly_meas_data" rows="10"
+            cols="50">[tset[id]_incorrectly_meas_data]</textarea>
+          <span class="error"> </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="network-configuration">
+      <div>
+        <span>Network Configuration</span>
+        <p class="description">
+          If this traceset includes data captured from a network, describe that network and its
+          configuration.
+        </p>
+        <div class="input-error-container">
+          <textarea id="tset[id]_network_configuration" name="tset[id]_network_configuration" rows="10"
+            cols="50">[tset[id]_network_configuration]</textarea>
+          <span class="error"> </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tset-trace-note">
+      <div>
+        <span>Notes Specific to Traces</span>
+        <p class="description"> Please describe anything unusual about specific traces in this traceset,
+          e.g.,
+          missing or corrupted data, difference in experimental conditions, difference in collection
+          methods, relative to the descriptions provided for this traceset.
+        </p>
+        <div class="input-error-container">
+          <textarea id="tset[id]_trace_note" name="tset[id]_trace_note" rows="10"
+            cols="70">[tset[id]_trace_note]</textarea>
+          <span class="error"> </span>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </div>

@@ -46,7 +46,7 @@ validateDatasetName = (datasetName) => {
     return false;
   }
   else if (!regexp.test(datasetName)) {
-    const errorMessage = "Dataset name may contain only alpha-numeric characters, preferably all lowercase";
+    const errorMessage = "Name may contain only alpha-numeric characters, hyphens, and/or underscores.";
     showError('#dset_name', errorMessage);
     return false;
   } 

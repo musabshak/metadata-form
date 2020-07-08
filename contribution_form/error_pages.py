@@ -72,15 +72,18 @@ SUBMIT_SUCCESS_PAGE = """
       justify-content: center;
       font-family: 'Open Sans', sans-serif;
     }
+    div {
+      max-width: 40rem;
+    }
   </style>
 </head>
 
 <body>
-  <h3> 
+  <div> 
     Thank you for providing metadata to describe your dataset.  
     We will contact you soon if we have any questions or concerns about the details, and to discuss the 
     best means for transfer of your data to our server.
-  </h3>
+  </div>
 </body>
 
 </html>

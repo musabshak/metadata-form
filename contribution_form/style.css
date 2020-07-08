@@ -58,6 +58,7 @@ div {
   position: fixed;
   bottom: 5px;
   right: 30px;   
+  z-index: 10;
 }
 
 #submit_form_button {
@@ -324,6 +325,7 @@ input:focus {
   width: 150px;
   height: 170px;
   font-size: 14px;
+  z-index: 5;
 }
 
 .error {
