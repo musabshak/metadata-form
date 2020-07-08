@@ -97,9 +97,11 @@
             <p class="description">
               One-word name for the institution that the dataset is associated with. 
               Should only contain alphanumeric characters (preferably
-              all lowercase), hyphens, and/or underscores. For example, "dartmouth".  
+              all lowercase), hyphens, and/or underscores.   
               Examples of existing institution names can be found
               <a href="http://crawdad.org/all-byname.html" target="_blank">here.</a>
+              The email domain name of the institute may be appropriate to use here; for
+              example, 'dartmouth', based on the domain 'dartmouth.edu'.
             </p>
 
             <div class="input-error-container">
