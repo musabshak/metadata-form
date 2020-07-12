@@ -77,7 +77,7 @@ def main():
   try:
     validation_errors = validate_init_form(form)
   except: 
-    validation_errors = "<li>Cannot parse request<li>\n"
+    validation_errors = "<li>Cannot parse request</li>\n"
 
   if validation_errors != '':
     print("Content-Type:text/html\n")
