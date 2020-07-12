@@ -21,7 +21,7 @@ def email_token(receiver_email, token):
   smtp_server = "smtp.gmail.com"
   sender_email = "emailtesting253@gmail.com"  # Enter your address
   password = "emailtesting123"
-
+  
   ## Set up message content
   message = EmailMessage()
   message['Subject'] = "Contribution Form Token"
@@ -97,6 +97,7 @@ def main():
   except: 
     print("Content-Type:text/html\n")
     print("emailing token unsuccessful")
+    return
 
   ## Render contribution form with fields from initialization page filled in.
   print('Location:', 'http://', token, '\n', sep="")   
