@@ -1,3 +1,5 @@
+const INPUT_TEXT_CHARLIMIT = 50;
+
 hideError = (selector) => {
   $(selector).removeClass('invalid');
   $(`${selector} + .error`).hide();
@@ -31,7 +33,7 @@ validateEmail = (email) => {
 
 validateDatasetName = (datasetName) => {
   const regexp = /^[a-zA-Z0-9-_]+$/;
-  const nameCharLimit = 30;
+  const nameCharLimit = INPUT_TEXT_CHARLIMIT;
 
   hideError('#dset_name');
 

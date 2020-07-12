@@ -19,16 +19,21 @@ def email_token(receiver_email, token):
   ## Setting up server and credentials
   port = 465  # For SSL
   smtp_server = "smtp.gmail.com"
-  sender_email = "emailtesting253@gmail.com"  # Enter your address
+  sender_email = "emailtesting253@gmail.com"  
   password = "emailtesting123"
-  
+
+  # port = 1025
+  # smtp_server = "127.0.0.1"
+  # sender_email = "crawdadmeta@cs.dartmouth.edu"
+  # password = "oD/vx0y.cr5j"
+
   ## Set up message content
   message = EmailMessage()
   message['Subject'] = "Contribution Form Token"
   message['From'] = f"CRAWDAD Admin {sender_email}"
   message['To'] = receiver_email
   content = f"You may access the contribution form you started at the " \
-  f"following link:\n\n{token}"
+  f"following link:\n\n{token}.\n\nReply-to: crawdad-team@cs.dartmouth.edu"
   message.set_content(content)
 
   context = ssl.create_default_context()
