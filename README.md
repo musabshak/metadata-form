@@ -1,4 +1,4 @@
-# CRAWDAD Metadata Contribution Form
+# CRAWDAD Metadata Form
 This is the metadata form that dataset contributors are requested to fill before uploading a dataset to CRAWDAD. This form 
 allows us to collect dataset metadata in a standardized format which we then use to construct a webpage for the uploaded dataset at crawdad.org/
 
