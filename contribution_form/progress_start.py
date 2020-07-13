@@ -11,6 +11,7 @@ from datetime import datetime
 from validation_common import *
 from error_pages import SUBMIT_ERROR_PAGE
 
+TOKEN_BASE = "home.cs.dartmouth.edu/~mshakeel/contribution_form"
 
 def email_token(receiver_email, token):
   """
@@ -94,7 +95,7 @@ def main():
 
   ## Generate xml file. Save initial fields to xml file.
   xml_file_name = save_xml(form)
-  token = f"home.cs.dartmouth.edu/~mshakeel/contribution_form/progress_load.py?token={xml_file_name}"
+  token = f"{TOKEN_BASE}/progress_load.py?token={xml_file_name}"
 
   ## Email token to primary author
   try: 
