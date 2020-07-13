@@ -2,6 +2,13 @@
 This is the metadata form that dataset contributors are requested to fill before uploading a dataset to CRAWDAD. This form 
 allows us to collect dataset metadata in a standardized format which we then use to construct a webpage for the uploaded dataset at crawdad.org/
 
+The landing page is accessible at:  
+http://home.cs.dartmouth.edu/~crawdad/metadata-form/cf_init.html
+
+You may access forms in progress (not submitted yet) at:  
+http://home.cs.dartmouth.edu/~crawdad/metadata-form/progress_load.py?token=yyyy-mm-dd-randomstring-datasetname
+
+
 ## Source Code Structure
 _Timeline for when different scripts are called as form is filled_
 ![](https://i.imgur.com/5srC1kj.jpg)

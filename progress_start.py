@@ -11,7 +11,9 @@ from datetime import datetime
 from validation_common import *
 from error_pages import SUBMIT_ERROR_PAGE
 
-TOKEN_BASE = "home.cs.dartmouth.edu/~mshakeel/contribution_form"
+# TOKEN_BASE = "home.cs.dartmouth.edu/~mshakeel/contribution_form"
+TOKEN_BASE = "home.cs.dartmouth.edu/~crawdad/metadata-form"
+
 
 def email_token(receiver_email, token):
   """

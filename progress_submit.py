@@ -23,7 +23,7 @@ def submit_email_notification(xml_file_name):
   message = EmailMessage()
   message['Subject'] = "New Metadata Form Submitted"
   message['From'] = f"CRAWDAD Meta {sender_email}"
-  message['To'] = "musabshakeel@gmail.com"
+  message['To'] = "crawdadmin@cs.dartmouth.edu"
   content = f"A new metadata form has been submitted. The submission is saved in the following file:\n\n" \
   f"{xml_file_name}"
   message.set_content(content)
