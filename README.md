@@ -1,6 +1,6 @@
 # CRAWDAD Metadata Form
 This is the metadata form that dataset contributors are required to fill before uploading a dataset to CRAWDAD. This form 
-allows us to collect dataset metadata in a standardized format which we then use to construct a webpage for the uploaded dataset at crawdad.org/
+allows us to collect metadata in a standard format which we then use to construct a webpage for the uploaded dataset at crawdad.org.
 
 The landing page is accessible at:  
 http://home.cs.dartmouth.edu/~crawdad/metadata-form/cf_init.html
