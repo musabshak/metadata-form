@@ -13,38 +13,28 @@ def submit_email_notification(xml_file_name):
   """
   Send email to crawdad admin once form has been submitted.
   """
-  ## Setting up server and credentials
-  # port = 465  # For SSL
-  # smtp_server = "smtp.gmail.com"
-  # sender_email = "emailtesting253@gmail.com"  
-  # password = "emailtesting123"
-
-  port = 465
   smtp_server = "mail.cs.dartmouth.edu"
   sender_email = "crawdadmeta@cs.dartmouth.edu"
-  password = "oD/vx0y.cr5j"
+  receiver_email = "crawdadmin@cs.dartmouth.edu"
   
   ## Set up message content
   message = EmailMessage()
   message['Subject'] = "New Metadata Form Submitted"
-  message['From'] = f"CRAWDAD Meta {sender_email}"
-  message['To'] = "crawdadmin@cs.dartmouth.edu"
+  message['To'] = receiver_email
   content = f"A new metadata form has been submitted. The submission is saved in the following file:\n\n" \
   f"{xml_file_name}"
   message.set_content(content)
 
-  context = ssl.create_default_context()
-  with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
-      server.login(sender_email, password)
-      server.send_message(message)
+  server = smtplib.SMTP(smtp_server)
+  server.send_message(message, from_addr=sender_email, to_addrs=receiver_email)
+
+  return
 
 
 def main():
   cgitb.enable() # For debugging
 
   form = cgi.FieldStorage(keep_blank_values=True)
-
-  ## Save form without validating it when the 'submit' button is pressed
 
   ## Validate form for save
   try:
