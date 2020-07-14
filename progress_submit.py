@@ -21,6 +21,7 @@ def submit_email_notification(xml_file_name):
   message = EmailMessage()
   message['Subject'] = "New Metadata Form Submitted"
   message['To'] = receiver_email
+  message['Reply-to'] = 'crawdad-team@cs.dartmouth.edu'
   content = f"A new metadata form has been submitted. The submission is saved in the following file:\n\n" \
   f"{xml_file_name}"
   message.set_content(content)
@@ -71,7 +72,13 @@ def main():
   ## And email CRAWDAD admin notifying them about submitted form
   original_page = os.environ['HTTP_REFERER']
   xml_file_name = original_page.split('token=')[1]
-  submit_email_notification(xml_file_name) 
+  
+  try: 
+    submit_email_notification(xml_file_name) 
+  except: 
+    print("Content-Type:text/html\n") 
+    print(SUBMIT_SUCCESS_PAGE)
+    return
 
   ## Display confirmation for successful submission
   print("Content-Type:text/html\n") 

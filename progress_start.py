@@ -24,10 +24,11 @@ def email_token(receiver_email, token):
   
   ## Set up message content
   message = EmailMessage()
-  message['Subject'] = "Contribution Form Token"
+  message['Subject'] = "Metadata Form Token"
   message['To'] = receiver_email
-  content = f"You may access the contribution form you started at the " \
-  f"following link:\n\n{token}\n\nReply-to: crawdad-team@cs.dartmouth.edu"
+  message['Reply-to'] = 'crawdad-team@cs.dartmouth.edu'
+  content = f"You may access the metadata form you started at the " \
+  f"following link:\n\n{token}"
   message.set_content(content)
 
   server = smtplib.SMTP(smtp_server)
@@ -95,7 +96,10 @@ def main():
     email_token(dset_author1_email, token)
   except: 
     print("Content-Type:text/html\n")
-    print("emailing token unsuccessful")
+    print("Your form has been initialized but the token URL could not be successfully ",
+    "emailed. Please access your form at: <br><br>",
+    f"<a href='http://{token}'>http://{token}</a><br><br> You must save this URL if you wish to access the form in the future. Note that you ",
+    "will not be able to access the form once you have submitted it.")
     return
 
   ## Render contribution form with fields from initialization page filled in.
