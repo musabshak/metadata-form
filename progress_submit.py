@@ -14,10 +14,15 @@ def submit_email_notification(xml_file_name):
   Send email to crawdad admin once form has been submitted.
   """
   ## Setting up server and credentials
-  port = 465  # For SSL
-  smtp_server = "smtp.gmail.com"
-  sender_email = "emailtesting253@gmail.com"  
-  password = "emailtesting123"
+  # port = 465  # For SSL
+  # smtp_server = "smtp.gmail.com"
+  # sender_email = "emailtesting253@gmail.com"  
+  # password = "emailtesting123"
+
+  port = 465
+  smtp_server = "mail.cs.dartmouth.edu"
+  sender_email = "crawdadmeta@cs.dartmouth.edu"
+  password = "oD/vx0y.cr5j"
   
   ## Set up message content
   message = EmailMessage()

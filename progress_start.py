@@ -20,15 +20,15 @@ def email_token(receiver_email, token):
   Send token link to author for accessing the initialized metadata form.
   """
   ## Setting up server and credentials
-  port = 465  # For SSL
-  smtp_server = "smtp.gmail.com"
-  sender_email = "emailtesting253@gmail.com"  
-  password = "emailtesting123"
+  # port = 465  # For SSL
+  # smtp_server = "smtp.gmail.com"
+  # sender_email = "emailtesting253@gmail.com"  
+  # password = "emailtesting123"
 
-  # port = 1025
-  # smtp_server = "127.0.0.1"
-  # sender_email = "crawdadmeta@cs.dartmouth.edu"
-  # password = "oD/vx0y.cr5j"
+  port = 465
+  smtp_server = "mail.cs.dartmouth.edu"
+  sender_email = "crawdadmeta@cs.dartmouth.edu"
+  password = "oD/vx0y.cr5j"
 
   ## Set up message content
   message = EmailMessage()
