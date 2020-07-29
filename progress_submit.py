@@ -74,7 +74,7 @@ def main():
   xml_file_name = original_page.split('token=')[1]
   
   try: 
-    submit_email_notification(xml_file_name) 
+    submit_email_notification(xml_file_name)
   except: 
     print("Content-Type:text/html\n") 
     print(SUBMIT_SUCCESS_PAGE)

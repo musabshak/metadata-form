@@ -6,10 +6,11 @@ import os
 import re
 from error_pages import SAVE_ERROR_PAGE
 from validation_common import validate_save_progress
+from datetime import date
 
 
 CHECKBOX_FIELD_KEYS = ["dset_keywords", "dset_measurement_purposes", "dset_network_type"]
-
+CHECKBOX_TAG_DICT = {"dset_keywords":"kw", "dset_measurement_purposes":"purpose", "dset_network_type":"nwtype"}
 
 def save_progress(form, submitting=False):
   """
@@ -18,27 +19,51 @@ def save_progress(form, submitting=False):
   the xml file to 'true'.
   """
   top = Element('form_in_progress')
+  top.attrib['form-version'] = "2"
+  top.attrib['last-saved'] = str(date.today())
+
+  ## Create dataset/traceset hierarchy
+  e = SubElement(top, "dataset")
+  e.attrib["version"] = str(date.today())
+
+  num_tsets = int(form.getlist('dset_num_tracesets')[0])
+  for i in range(1, num_tsets+1):
+    e = SubElement(top, "traceset")
+    e.attrib["id"] = str(i)
+    e.attrib["version"] = str(date.today())
+
+  ## If submitting, add attribute
   if submitting:
     top.set('submitted', 'true')
 
+  ## Iterate through all submitted form fields
   for key in sorted(form.keys()):
     field_input_list = form.getlist(key)
-    child = SubElement(top, key)
 
+    # Convert form field names to stripeed tag names
+    xml_tag = '_'.join(key.split('_')[1:])
+
+    # And append the field information at the appropriate place in the xml tree
+    if key.startswith("dset"):
+      child = SubElement(top.find('dataset'), xml_tag)
+    elif key.startswith("tset"):
+      tset_id = key[4]
+      for e in top.findall('traceset'):
+        if e.attrib["id"] == tset_id:
+          child = SubElement(e, xml_tag)
+      
     ## Checkbox datafield
     if key in CHECKBOX_FIELD_KEYS:
       child.set('checkbox', 'true')
-      option_ct = 1
       for item in field_input_list: 
-        sub_child = SubElement(child, f'option{option_ct}')
+        sub_child = SubElement(child, CHECKBOX_TAG_DICT[key])
         sub_child.text = item
-        option_ct += 1
     else:
       if len(field_input_list) == 0: 
         child.text = ""
       elif len(field_input_list) == 1:
         child.text = field_input_list[0]
-  
+
   ## Form URL
   original_page = os.environ['HTTP_REFERER']
 
@@ -46,7 +71,7 @@ def save_progress(form, submitting=False):
   xml_file_name = original_page.split('token=')[1]
 
   # Save created xml tree to xml file on server
-  print(tostring(top).decode('UTF-8'), file=open("xml_files/" + xml_file_name + ".xml", 'w'))
+  print(tostring(top, encoding="UTF-8", xml_declaration=True).decode('UTF-8'), file=open("xml_files/" + xml_file_name + ".xml", 'w'))
 
 
 def main():

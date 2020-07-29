@@ -33,7 +33,7 @@ def main():
       author_template = author_template_file.read()
     
     end_author_details_str = "</div> <!-- End of Author Details-->"
-    dset_num_authors = int(root.find('dset_num_authors').text)
+    dset_num_authors = int(root.find('dataset').find('num_authors').text)
 
     modified_author_details = ""
     for i in range(2, dset_num_authors+1):
@@ -47,7 +47,7 @@ def main():
       tracepage_template = tracepage_template_file.read()
 
     end_tsetpages_str = '</div> <!-- End of Tset Pages-->'
-    dset_num_tracesets = int(root.find('dset_num_tracesets').text)
+    dset_num_tracesets = int(root.find('dataset').find('num_tracesets').text)
 
     modified_tracepage = ""
     for i in range(1, dset_num_tracesets+1):
@@ -56,18 +56,24 @@ def main():
       form_template = form_template.replace(end_tsetpages_str, modified_tracepage)
 
     filled_form = form_template
-    for child in root: 
-      ## Checkbox fields (with multiple values)
-      if ("checkbox" in child.attrib):
-        for sub_child in child:
-          checkbox_str = f'input type="checkbox" name="{child.tag}" value="{sub_child.text}"'
-          filled_form = filled_form.replace(checkbox_str, checkbox_str + ' checked')
-      ## All other fields (text, number, textarea) (have only one value)
-      else:
-        if (child.text == None):
-          filled_form = filled_form.replace(f"[{child.tag}]", "")
+    for child_outter in root: 
+      for child in child_outter:
+        if child_outter.tag == "dataset":
+          key_prefix = "dset_"
+        elif child_outter.tag == "traceset":
+          key_prefix = f"tset{child_outter.attrib['id']}_"
+          
+        ## Checkbox fields (with multiple values)
+        if ("checkbox" in child.attrib):
+          for sub_child in child:
+            checkbox_str = f'input type="checkbox" name="{key_prefix+child.tag}" value="{sub_child.text}"'
+            filled_form = filled_form.replace(checkbox_str, checkbox_str + ' checked')
+        ## All other fields (text, number, textarea) (have only one value)
         else:
-          filled_form = filled_form.replace(f"[{child.tag}]", child.text)
+          if (child.text == None):
+            filled_form = filled_form.replace(f"[{key_prefix+child.tag}]", "")
+          else:
+            filled_form = filled_form.replace(f"[{key_prefix+child.tag}]", child.text)
 
     print("Content-Type:text/html\n")    
     print(filled_form)

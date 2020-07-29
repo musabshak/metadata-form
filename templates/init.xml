@@ -1,27 +1,32 @@
-<form_in_progress>
-  <dset_name />
-  <dset_institution_name />
-  <dset_description_short />
-  <dset_description_long />
-  <dset_num_tracesets>1</dset_num_tracesets>
-  <dset_num_authors>1</dset_num_authors>
-  <dset_author1_name />
-  <dset_author1_email />
-  <dset_author1_institution />
-  <dset_author1_country>United States of America</dset_author1_country>
-  <dset_external_url />
-  <dset_nontech_description />
-  <dset_notes />
-  <tset1_name />
-  <tset1_description_short />
-  <tset1_tech_description />
-  <tset1_start_date />
-  <tset1_end_date />
-  <tset1_collection_method />
-  <tset1_methodology_limitations />
-  <tset1_data_sanitization_method />
-  <tset1_missing_data />
-  <tset1_incorrectly_meas_data />
-  <tset1_network_configuration />  
-  <tset1_trace_note />
+<?xml version="1.0" encoding="UTF-8"?>
+<form_in_progress form-version="2">
+	<dataset version="">
+		<name />
+		<institution_name />
+		<description_short />
+		<description_long />
+		<num_tracesets>1</num_tracesets>
+		<num_authors>1</num_authors>
+		<author1_name />
+		<author1_email />
+		<author1_institution />
+		<author1_country>United States of America</author1_country>
+		<external_url />
+		<nontech_description />
+		<notes />
+	</dataset>
+	<traceset version="" id="1">
+		<name />
+		<description_short />
+		<tech_description />
+		<start_date />
+		<end_date />
+		<collection_method />
+		<methodology_limitations />
+		<data_sanitization_method />
+		<missing_data />
+		<incorrectly_meas_data />
+		<network_configuration />  
+		<trace_note />
+	</traceset>
 </form_in_progress>

@@ -10,6 +10,7 @@ from email.message import EmailMessage
 from datetime import datetime
 from validation_common import *
 from error_pages import SUBMIT_ERROR_PAGE
+from datetime import date
 
 # TOKEN_BASE = "home.cs.dartmouth.edu/~mshakeel/contribution_form"
 TOKEN_BASE = "home.cs.dartmouth.edu/~crawdad/metadata-form"
@@ -59,13 +60,14 @@ def save_xml(form):
   for key in form.keys():
     field_input_list = form.getlist(key)
     if field_input_list != []:
-      element = root.find(key)
+      xml_tag = '_'.join(key.split('_')[1:]) # Convert form key to xml tag by stripping 'dset_' from start
+      element = root.find('dataset').find(xml_tag)
       element.text = field_input_list[0]
 
   xml_file_name = gen_xml_name(form.getlist("dset_name")[0]) # "2020-06-25-FcBwiGO2-mobility5g"
   abs_filename = f"xml_files/{xml_file_name}.xml" # "xml_files/2020-06-25-FcBwiGO2-mobility5g.xml"
 
-  print(tostring(root).decode('UTF-8'), file=open(abs_filename, 'w'))
+  print(tostring(root, encoding="UTF-8", xml_declaration=True).decode('UTF-8'), file=open(abs_filename, 'w'))
 
   return xml_file_name
 
